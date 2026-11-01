@@ -226,21 +226,30 @@
   font-family: inherit;
 }
 
-/* Optional blue glow */
-
-.hero-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    radial-gradient(
-      circle at 78% 45%,
-      rgba(8, 127, 245, 0.15),
-      transparent 38%
-    );
+.service-hero {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    isolation: isolate;
 }
+
+.service-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(3, 12, 30, 0.72) 0%,
+        rgba(3, 12, 30, 0.58) 35%,
+        rgba(3, 12, 30, 0.38) 65%,
+        rgba(3, 12, 30, 0.15) 100%
+    );
+    z-index: -1;
+}
+
+
+
 
 /* Two-column layout */
 
@@ -710,18 +719,6 @@
   box-sizing: border-box;
 }
 
-.service-hero .hero-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background: radial-gradient(
-    circle at 78% 45%,
-    rgba(8, 127, 245, 0.16),
-    transparent 40%
-  );
-}
-
 /* Main layout */
 
 .service-hero .container.hero-layout {
@@ -746,7 +743,7 @@
 }
 
 .service-hero .hero-badge {
-  display: inline-flex;
+  /* display: inline-flex;
   align-items: center;
   gap: 10px;
   margin-bottom: 10px;
@@ -757,6 +754,25 @@
   color: #52adff;
   font-size: 13px;
   font-weight: 700;
+  letter-spacing: 0.4px; */
+
+  display: inline-block;
+  padding: 10px 28px;
+  margin-bottom: 14px;
+  border-radius: 30px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(37, 150, 255, 0.25),
+    rgba(0, 91, 187, 0.18)
+  );
+
+  border: 1px solid rgba(100, 180, 255, 0.55);
+  box-shadow: 0 0 18px rgba(0, 132, 255, 0.15);
+
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
   letter-spacing: 0.4px;
 }
 
@@ -824,7 +840,7 @@
 .service-hero .hero-primary-btn {
   border: 1px solid #087ff5;
   background: #087ff5;
-  color: #fff;
+  color: #fff; 
 }
 
 .service-hero .hero-primary-btn:hover {
@@ -944,6 +960,13 @@
 .service-hero .window-label::after {
   display: none;
   content: none;
+}
+
+.service-hero .hero-badge::before,
+.service-hero .hero-badge::after,
+.service-hero .badge-dot {
+    display: none !important;
+    content: none !important;
 }
 
 /* Code panel */
@@ -1249,7 +1272,7 @@
 }
 
 .service-hero .hero-badge {
-  display: inline-flex;
+  /* display: inline-flex;
   align-items: center;
   gap: 10px;
   padding: 10px 16px;
@@ -1259,6 +1282,25 @@
   color: #52adff;
   font-size: 13px;
   font-weight: 700;
+  letter-spacing: 0.4px; */
+
+  display: inline-block;
+  padding: 10px 28px;
+  margin-bottom: 14px;
+  border-radius: 30px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(37, 150, 255, 0.25),
+    rgba(0, 91, 187, 0.18)
+  );
+
+  border: 1px solid rgba(100, 180, 255, 0.55);
+  box-shadow: 0 0 18px rgba(0, 132, 255, 0.15);
+
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
   letter-spacing: 0.4px;
 }
 
@@ -2366,7 +2408,7 @@
       display: block;
       margin-bottom: 10px;
       color: var(--blue);
-      font-size: 12px;
+      font-size: 10px;
       font-weight: 800;
       letter-spacing: 1.5px;
       text-transform: uppercase;
@@ -2624,217 +2666,236 @@
    AWARD IMAGES
 ========================================= */
 
-.va-awards {
-  width: 100%;
-  min-width: 0;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  align-items: center;
-  gap: 12px;
-}
 
-.va-award-card {
-  width: 100%;
-  min-width: 0;
-  min-height: 135px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+/* ==========================================
+   VIBRANTICK TRUST BADGES - FIXED DESIGN
+========================================== */
 
-.va-award-card img {
-  display: block;
-  width: 100%;
-  max-width: 145px;
-  height: 135px;
-  object-fit: contain;
-  object-position: center;
-}
-
-/* =========================================
-   VERTICAL DIVIDER
-========================================= */
-
-.va-divider {
-  width: 1px;
-  height: 190px;
-  background: #d7dee8;
-}
-
-/* =========================================
-   TRUST / RATING BRANDS
-========================================= */
-
-.va-trust-brands {
-  width: 100%;
-  min-width: 0;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  align-items: center;
-  gap: 20px;
-  text-align: center;
-}
-
-.va-brand {
-  min-width: 0;
-  text-align: center;
-}
-
-.va-brand h3 {
-  margin: 0 0 10px;
-  font-size: clamp(17px, 1.65vw, 27px);
-  font-weight: 700;
-  line-height: 1.3;
-  overflow-wrap: anywhere;
-}
-
-.va-brand p {
-  margin: 0;
-  font-size: 12px;
-  line-height: 1.6;
-  font-weight: 400;
-  color: #7b8494;
-}
-
-/* BRAND COLORS */
-
-.va-clutch {
-  color: #17344a;
-}
-
-.va-google {
-  color: #4285f4;
-}
-
-.va-goodfirms {
-  color: #3478e5;
-}
-
-/* =========================================
-   TABLET RESPONSIVE
-========================================= */
-
-@media (max-width: 1100px) {
-
-  .vibrantick-achievements {
-    padding: 45px 4% 55px;
-  }
-
-  .va-stats {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 15px;
-    margin-bottom: 75px;
-  }
-
-  .va-trust-row {
-    grid-template-columns: 1fr;
-    gap: 25px;
-  }
-
-  .va-awards {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .va-award-card img {
-    height: 115px;
-  }
-
-  .va-divider {
+.trust-cards-area,
+.vt-trust-cards-area {
     width: 100%;
-    height: 1px;
-  }
+    max-width: 1250px;
+    margin: 40px auto 0;
+    padding: 15px 20px;
 
-  .va-trust-brands {
-    gap: 25px;
-  }
-
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+    align-items: stretch;
 }
 
-/* =========================================
-   MOBILE RESPONSIVE
-========================================= */
+/* CARD DESIGN */
 
-@media (max-width: 650px) {
+.trust-card,
+.vt-trust-card {
+    width: 100%;
+    min-height: 230px;
+    padding: 30px 18px;
 
-  .vibrantick-achievements {
-    padding: 35px 16px 45px;
-  }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 
-  .va-stats {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-    margin-bottom: 55px;
-  }
+    background: #ffffff !important;
+    border: 1px solid #e2eaf4 !important;
+    border-radius: 16px !important;
 
-  .va-stat {
-    min-height: 140px;
-    padding: 20px 9px;
-  }
+    box-shadow: 0 8px 25px rgba(20, 48, 82, 0.07) !important;
 
-  .va-stat h3 {
-    font-size: 29px;
-  }
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
 
-  .va-stat p {
-    font-size: 13px;
-  }
+/* TOP BLUE LINE */
 
-  .va-heading {
-    margin-bottom: 35px;
-  }
+.trust-card::before,
+.vt-trust-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
 
-  .va-heading h2 {
-    font-size: 28px;
-    line-height: 1.4;
-  }
+    width: 100%;
+    height: 4px;
 
-  .va-heading h2 span {
-    margin-top: 8px;
-  }
+    background: linear-gradient(90deg, #0879e8, #16b8d4);
+}
 
-  .va-awards {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 15px;
-  }
+/* HOVER */
 
-  .va-award-card {
-    min-height: 100px;
-  }
+.trust-card:hover,
+.vt-trust-card:hover {
+    transform: translateY(-7px);
+    border-color: #a8d4ff !important;
+    box-shadow: 0 16px 35px rgba(8, 121, 232, 0.13) !important;
+}
 
-  .va-award-card img {
-    height: 100px;
-  }
+/* LOGO */
 
-  .va-trust-brands {
-    grid-template-columns: 1fr;
-    gap: 25px;
-  }
-
-  .va-brand h3 {
+.trust-card .badge-logo-text,
+.vt-trust-card .vt-badge-logo-text {
+    color: #17385f !important;
     font-size: 24px;
-  }
-
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 0 0 15px;
 }
 
-/* =========================================
-   SMALL MOBILE
-========================================= */
+/* STARS */
 
-@media (max-width: 380px) {
-
-  .va-stats {
-    grid-template-columns: 1fr;
-  }
-
-  .va-stat {
-    min-height: 120px;
-  }
-
-  .va-heading h2 {
-    font-size: 25px;
-  }
-
+.trust-card .stars,
+.vt-trust-card .vt-stars {
+    font-size: 20px;
+    letter-spacing: 3px;
+    line-height: 1.2;
+    margin-bottom: 10px;
 }
+
+.trust-card .red-stars,
+.vt-trust-card .vt-red-stars {
+    color: #e84b4b !important;
+}
+
+.trust-card .green-stars,
+.vt-trust-card .vt-green-stars {
+    color: #0aa878 !important;
+}
+
+.trust-card .blue-stars,
+.vt-trust-card .vt-blue-stars {
+    color: #0879e8 !important;
+}
+
+.trust-card .gold-stars,
+.vt-trust-card .vt-gold-stars {
+    color: #efa900 !important;
+}
+
+/* RATING */
+
+.trust-card .rating-text,
+.vt-trust-card .vt-rating-text {
+    color: #0879e8 !important;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+/* DESCRIPTION */
+
+.trust-card p,
+.vt-trust-card p {
+    color: #64748b !important;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.7;
+    margin: 5px 0 0;
+}
+
+/* SUPERB COMPANIES */
+
+.trust-card .superb-logo-inline,
+.vt-trust-card .vt-superb-logo-inline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    text-align: left;
+}
+
+.trust-card .superb-icon,
+.vt-trust-card .vt-superb-icon {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #0879e8;
+    color: #ffffff !important;
+    border-radius: 8px;
+    font-size: 22px;
+}
+
+/* GOODFIRMS */
+
+.trust-card .goodfirms-logo-inline,
+.vt-trust-card .vt-goodfirms-logo-inline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+}
+
+.trust-card .goodfirms-shield,
+.vt-trust-card .vt-goodfirms-shield {
+    width: 36px;
+    height: 39px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #efa900;
+    color: #ffffff !important;
+
+    clip-path: polygon(50% 0%, 95% 18%, 88% 75%, 50% 100%, 12% 75%, 5% 18%);
+}
+
+.trust-card .goodfirms-shield i,
+.vt-trust-card .vt-goodfirms-shield i {
+    color: #ffffff !important;
+}
+
+/* TABLET */
+
+@media (max-width: 992px) {
+    .trust-cards-area,
+    .vt-trust-cards-area {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 576px) {
+    .trust-cards-area,
+    .vt-trust-cards-area {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        padding: 10px 0;
+    }
+
+    .trust-card,
+    .vt-trust-card {
+        min-height: 190px;
+        padding: 22px 8px;
+        border-radius: 12px !important;
+    }
+
+    .trust-card .badge-logo-text,
+    .vt-trust-card .vt-badge-logo-text {
+        font-size: 18px;
+    }
+
+    .trust-card .stars,
+    .vt-trust-card .vt-stars {
+        font-size: 15px;
+        letter-spacing: 2px;
+    }
+
+    .trust-card p,
+    .vt-trust-card p {
+        font-size: 11px;
+    }
+}
+
 
 
 /* Award section End */
@@ -3332,22 +3393,17 @@
 }
 
 .vt-services-eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: #182c68;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  margin-bottom: 10px;
+  display: inline-block;
+  padding: 11px 23px;
+  border-radius: 30px;
+  background: #eaf4ff;
+  border: 1px solid #c9e3ff;
+  color: #0879e8;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 14px;
 }
 
-.vt-services-eyebrow::before {
-  content: "";
-  width: 22px;
-  height: 2px;
-  background: #00bf80;
-}
 
 .vt-services-title h2 {
   margin: 0;
@@ -3584,7 +3640,7 @@
 
     /* CTA */
 
-    .cta {
+    /* .cta {
       padding: 65px 0;
       background: linear-gradient(115deg, #071d42, #0866d9);
       color: white;
@@ -3618,7 +3674,7 @@
 
     /* FAQ */
 
-    .faq-list {
+    /* .faq-list { 
       max-width: 850px;
       margin: auto;
     }
@@ -3641,7 +3697,205 @@
       padding: 0 22px 20px;
       color: var(--muted);
       font-size: 14px;
+    } */
+
+
+/* =================================
+   VIBRANTICK FAQ SECTION
+   Reference Website Theme
+================================= */
+
+.vt-faq-section {
+    padding: 85px 0 95px;
+    background: #f7faff;
+}
+
+/* FAQ Heading */
+
+.vt-faq-heading {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+/* FAQ Label */
+
+.vt-faq-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: #0879e8;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
+}
+
+.vt-faq-label::before,
+.vt-faq-label::after {
+    content: "";
+    width: 23px;
+    height: 3px;
+    background: #0879e8;
+    border-radius: 5px;
+}
+
+/* Main Heading */
+
+.vt-faq-heading h2 {
+    font-size: 44px;
+    font-weight: 750;
+    color: #092447;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.vt-faq-heading h2 span {
+    color: #0879e8;
+}
+
+/* FAQ List */
+
+.vt-faq-section .faq-list {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* FAQ Card */
+
+.vt-faq-section .faq-item {
+    margin-bottom: 22px;
+    border: 1px solid #e1eaf5;
+    border-radius: 18px;
+    background: #ffffff;
+    box-shadow: 0 6px 25px rgba(9, 36, 71, 0.06);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.vt-faq-section .faq-item:hover {
+    border-color: #9bcaff;
+    box-shadow: 0 10px 30px rgba(8, 121, 232, 0.10);
+    transform: translateY(-2px);
+}
+
+/* Question */
+
+.vt-faq-section .faq-item summary {
+    position: relative;
+    display: flex;
+    align-items: center;
+    list-style: none;
+    cursor: pointer;
+    padding: 27px 55px 27px 95px;
+    color: #092447;
+    font-size: 20px;
+    font-weight: 650;
+    line-height: 1.5;
+}
+
+.vt-faq-section .faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Plus Icon */
+
+.vt-faq-section .faq-item summary::before {
+    content: "+";
+    position: absolute;
+    left: 38px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 33px;
+    font-weight: 400;
+    color: #0879e8;
+    line-height: 1;
+}
+
+/* Minus Icon */
+
+.vt-faq-section .faq-item[open] summary::before {
+    content: "−";
+    color: #00a6c7;
+}
+
+/* Open Card */
+
+.vt-faq-section .faq-item[open] {
+    border-color: #b8d9ff;
+    box-shadow: 0 8px 28px rgba(8, 121, 232, 0.09);
+}
+
+/* Answer */
+
+.vt-faq-section .faq-item p {
+    padding: 0 55px 28px 95px;
+    margin: 0;
+    color: #53657b;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+    .vt-faq-section {
+        padding: 60px 0;
     }
+
+    .vt-faq-heading h2 {
+        font-size: 32px;
+    }
+
+    .vt-faq-section .faq-item {
+        border-radius: 14px;
+        margin-bottom: 17px;
+    }
+
+    .vt-faq-section .faq-item summary {
+        font-size: 16px;
+        padding: 22px 20px 22px 62px;
+    }
+
+    .vt-faq-section .faq-item summary::before {
+        left: 22px;
+        font-size: 28px;
+    }
+
+    .vt-faq-section .faq-item p {
+        padding: 0 20px 23px 62px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .vt-faq-heading h2 {
+        font-size: 27px;
+    }
+
+    .vt-faq-label {
+        font-size: 12px;
+    }
+
+    .vt-faq-section .faq-item summary {
+        font-size: 15px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /* FOOTER */
 
@@ -3828,16 +4082,24 @@
   align-items: center;
   gap: 12px;
   color: #164b9b;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 1.5px;
   margin-bottom: 20px;
 }
 
-.vt-top-label span {
-  width: 22px;
-  height: 2px;
-  background: #00b879;
+/* Top Label Button */
+
+.vt-top-label {
+  display: inline-block;
+  padding: 11px 23px;
+  border-radius: 30px;
+  background: #eaf4ff;
+  border: 1px solid #c9e3ff;
+  color: #0879e8;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 14px;
 }
 
 .vt-main-heading {
@@ -3848,11 +4110,11 @@
 }
 
 .vt-main-heading span {
-  color: #0756ad;
+  color: #0879e8;
 }
 
 .vt-sub-heading {
-  font-size: 18px;
+  font-size: 17px;
   line-height: 1.7;
   color: #777d88;
   margin-bottom: 26px;
@@ -3987,23 +4249,6 @@
   margin-bottom: 32px;
 }
 
-.vt-services-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  color: #087ff5;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  margin-bottom: 10px;
-}
-
-.vt-services-eyebrow::before {
-  content: "";
-  width: 22px;
-  height: 2px;
-  background: #087ff5;
-}
 
 .vt-services-header h2 {
   margin: 0;
@@ -4368,12 +4613,21 @@
 }
 
 .vt-projects-label {
-  display: inline-block;
+  /* display: inline-block;
   color: #087ff5;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 2px;
-  margin-bottom: 12px;
+  margin-bottom: 12px; */
+    display: inline-block;
+  padding: 11px 23px;
+  border-radius: 30px;
+  background: #eaf4ff;
+  border: 1px solid #c9e3ff;
+  color: #0879e8;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 14px;
 }
 
 .vt-projects-heading h2 {
@@ -4711,21 +4965,16 @@
 }
 
 .vt-about-content .section-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  color: #087ff5;
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 1.5px;
-  margin-bottom: 18px;
-}
-
-.vt-about-content .section-label::before {
-  content: "";
-  width: 28px;
-  height: 2px;
-  background: #087ff5;
+  display: inline-block;
+  padding: 11px 23px;
+  border-radius: 30px;
+  background: #eaf4ff;
+  border: 1px solid #c9e3ff;
+  color: #0879e8;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  text-transform: none;
 }
 
 .vt-about-content h2 {
@@ -4921,7 +5170,7 @@
     <!-- LEFT CONTENT -->
     <div class="hero-content">
       <span class="hero-badge">
-        <span class="badge-dot"></span>
+        <!-- <span class="badge-dot"></span> -->
         <span id="heroEyebrow">WEB DEVELOPMENT</span>
       </span>
 
@@ -5061,7 +5310,7 @@
   </div>
 
   <!-- Awards and Recognition -->
-  <div class="va-trust-row">
+  <!-- <div class="va-trust-row">
 
     <div class="va-awards">
 
@@ -5113,7 +5362,54 @@
 </div>
 
 
-  </div>
+  </div> -->
+
+   <!-- Right Badges Area -->
+                <div class="trust-cards-area">
+                  <!-- Card 1 (Original Clutch) -->
+                  <div class="trust-card">
+                    <h4 class="badge-logo-text">Clutch</h4>
+                    <div class="stars red-stars">★★★★★</div>
+                    <span class="rating-text">4.9/5.0</span>
+                    <p>Top Rated IT Services<br />Company</p>
+                  </div>
+
+                  <!-- Card 2 (Sortlist) -->
+                  <div class="trust-card">
+                    <h4 class="badge-logo-text">Sortlist</h4>
+                    <div class="stars green-stars">★★★★★</div>
+                    <p>
+                      The 10 Best iOS App Development<br />Companies in
+                      Chandigarh – 2026
+                    </p>
+                  </div>
+
+                  <!-- Card 3 (Superb Companies) -->
+                  <div class="trust-card">
+                    <h4 class="badge-logo-text superb-logo-inline">
+                      <div class="superb-icon">S</div>
+                      <span>Superb<br />Companies</span>
+                    </h4>
+                    <div class="stars blue-stars">★★★★★</div>
+                    <p>
+                      Top Hospitality &amp; Leisure<br />Video Production
+                      Companies – 2026
+                    </p>
+                  </div>
+
+                  <!-- Card 4 (GoodFirms) -->
+                  <div class="trust-card">
+                    <h4 class="badge-logo-text goodfirms-logo-inline">
+                      <div class="goodfirms-shield">
+                        <i class="bx bxs-star"></i>
+                      </div>
+                      <span>GoodFirms</span>
+                    </h4>
+                    <div class="stars gold-stars">★★★★★</div>
+                    <p>Top Pay Per Click (PPC)<br />Agencies in India – 2026</p>
+                  </div>
+                </div>
+
 
 </section>
 
@@ -5315,7 +5611,7 @@
   <div class="vt-container">
 
     <div class="vt-top-label">
-      <span></span> WHY VIBRANTICK
+       Why Vibrantick
     </div>
 
     <h2 class="vt-main-heading" id="whyHeading"></h2>
@@ -5325,7 +5621,7 @@
     <div class="vt-why-layout">
 
       <div class="vt-why-image">
-        <img id="whyImage" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=85" alt="Our Services">
+        <img id="whyImage" src="./assets/img/services/enterprise.png" alt="Our Services">
       </div>
 
       <div class="vt-why-content">
@@ -5345,15 +5641,11 @@
 
     <div class="vt-services-header">
       <div>
-        <span class="vt-services-eyebrow">WHAT WE DO</span>
+        <span class="vt-services-eyebrow">What We Do</span>
         <h2 id="solutionsTitle">
           Our <span>Services</span>
         </h2>
       </div>
-
-      <!-- <a href="#contact" class="vt-consult-btn">
-        Get a Free Service Consultation
-      </a> -->
     </div>
    
     <div class="vt-services-grid" id="solutionsGrid"></div>
@@ -5369,7 +5661,7 @@
   <div class="vt-projects-container">
 
     <div class="vt-projects-heading">
-      <span class="vt-projects-label">OUR PORTFOLIO</span>
+      <span class="vt-projects-label">Our Portfolio</span>
       <h2>Our Recent <span>Projects</span></h2>
       <p>
         Explore some of our recent work, where creativity,
@@ -5455,31 +5747,6 @@
 </section>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   <!-- ABOUT SERVICE SECTION -->
 <section class="vt-about-section" id="aboutService">
 
@@ -5516,7 +5783,7 @@
     <div class="about-content vt-about-content">
 
       <span class="section-label" id="aboutLabel">
-        ABOUT OUR SERVICE
+        About Our Service
       </span>
 
       <h2 id="aboutTitle">
@@ -5541,41 +5808,35 @@
 
       <ul class="check-list vt-about-list" id="aboutPoints"></ul>
 
-      <a href="#contact" class="vt-about-btn">
-        Discuss Your Requirements <span>↗</span>
-      </a>
-
     </div>
 
   </div>
 
 </section>
 
-
-  <!-- CTA -->
-  <section class="cta">
-    <div class="container cta-content">
-      <div>
-        <h2 id="ctaTitle">Ready to Discuss Your Project?</h2>
-        <p id="ctaDescription">
-          Let's explore a solution that fits your business requirements.
-        </p>
-      </div>
-      <a href="contact.html" class="primary-btn">Contact Our Team →</a>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="section">
+<!-- FAQ SECTION -->
+<section class="section vt-faq-section">
     <div class="container">
-      <div class="section-heading">
-        <span class="section-label">Frequently Asked Questions</span>
-        <h2 id="faqTitle">Questions About Our Services</h2>
-        <p>Find answers to common questions about this service.</p>
-      </div>
-      <div class="faq-list" id="faqList"></div>
+
+        <div class="vt-faq-heading">
+
+            <span class="vt-faq-label">FAQs</span>
+
+            <h2 id="faqTitle">
+                Frequently <span>Asked</span> Questions
+            </h2>
+
+        </div>
+
+        <div class="faq-list" id="faqList"></div>
+
     </div>
-  </section>
+</section>
+
+
+
+
+
 
   <!-- FOOTER -->
   <footer class="footer">
@@ -5634,7 +5895,7 @@ fetch("navbar.html")
 const services = {
   cloud: {
     name: "Cloud Services",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1800&q=85",
+    image: "./assets/img/services/cloudeService.png",
     description: "Build a flexible digital foundation with cloud solutions that support secure access, efficient operations and business growth.",
     aboutTitle: "Move Your Business Forward with Cloud Technology",
     aboutText: "Cloud services help businesses access computing resources, applications and data without relying only on traditional infrastructure.",
@@ -5658,7 +5919,7 @@ const services = {
 
   cyber: {
     name: "Cyber Security",
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1800&q=85",
+    image: "./assets/img/services/cyberSecurity.png",
     description: "Strengthen your digital environment with security-focused practices that help identify risks and protect systems, applications and data.",
     aboutTitle: "Protect Your Digital Assets",
     aboutText: "Cybersecurity helps organisations reduce exposure to digital threats through risk assessment, secure configurations and ongoing monitoring.",
@@ -5682,7 +5943,7 @@ const services = {
 
   devsecops: {
     name: "DevSecOps",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=85",
+    image: "./assets/img/services/devOps.png",
     description: "Integrate security into development and delivery workflows to help teams build, test and release software more confidently.",
     aboutTitle: "Bring Development, Operations and Security Together",
     aboutText: "DevSecOps incorporates security checks throughout the software delivery lifecycle instead of treating security as a final step.",
@@ -5706,7 +5967,7 @@ const services = {
 
   database: {
     name: "Database Management",
-    image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=1800&q=85",
+    image: "./assets/img/services/database.png",
     description: "Organise, manage and maintain business data with database solutions designed around reliability, performance and data access needs.",
     aboutTitle: "Make Your Business Data Work Better",
     aboutText: "A well-planned database supports reliable applications, efficient queries and consistent data handling.",
@@ -5730,7 +5991,7 @@ const services = {
 
   enterprise: {
     name: "Enterprise Software Development",
-    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=85",
+    image: "./assets/img/services/enterprise.png",
     description: "Develop business-focused software that helps teams coordinate workflows, manage information and support organisational objectives.",
     aboutTitle: "Software Designed for Business Operations",
     aboutText: "Enterprise applications help organisations manage complex workflows, information and collaboration across teams.",
@@ -5754,7 +6015,7 @@ const services = {
 
   fintech: {
     name: "Fintech Development",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1800&q=85",
+    image: "./assets/img/services/fintechDev.png",
     description: "Build finance-focused digital products with careful attention to usability, data handling, integration and security requirements.",
     aboutTitle: "Create Better Digital Financial Experiences",
     aboutText: "Financial technology solutions support digital financial services, payment workflows and financial information management.",
@@ -5778,7 +6039,7 @@ const services = {
 
   ecommerce: {
     name: "E-commerce Management",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1800&q=85",
+    image: "./assets/img/services/e-commerce.png",
     description: "Create and improve online shopping experiences with product management, customer-friendly storefronts and streamlined order workflows.",
     aboutTitle: "Build a Better Online Shopping Experience",
     aboutText: "E-commerce platforms allow businesses to present products, manage orders and serve customers through digital storefronts.",
@@ -5802,7 +6063,7 @@ const services = {
 
   graphics: {
     name: "Graphics & Web Design",
-    image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1800&q=85",
+    image: "./assets/img/services/graphics%26web.png",
     description: "Create clear and engaging digital experiences through visual design, consistent branding and responsive website layouts.",
     aboutTitle: "Design That Communicates Your Brand",
     aboutText: "Good visual design helps visitors understand your brand, navigate your website and interact with your products or services.",
@@ -5826,7 +6087,7 @@ const services = {
 
   web: {
     name: "Web Development",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1800&q=85",
+    image: "./assets/img/services/webDev.png",
     description: "Build responsive, user-friendly websites and web applications that support your business goals and provide a smooth user experience.",
     aboutTitle: "Web Experiences Built Around Your Business",
     aboutText: "A business website can support brand awareness, customer enquiries, product information and online services.",
@@ -5850,7 +6111,7 @@ const services = {
 
   mobile: {
     name: "Mobile App Solutions",
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1800&q=85",
+    image: "./assets/img/services/mobileApp.png",
     description: "Create mobile experiences that help customers access your services, complete tasks and interact with your business on the go.",
     aboutTitle: "Connect with Customers Through Mobile Apps",
     aboutText: "Mobile applications can make services more accessible and provide focused experiences for customers and employees.",
@@ -5874,7 +6135,7 @@ const services = {
 
   growth: {
     name: "Growth and Marketing",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1800&q=85",
+    image: "./assets/img/services/groth%26marketing.png",
     description: "Support your digital growth with marketing-focused strategies, website improvements and measurement aligned with your business goals.",
     aboutTitle: "Turn Digital Activity into Measurable Insights",
     aboutText: "Digital growth initiatives can help businesses improve online visibility, understand visitors and create better customer journeys.",
@@ -5898,7 +6159,7 @@ const services = {
 
   training: {
     name: "Training & Skill Development",
-    image: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=1800&q=85",
+    image: "./assets/img/services/training%26skill.png",
     description: "Develop practical technology skills through structured learning, guided exercises and project-oriented training suited to your learning goals.",
     aboutTitle: "Build Skills Through Practical Learning",
     aboutText: "Technology training can help learners understand concepts, practise tools and develop confidence through hands-on work.",
@@ -6275,7 +6536,13 @@ function showService(key, updateUrl = false) {
   const aboutText = document.getElementById("aboutText");
   const aboutText2 = document.getElementById("aboutText2");
 
-  if (aboutLabel) aboutLabel.textContent = `ABOUT ${service.name.toUpperCase()}`;
+ // if (aboutLabel) aboutLabel.textContent = `ABOUT ${service.name.toUpperCase()}`;
+ if (aboutLabel) {
+    aboutLabel.textContent = `About ${service.name}`
+        .toLowerCase()
+        .replace(/\b\w/g, char => char.toUpperCase());
+}
+
   if (aboutTitle) aboutTitle.textContent = service.aboutTitle;
   if (aboutText) aboutText.textContent = service.aboutText;
   if (aboutText2) aboutText2.textContent = service.aboutText2;
@@ -6358,6 +6625,16 @@ function showService(key, updateUrl = false) {
   if (faqTitle) faqTitle.textContent = `${service.name} FAQs`;
 
   renderFAQs(service.faq);
+
+  function renderFAQs(items) {
+    document.getElementById("faqList").innerHTML =
+        items.map((item, index) => `
+            <details class="faq-item" ${index === 0 ? "open" : ""}>
+                <summary>${item[0]}</summary>
+                <p>${item[1]}</p>
+            </details>
+        `).join("");
+}
 
   /* WHY CHOOSE US */
   updateWhyChooseSection(activeKey);
@@ -6526,6 +6803,8 @@ vtTechButtons.forEach(button => {
     renderVtTechnologies(button.dataset.category);
   });
 });
+
+
 
 /* =========================================
    NAVBAR EVENTS AND INITIAL PAGE LOAD

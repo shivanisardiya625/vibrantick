@@ -4607,6 +4607,9 @@ Service css
     width: 100% !important;
     max-width: 100% !important;
 }
+.menu-item-has-children > a {
+    cursor: pointer;
+}
 
 /* Main Mega Menu - Single Section */
 .menu-item-has-children.position-inherit .mega-menu {
