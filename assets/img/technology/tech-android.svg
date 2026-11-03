@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 440" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGrad_android" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A1628"/>
+      <stop offset="50%" stop-color="#07101E"/>
+      <stop offset="100%" stop-color="#050B14"/>
+    </linearGradient>
+
+    <linearGradient id="cardGrad_android" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255, 255, 255, 0.07)"/>
+      <stop offset="100%" stop-color="rgba(255, 255, 255, 0.02)"/>
+    </linearGradient>
+
+    <!-- Glow Filter -->
+    <filter id="glow_android" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="12" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Subtle Pattern -->
+    <pattern id="grid_android" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M 28 0 L 0 0 0 28" fill="none" stroke="rgba(255, 255, 255, 0.035)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Container Base with Rounded Corners -->
+  <rect width="600" height="440" rx="16" fill="url(#bgGrad_android)"/>
+  <rect width="600" height="440" rx="16" fill="url(#grid_android)"/>
+  <rect width="600" height="440" rx="16" fill="none" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1.5"/>
+
+  <!-- Subtle Ambient Glow -->
+  <circle cx="300" cy="190" r="130" fill="#3DDC84" opacity="0.12" filter="url(#glow_android)"/>
+
+  <!-- Top Window Header Bar -->
+  <rect x="0" y="0" width="600" height="46" rx="16" fill="rgba(10, 20, 38, 0.85)"/>
+  <rect x="0" y="32" width="600" height="14" fill="rgba(10, 20, 38, 0.85)"/>
+  <line x1="0" y1="46" x2="600" y2="46" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1"/>
+
+  <!-- Window Dots -->
+  <circle cx="28" cy="23" r="5" fill="#EF4444" opacity="0.85"/>
+  <circle cx="44" cy="23" r="5" fill="#F59E0B" opacity="0.85"/>
+  <circle cx="60" cy="23" r="5" fill="#10B981" opacity="0.85"/>
+
+  <!-- Window Title -->
+  <text x="82" y="27" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="rgba(255, 255, 255, 0.75)" letter-spacing="0.5">
+    VIBRANTICK CORE // ANDROID ARCHITECTURE
+  </text>
+
+  <!-- Live Status Badge on Right -->
+  <rect x="442" y="14" width="136" height="20" rx="10" fill="rgba(16, 185, 129, 0.12)" stroke="rgba(16, 185, 129, 0.3)" stroke-width="1"/>
+  <circle cx="454" cy="24" r="3.5" fill="#10B981"/>
+  <text x="464" y="27.5" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="9.5" font-weight="700" fill="#10B981" letter-spacing="0.4">
+    VERIFIED STACK
+  </text>
+
+  <!-- Center Architecture Showcase Circle -->
+  <g transform="translate(300, 180)">
+    <!-- Outer dashed rotating orbital circle -->
+    <circle cx="0" cy="0" r="68" fill="none" stroke="#3DDC84" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.4"/>
+    <!-- Glowing circle badge -->
+    <circle cx="0" cy="0" r="54" fill="#0E1E38" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1.5" filter="url(#glow_android)"/>
+    <!-- Inner icon centering -->
+    <g transform="translate(-32, -32)">
+      <svg viewBox="0 0 24 24" fill="#3DDC84" width="64" height="64"><path d="M6 18c0 .55.45 1 1 1h1v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h2v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h1c.55 0 1-.45 1-1V8H6v10zM3.5 8C2.67 8 2 8.67 2 9.5v7c0 .83.67 1.5 1.5 1.5S5 17.33 5 16.5v-7C5 8.67 4.33 8 3.5 8zm17 0c-.83 0-1.5.67-1.5 1.5v7c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5zm-4.97-5.84l1.3-1.3c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0l-1.48 1.48C13.85 1.23 12.95 1 12 1c-.96 0-1.86.23-2.66.63L7.85.15c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l1.31 1.31C6.97 3.26 6 5.01 6 7h12c0-1.99-.97-3.75-2.47-4.84zM10 5H9V4h1v1zm5 0h-1V4h1v1z"/></svg>
+    </g>
+  </g>
+
+  <!-- Subtitle Tag Underneath Icon -->
+  <text x="300" y="265" text-anchor="middle" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF" letter-spacing="0.3">
+    Android Enterprise Engineering
+  </text>
+  <text x="300" y="283" text-anchor="middle" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="11" font-weight="500" fill="rgba(255, 255, 255, 0.6)">
+    Jetpack Compose &amp; High-Stability Kotlin Native
+  </text>
+
+  <!-- Left Feature Box 1 -->
+  <g transform="translate(26, 75)">
+    <rect width="180" height="54" rx="10" fill="url(#cardGrad_android)" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1"/>
+    <circle cx="22" cy="27" r="10" fill="#3DDC84" opacity="0.2"/>
+    <text x="22" y="31" text-anchor="middle" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="11" font-weight="800" fill="#3DDC84">01</text>
+    <text x="42" y="24" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">Architecture</text>
+    <text x="42" y="39" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="9" font-weight="500" fill="rgba(255, 255, 255, 0.65)">Declarative Compose UI</text>
+  </g>
+
+  <!-- Left Feature Box 2 -->
+  <g transform="translate(26, 142)">
+    <rect width="180" height="54" rx="10" fill="url(#cardGrad_android)" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1"/>
+    <circle cx="22" cy="27" r="10" fill="#3DDC84" opacity="0.2"/>
+    <text x="22" y="31" text-anchor="middle" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="11" font-weight="800" fill="#3DDC84">02</text>
+    <text x="42" y="24" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">Capability</text>
+    <text x="42" y="39" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="9" font-weight="500" fill="rgba(255, 255, 255, 0.65)">Coroutines &amp; Flow Channels</text>
+  </g>
+
+  <!-- Right Feature Box 1 -->
+  <g transform="translate(394, 75)">
+    <rect width="180" height="54" rx="10" fill="url(#cardGrad_android)" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1"/>
+    <circle cx="22" cy="27" r="10" fill="#073042" opacity="0.2"/>
+    <text x="22" y="31" text-anchor="middle" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="11" font-weight="800" fill="#073042">03</text>
+    <text x="42" y="24" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">Delivery Focus</text>
+    <text x="42" y="39" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="9" font-weight="500" fill="rgba(255, 255, 255, 0.65)">Hilt Dependency Injection</text>
+  </g>
+
+  <!-- Right Feature Box 2 -->
+  <g transform="translate(394, 142)">
+    <rect width="180" height="54" rx="10" fill="url(#cardGrad_android)" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1"/>
+    <circle cx="22" cy="27" r="10" fill="#073042" opacity="0.2"/>
+    <text x="22" y="31" text-anchor="middle" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="11" font-weight="800" fill="#073042">04</text>
+    <text x="42" y="24" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">Optimization</text>
+    <text x="42" y="39" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="9" font-weight="500" fill="rgba(255, 255, 255, 0.65)">Hardware &amp; Bluetooth HAL</text>
+  </g>
+
+  <!-- Bottom Metric & Reliability Strip -->
+  <g transform="translate(26, 316)">
+    <rect width="548" height="98" rx="12" fill="rgba(15, 28, 54, 0.7)" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1"/>
+
+    <!-- 3 Mini Stats Inside Strip -->
+    <g transform="translate(30, 24)">
+      <text x="0" y="16" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="20" font-weight="800" fill="#FFFFFF">16+ <tspan fill="#007BFF" font-size="13">Yrs</tspan></text>
+      <text x="0" y="38" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10" font-weight="600" fill="rgba(255, 255, 255, 0.65)">Engineering Tenure</text>
+    </g>
+
+    <line x1="190" y1="20" x2="190" y2="78" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1"/>
+
+    <g transform="translate(215, 24)">
+      <text x="0" y="16" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="20" font-weight="800" fill="#FFFFFF">99.9% <tspan fill="#007BFF" font-size="13">SLA</tspan></text>
+      <text x="0" y="38" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10" font-weight="600" fill="rgba(255, 255, 255, 0.65)">Production Reliability</text>
+    </g>
+
+    <line x1="375" y1="20" x2="375" y2="78" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1"/>
+
+    <g transform="translate(400, 24)">
+      <text x="0" y="16" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="20" font-weight="800" fill="#FFFFFF">99.9% <tspan fill="#3DDC84" font-size="11">BENCHMARK</tspan></text>
+      <text x="0" y="38" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10" font-weight="600" fill="rgba(255, 255, 255, 0.65)">CRASH-FREE USERS</text>
+    </g>
+  </g>
+</svg>

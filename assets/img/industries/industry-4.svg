@@ -1,0 +1,27 @@
+﻿<svg width="160" height="110" viewBox="0 0 160 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Base Shadow -->
+                    <ellipse cx="80" cy="94" rx="54" ry="14" fill="#0f172a" opacity="0.1"/>
+                    <!-- Stacked 3D Colorful Books -->
+                    <!-- Book 1 (Rose/Magenta) -->
+                    <polygon points="48,74 80,58 112,74 80,90" fill="#f43f5e"/>
+                    <polygon points="48,74 80,90 80,97 48,81" fill="#be123c"/>
+                    <polygon points="112,74 80,90 80,97 112,81" fill="#9f1239"/>
+                    <!-- Book 2 (Warm Yellow) -->
+                    <polygon points="52,65 80,50 108,65 80,80" fill="#fbbf24"/>
+                    <polygon points="52,65 80,80 80,87 52,72" fill="#d97706"/>
+                    <polygon points="108,65 80,80 80,87 108,72" fill="#b45309"/>
+                    <!-- Book 3 (Emerald Green) -->
+                    <polygon points="55,56 80,42 105,56 80,70" fill="#10b981"/>
+                    <polygon points="55,56 80,70 80,76 55,62" fill="#047857"/>
+                    <polygon points="105,56 80,70 80,76 105,62" fill="#065f46"/>
+                    <!-- 3D Robot Student Sitting on Books -->
+                    <rect x="71" y="22" width="18" height="16" rx="5" fill="#f1f5f9" stroke="#64748b" stroke-width="1.8"/>
+                    <circle cx="76" cy="30" r="2.5" fill="#007bff"/>
+                    <circle cx="84" cy="30" r="2.5" fill="#007bff"/>
+                    <!-- Antenna -->
+                    <line x1="80" y1="22" x2="80" y2="14" stroke="#64748b" stroke-width="2.4"/>
+                    <circle cx="80" cy="13" r="2.8" fill="#38bdf8"/>
+                    <!-- Body & Blue Tablet -->
+                    <rect x="74" y="38" width="12" height="10" rx="3" fill="#94a3b8"/>
+                    <polygon points="68,41 92,41 88,52 72,52" fill="#007bff" stroke="#ffffff" stroke-width="1.5"/>
+                  </svg>

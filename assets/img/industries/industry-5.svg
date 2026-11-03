@@ -1,0 +1,35 @@
+﻿<svg width="160" height="110" viewBox="0 0 160 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <linearGradient id="c5Pedestal" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#b45309"/>
+                        <stop offset="100%" stop-color="#78350f"/>
+                      </linearGradient>
+                      <linearGradient id="c5BurgerBun" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#f59e0b"/>
+                        <stop offset="100%" stop-color="#d97706"/>
+                      </linearGradient>
+                    </defs>
+                    <!-- Base Shadow -->
+                    <ellipse cx="80" cy="94" rx="54" ry="13" fill="#0f172a" opacity="0.1"/>
+                    <!-- 3D Pedestal Base -->
+                    <ellipse cx="80" cy="87" rx="42" ry="14" fill="url(#c5Pedestal)"/>
+                    <ellipse cx="80" cy="84" rx="40" ry="13" fill="#d97706"/>
+                    <!-- 3D Robot Chef Legs & Body -->
+                    <rect x="71" y="68" width="6" height="16" rx="2.5" fill="#475569"/>
+                    <rect x="83" y="68" width="6" height="16" rx="2.5" fill="#475569"/>
+                    <rect x="66" y="46" width="28" height="23" rx="5" fill="#cbd5e1" stroke="#64748b" stroke-width="1.5"/>
+                    <!-- Robot Head -->
+                    <ellipse cx="80" cy="29" rx="14" ry="11" fill="#cbd5e1" stroke="#64748b" stroke-width="1.5"/>
+                    <rect x="72" y="26" width="16" height="6" rx="2.5" fill="#0f172a"/>
+                    <!-- Antenna -->
+                    <line x1="80" y1="18" x2="80" y2="11" stroke="#64748b" stroke-width="2.2"/>
+                    <circle cx="80" cy="10" r="2.5" fill="#f59e0b"/>
+                    <!-- Serving Platter Tray -->
+                    <ellipse cx="98" cy="49" rx="24" ry="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.8"/>
+                    <!-- 3D Gourmet Burger -->
+                    <path d="M87 42C87 35 109 35 109 42Z" fill="url(#c5BurgerBun)"/>
+                    <path d="M86 43H110" stroke="#22c55e" stroke-width="2.4" stroke-linecap="round"/>
+                    <path d="M87 46H109" stroke="#78350f" stroke-width="2.4" stroke-linecap="round"/>
+                    <path d="M88 48H108" stroke="#eab308" stroke-width="1.8" stroke-linecap="round"/>
+                    <ellipse cx="98" cy="49" rx="11" ry="3" fill="url(#c5BurgerBun)"/>
+                  </svg>

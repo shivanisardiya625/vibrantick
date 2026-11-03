@@ -1,0 +1,1617 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Portfolio | Vibrantick</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <style>
+    /* =========================================================
+   VIBRANTICK PORTFOLIO
+   All portfolio styles are scoped to .vp to avoid conflicts
+   with the separately loaded navbar and topbar.
+========================================================= */
+    .vp {
+      --vp-bg: #f5f8ff;
+      --vp-bg2: #eaf2ff;
+      --vp-card: #fff;
+      --vp-blue: #1769ff;
+      --vp-cyan: #19b9e8;
+      --vp-text: #102544;
+      --vp-muted: #64748b;
+      --vp-line: rgba(23, 105, 255, .12);
+      color: var(--vp-text);
+      font-family: 'DM Sans', sans-serif;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .vp,
+    .vp * {
+      box-sizing: border-box
+    }
+
+    .vp * {
+      margin: 0;
+      padding: 0
+    }
+
+    .vp a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    .vp button {
+      font: inherit;
+      cursor: pointer
+    }
+
+    .vp .container {
+      width: min(1200px, 90%);
+      margin-inline: auto
+    }
+
+    /* HERO */
+    .vp .company-hero {
+      position: relative;
+      overflow: hidden;
+      margin-top: 95px;
+      background: linear-gradient(120deg, #f8fbff 0%, #edf5ff 55%, #e2efff 100%);
+      padding: 90px 0 0;
+    }
+
+    .vp .hero-bg-shape {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none
+    }
+
+    .vp .shape-one {
+      width: 450px;
+      height: 450px;
+      background: rgba(23, 105, 255, .055);
+      top: -180px;
+      right: -100px
+    }
+
+    .vp .shape-two {
+      width: 300px;
+      height: 300px;
+      background: rgba(25, 185, 232, .07);
+      bottom: 80px;
+      left: -150px
+    }
+
+    .vp .hero-wrapper {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      align-items: center;
+      gap: 55px;
+      position: relative;
+      z-index: 2;
+      padding-bottom: 90px;
+    }
+
+    .vp .company-hero-content {
+      position: relative;
+      z-index: 3
+    }
+
+    .vp .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      background: #e2eeff;
+      border: 1px solid #c9ddff;
+      color: #1769ff;
+      border-radius: 30px;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.3px;
+      margin-bottom: 25px;
+    }
+
+    .vp .tag-dot {
+      width: 8px;
+      height: 8px;
+      background: #20b9e8;
+      border-radius: 50%;
+      box-shadow: 0 0 0 5px rgba(32, 185, 232, .12)
+    }
+
+    .vp .company-hero-content h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      color: #102d54;
+      font-size: clamp(42px, 5.2vw, 67px);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -2.5px;
+      margin-bottom: 24px;
+    }
+
+    .vp .company-hero-content h1 span {
+      color: #1769ff;
+      display: block
+    }
+
+    .vp .company-hero-content p {
+      max-width: 550px;
+      color: #60738e;
+      font-size: 15px;
+      line-height: 1.9
+    }
+
+    .vp .company-hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 32px
+    }
+
+    .vp .hero-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 15px 23px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      transition: .3s;
+    }
+
+    .vp .primary-btn {
+      background: #1769ff;
+      color: #fff;
+      box-shadow: 0 9px 22px rgba(23, 105, 255, .2)
+    }
+
+    .vp .primary-btn:hover {
+      background: #1052d1;
+      color: #fff;
+      transform: translateY(-4px)
+    }
+
+    .vp .secondary-btn {
+      background: #fff;
+      color: #174477;
+      border: 1px solid #d4e3fa
+    }
+
+    .vp .secondary-btn:hover {
+      border-color: #1769ff;
+      color: #1769ff;
+      transform: translateY(-4px)
+    }
+
+    .vp .hero-trust {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      margin-top: 38px
+    }
+
+    .vp .trust-icon {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: #dceaff;
+      color: #1769ff;
+      font-size: 21px;
+      flex-shrink: 0
+    }
+
+    .vp .hero-trust h4 {
+      font-size: 13px;
+      color: #193b66;
+      margin-bottom: 5px
+    }
+
+    .vp .hero-trust span {
+      color: #8494aa;
+      font-size: 11px
+    }
+
+    .vp .hero-visual {
+      position: relative;
+      min-height: 490px;
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    .vp .image-glow {
+      position: absolute;
+      width: 390px;
+      height: 390px;
+      background: linear-gradient(135deg, #1769ff, #20c5e8);
+      border-radius: 50%;
+      filter: blur(1px);
+      opacity: .95
+    }
+
+    .vp .hero-main-image {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 420px;
+      border-radius: 25px;
+      overflow: hidden;
+      border: 8px solid rgba(255, 255, 255, .8);
+      box-shadow: 0 25px 60px rgba(29, 82, 150, .17);
+      transform: rotate(2deg)
+    }
+
+    .vp .hero-main-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: .6s
+    }
+
+    .vp .hero-main-image:hover img {
+      transform: scale(1.06)
+    }
+
+    .vp .floating-card {
+      position: absolute;
+      z-index: 4;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, .96);
+      padding: 15px 18px;
+      border-radius: 13px;
+      box-shadow: 0 12px 35px rgba(28, 69, 125, .13);
+      border: 1px solid #e8effa;
+      animation: vpFloat 4s ease-in-out infinite
+    }
+
+    .vp .card-top {
+      top: 45px;
+      left: -35px
+    }
+
+    .vp .card-bottom {
+      bottom: 45px;
+      right: -25px;
+      animation-delay: 1s
+    }
+
+    .vp .floating-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      background: #e4efff;
+      color: #1769ff;
+      font-size: 20px;
+      flex-shrink: 0
+    }
+
+    .vp .cyan-icon {
+      background: #ddf9ff;
+      color: #0caacb
+    }
+
+    .vp .floating-card h4 {
+      font-size: 12px;
+      color: #18385f;
+      margin-bottom: 5px
+    }
+
+    .vp .floating-card span {
+      font-size: 10px;
+      color: #8191a7
+    }
+
+    @keyframes vpFloat {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-10px)
+      }
+    }
+
+    .vp .circle-decoration {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      border: 15px solid rgba(23, 105, 255, .12);
+      border-radius: 50%;
+      right: -25px;
+      top: 0
+    }
+
+    .vp .hero-services {
+      position: relative;
+      z-index: 3;
+      background: #fff;
+      border-top: 1px solid #e3ecf9;
+      padding: 24px 0
+    }
+
+    .vp .services-inner {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px
+    }
+
+    .vp .service-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: #345575;
+      font-size: 13px;
+      font-weight: 700;
+      border-right: 1px solid #e8eef7
+    }
+
+    .vp .service-item:last-child {
+      border: 0
+    }
+
+    .vp .service-item i {
+      color: #1769ff;
+      font-size: 21px
+    }
+
+    /* STATS */
+    .vp .stats {
+      position: relative;
+      background: #fff;
+      border-top: 1px solid var(--vp-line);
+      border-bottom: 1px solid var(--vp-line)
+    }
+
+    .vp .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr)
+    }
+
+    .vp .stat {
+      padding: 30px 15px;
+      text-align: center;
+      border-right: 1px solid var(--vp-line)
+    }
+
+    .vp .stat:last-child {
+      border: 0
+    }
+
+    .vp .stat h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 34px;
+      color: var(--vp-blue)
+    }
+
+    .vp .stat p {
+      font-size: 12px;
+      color: var(--vp-muted);
+      margin-top: 7px
+    }
+
+    /* SECTION HEADINGS */
+    .vp .section-heading {
+      text-align: center;
+      margin-bottom: 48px
+    }
+
+    .vp .section-heading .label {
+      font-size: 11px;
+      color: var(--vp-blue);
+      letter-spacing: 3px;
+      font-weight: 700
+    }
+
+    .vp .section-heading h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(32px, 5vw, 48px);
+      margin: 15px 0;
+      letter-spacing: -1.5px;
+      color: #102c52
+    }
+
+    .vp .section-heading h2 span {
+      color: var(--vp-blue)
+    }
+
+    .vp .section-heading p {
+      color: var(--vp-muted);
+      font-size: 14px;
+      line-height: 1.8
+    }
+
+    /* PORTFOLIO */
+    .vp .portfolio {
+      padding: 100px 0;
+      background: #f5f8ff
+    }
+
+    .vp .filter-area {
+      margin-bottom: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px
+    }
+
+    .vp .filter-btn {
+      background: #fff;
+      color: #526985;
+      border: 1px solid #dce7f7;
+      padding: 11px 17px;
+      border-radius: 30px;
+      font-size: 11px;
+      font-weight: 600;
+      transition: .3s
+    }
+
+    .vp .filter-btn:hover,
+    .vp .filter-btn.active {
+      background: var(--vp-blue);
+      color: #fff;
+      border-color: var(--vp-blue);
+      box-shadow: 0 6px 15px rgba(23, 105, 255, .18)
+    }
+
+    .vp .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 28px
+    }
+
+    .vp .project-card {
+      background: #fff;
+      border: 1px solid #e5ecf7;
+      border-radius: 18px;
+      overflow: hidden;
+      transition: all .4s ease;
+      animation: vpAppear .5s ease;
+      box-shadow: 0 5px 22px rgba(28, 66, 120, .055);
+      min-width: 0
+    }
+
+    .vp .project-card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(23, 105, 255, .28);
+      box-shadow: 0 20px 45px rgba(28, 66, 120, .13)
+    }
+
+    @keyframes vpAppear {
+      from {
+        opacity: 0;
+        transform: translateY(15px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    .vp .project-image {
+      height: 230px;
+      position: relative;
+      overflow: hidden;
+      background: #eaf2ff
+    }
+
+    .vp .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .65s ease;
+      display: block
+    }
+
+    .vp .project-card:hover .project-image img {
+      transform: scale(1.08)
+    }
+
+    .vp .project-category {
+      position: absolute;
+      left: 16px;
+      top: 16px;
+      padding: 8px 13px;
+      background: rgba(23, 105, 255, .94);
+      color: #fff;
+      border-radius: 30px;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .12)
+    }
+
+    .vp .project-content {
+      padding: 25px
+    }
+
+    .vp .project-location {
+      color: var(--vp-blue);
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 700
+    }
+
+    .vp .project-content h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 20px;
+      margin: 12px 0;
+      color: #17365e;
+      transition: .3s
+    }
+
+    .vp .project-card:hover .project-content h3 {
+      color: var(--vp-blue)
+    }
+
+    .vp .project-content p {
+      font-size: 13px;
+      line-height: 1.8;
+      color: #718198;
+      min-height: 46px
+    }
+
+    .vp .project-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      border-top: 1px solid #edf1f8;
+      margin-top: 20px;
+      padding-top: 17px
+    }
+
+    .vp .project-bottom span {
+      font-size: 10px;
+      color: #8191a8
+    }
+
+    .vp .project-bottom a {
+      color: var(--vp-blue);
+      font-size: 12px;
+      font-weight: 700;
+      transition: .3s;
+      white-space: nowrap
+    }
+
+    .vp .project-bottom a:hover {
+      color: #0d4fd0;
+      transform: translateX(4px)
+    }
+
+    .vp .no-results {
+      grid-column: 1/-1;
+      text-align: center;
+      padding: 50px;
+      color: var(--vp-muted);
+      background: #fff;
+      border-radius: 14px
+    }
+
+    /* PROCESS */
+    .vp .process {
+      background: #eaf2ff;
+      padding: 90px 0
+    }
+
+    .vp .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px
+    }
+
+    .vp .process-card {
+      position: relative;
+      padding: 28px 23px;
+      border: 1px solid #dce8fa;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 5px 20px rgba(28, 66, 120, .045);
+      transition: .35s
+    }
+
+    .vp .process-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 15px 30px rgba(28, 66, 120, .10);
+      border-color: rgba(23, 105, 255, .3)
+    }
+
+    .vp .process-card .number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 34px;
+      color: var(--vp-blue);
+      font-weight: 700
+    }
+
+    .vp .process-card i {
+      display: block;
+      font-size: 24px;
+      color: var(--vp-blue);
+      margin: 20px 0
+    }
+
+    .vp .process-card h3 {
+      font-size: 16px;
+      margin-bottom: 12px;
+      color: #17365e
+    }
+
+    .vp .process-card p {
+      color: var(--vp-muted);
+      font-size: 12px;
+      line-height: 1.8
+    }
+
+    /* CTA */
+    .vp .cta {
+      padding: 90px 0;
+      background: radial-gradient(ellipse at 85% 50%, rgba(255, 255, 255, .2), transparent 35%), linear-gradient(110deg, #1769ff, #164caa)
+    }
+
+    .vp .cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px
+    }
+
+    .vp .cta h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(29px, 4vw, 43px);
+      margin-bottom: 14px;
+      color: #fff
+    }
+
+    .vp .cta p {
+      color: #e0edff;
+      font-size: 13px;
+      line-height: 1.8
+    }
+
+    .vp .cta .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 15px 23px;
+      border-radius: 7px;
+      background: #fff;
+      color: #174477;
+      font-size: 12px;
+      font-weight: 700;
+      transition: .3s;
+      white-space: nowrap
+    }
+
+    .vp .cta .cta-btn:hover {
+      background: #dff7ff;
+      transform: translateY(-3px)
+    }
+
+    /* FOOTER */
+    .vp .footer {
+      padding: 65px 0 20px;
+      background: #102c52
+    }
+
+    .vp .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 50px;
+      padding-bottom: 45px
+    }
+
+    .vp .footer-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 25px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      color: #fff
+    }
+
+    .vp .footer-logo span {
+      color: var(--vp-blue)
+    }
+
+    .vp .footer-about p {
+      color: #b6c9e2;
+      font-size: 12px;
+      line-height: 1.9;
+      max-width: 340px;
+      margin-top: 20px
+    }
+
+    .vp .footer h3 {
+      font-size: 15px;
+      margin-bottom: 22px;
+      color: #fff
+    }
+
+    .vp .footer-links {
+      list-style: none
+    }
+
+    .vp .footer-links li {
+      margin-bottom: 14px
+    }
+
+    .vp .footer-links a {
+      color: #b6c9e2;
+      font-size: 12px;
+      transition: .3s
+    }
+
+    .vp .footer-links a:hover {
+      color: var(--vp-cyan)
+    }
+
+    .vp .footer-contact p {
+      color: #b6c9e2;
+      font-size: 12px;
+      margin-bottom: 17px
+    }
+
+    .vp .footer-contact i {
+      color: var(--vp-cyan);
+      margin-right: 10px
+    }
+
+    .vp .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, .13);
+      padding-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      color: #a9bdd7;
+      font-size: 11px
+    }
+
+    /* SCROLL REVEAL */
+    .vp .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: .7s ease
+    }
+
+    .vp .reveal.visible {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:1000px) {
+      .vp .project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+      }
+
+      .vp .hero-wrapper {
+        gap: 30px
+      }
+
+      .vp .company-hero-content h1 {
+        font-size: 48px
+      }
+
+      .vp .hero-visual {
+        min-height: 400px
+      }
+
+      .vp .hero-main-image {
+        height: 350px
+      }
+
+      .vp .image-glow {
+        width: 300px;
+        height: 300px
+      }
+
+      .vp .card-top {
+        left: -15px
+      }
+
+      .vp .card-bottom {
+        right: -10px
+      }
+    }
+
+    @media(max-width:720px) {
+      .vp .company-hero {
+        padding-top: 65px
+      }
+
+      .vp .hero-wrapper {
+        grid-template-columns: 1fr;
+        gap: 45px;
+        padding-bottom: 65px
+      }
+
+      .vp .company-hero-content h1 {
+        font-size: clamp(40px, 10vw, 55px)
+      }
+
+      .vp .company-hero-content p {
+        font-size: 14px
+      }
+
+      .vp .hero-visual {
+        min-height: 370px;
+        margin: 0 10px
+      }
+
+      .vp .hero-main-image {
+        height: 340px
+      }
+
+      .vp .image-glow {
+        width: 280px;
+        height: 280px
+      }
+
+      .vp .card-top {
+        left: -10px;
+        top: 20px
+      }
+
+      .vp .card-bottom {
+        right: -10px;
+        bottom: 20px
+      }
+
+      .vp .services-inner {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 22px
+      }
+
+      .vp .service-item:nth-child(2) {
+        border: 0
+      }
+
+      .vp .stats-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .vp .stat:nth-child(2) {
+        border-right: 0
+      }
+
+      .vp .stat:nth-child(-n+2) {
+        border-bottom: 1px solid var(--vp-line)
+      }
+
+      .vp .project-grid {
+        grid-template-columns: 1fr
+      }
+
+      .vp .process-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .vp .cta-inner {
+        flex-direction: column;
+        align-items: flex-start
+      }
+
+      .vp .footer-grid {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .vp .footer-about {
+        grid-column: 1/-1
+      }
+    }
+
+    @media(max-width:450px) {
+      .vp .company-hero-content h1 {
+        letter-spacing: -1.5px
+      }
+
+      .vp .hero-tag {
+        font-size: 9px
+      }
+
+      .vp .hero-btn {
+        padding: 13px 16px;
+        font-size: 11px
+      }
+
+      .vp .hero-visual {
+        min-height: 300px
+      }
+
+      .vp .hero-main-image {
+        height: 280px
+      }
+
+      .vp .floating-card {
+        padding: 10px
+      }
+
+      .vp .floating-card h4 {
+        font-size: 10px
+      }
+
+      .vp .floating-card span {
+        font-size: 9px
+      }
+
+      .vp .floating-icon {
+        width: 34px;
+        height: 34px;
+        font-size: 16px
+      }
+
+      .vp .service-item {
+        font-size: 11px
+      }
+
+      .vp .process-grid {
+        grid-template-columns: 1fr
+      }
+
+      .vp .footer-grid {
+        grid-template-columns: 1fr
+      }
+
+      .vp .footer-about {
+        grid-column: auto
+      }
+
+      .vp .footer-bottom {
+        flex-direction: column
+      }
+
+      .vp .filter-btn {
+        padding: 9px 12px;
+        font-size: 10px
+      }
+
+      .vp .project-image {
+        height: 210px
+      }
+
+      .vp .project-content {
+        padding: 21px
+      }
+
+      .vp .project-bottom {
+        align-items: flex-start;
+        flex-direction: column
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+
+      .vp *,
+      .vp *::before,
+      .vp *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Shared website header: keep navbar/topbar styles and scripts in their own files -->
+  <header class="home2-header-and-topbar-area header-two">
+    <div id="topbar-container"></div>
+    <div id="navbar-container"></div>
+  </header>
+
+  <main class="vp">
+
+    <!-- HERO -->
+    <section class="company-hero">
+      <div class="hero-bg-shape shape-one"></div>
+      <div class="hero-bg-shape shape-two"></div>
+
+      <div class="container hero-wrapper">
+        <div class="company-hero-content">
+          <div class="hero-tag"><span class="tag-dot"></span>DIGITAL INNOVATION &amp; TECHNOLOGY</div>
+          <h1>We Build Digital <span>Experiences</span> That Drive Business Growth.</h1>
+          <p>At Vibrantick, we transform ideas into powerful digital solutions. From modern websites to scalable
+            software, we help businesses innovate, grow and succeed in the digital world.</p>
+
+          <div class="company-hero-buttons">
+            <a href="#portfolio" class="hero-btn primary-btn">Explore Our Work <i class="bi bi-arrow-up-right"></i></a>
+            <a href="#contact" class="hero-btn secondary-btn">Let's Discuss <i class="bi bi-chat-dots"></i></a>
+          </div>
+
+          <div class="hero-trust">
+            <div class="trust-icon"><i class="bi bi-code-slash"></i></div>
+            <div>
+              <h4>Technology That Moves Business Forward</h4>
+              <span>Creative ideas. Smart solutions. Real impact.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="image-glow"></div>
+          <div class="hero-main-image">
+            <img
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&amp;fit=crop&amp;w=1100&amp;q=85"
+              alt="Vibrantick technology team collaborating">
+          </div>
+          <div class="floating-card card-top">
+            <div class="floating-icon"><i class="bi bi-laptop"></i></div>
+            <div>
+              <h4>Web Development</h4><span>Modern Digital Solutions</span>
+            </div>
+          </div>
+          <div class="floating-card card-bottom">
+            <div class="floating-icon cyan-icon"><i class="bi bi-lightbulb"></i></div>
+            <div>
+              <h4>Innovation First</h4><span>Ideas Into Reality</span>
+            </div>
+          </div>
+          <div class="circle-decoration"></div>
+        </div>
+      </div>
+
+      <div class="hero-services">
+        <div class="container services-inner">
+          <div class="service-item"><i class="bi bi-globe2"></i><span>Web Development</span></div>
+          <div class="service-item"><i class="bi bi-phone"></i><span>App Development</span></div>
+          <div class="service-item"><i class="bi bi-cpu"></i><span>AI &amp; Automation</span></div>
+          <div class="service-item"><i class="bi bi-cloud"></i><span>Cloud Solutions</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats">
+      <div class="container stats-grid">
+        <div class="stat">
+          <h2>150+</h2>
+          <p>Clients &amp; Accounts</p>
+        </div>
+        <div class="stat">
+          <h2>60+</h2>
+          <p>Finished Projects</p>
+        </div>
+        <div class="stat">
+          <h2>5+</h2>
+          <p>Years of Experience</p>
+        </div>
+        <div class="stat">
+          <h2>24/7</h2>
+          <p>Technical Support</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section class="portfolio" id="portfolio">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="label">OUR PROJECT SHOWCASE</span>
+          <h2>Projects That Make Us <span>Proud.</span></h2>
+          <p>From innovative platforms to powerful business solutions,<br>discover our work across multiple industries.
+          </p>
+        </div>
+
+        <div class="filter-area" id="vpFilters">
+          <button type="button" class="filter-btn active" data-filter="All">All Projects</button>
+          <button type="button" class="filter-btn" data-filter="Education">Education</button>
+          <button type="button" class="filter-btn" data-filter="Entertainment">Entertainment</button>
+          <button type="button" class="filter-btn" data-filter="Travel">Travel &amp; Tourism</button>
+          <button type="button" class="filter-btn" data-filter="E-commerce">E-commerce</button>
+          <button type="button" class="filter-btn" data-filter="Corporate">Corporate</button>
+          <button type="button" class="filter-btn" data-filter="Real Estate">Real Estate</button>
+          <button type="button" class="filter-btn" data-filter="Health">Health &amp; Care</button>
+          <button type="button" class="filter-btn" data-filter="Other">Other Industries</button>
+        </div>
+
+        <div class="project-grid" id="vpProjectGrid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="process" id="process">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="label">HOW WE WORK</span>
+          <h2>Our Journey From Idea <span>To Impact.</span></h2>
+          <p>A structured approach to delivering successful digital solutions.</p>
+        </div>
+        <div class="process-grid">
+          <div class="process-card reveal">
+            <div class="number">01</div><i class="fa-solid fa-comments"></i>
+            <h3>Discussion &amp; Planning</h3>
+            <p>Understanding your business needs, goals and requirements before preparing a clear strategy.</p>
+          </div>
+          <div class="process-card reveal">
+            <div class="number">02</div><i class="fa-solid fa-lightbulb"></i>
+            <h3>Concepts &amp; Initiatives</h3>
+            <p>Exploring creative ideas and selecting the right technologies for your project.</p>
+          </div>
+          <div class="process-card reveal">
+            <div class="number">03</div><i class="fa-solid fa-code"></i>
+            <h3>Testing &amp; Development</h3>
+            <p>Building, testing and refining solutions to deliver quality and reliable experiences.</p>
+          </div>
+          <div class="process-card reveal">
+            <div class="number">04</div><i class="fa-solid fa-rocket"></i>
+            <h3>Execute &amp; Install</h3>
+            <p>Launching the final solution and supporting your business as it grows.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="contact">
+      <div class="container cta-inner reveal">
+        <div>
+          <h2>Have an Idea? Let's Build It Together.</h2>
+          <p>Partner with Vibrantick to transform your vision into a digital reality.</p>
+        </div>
+        <a href="https://vibrantick.com/" class="cta-btn">Let's Discuss Your Project <i
+            class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+   <footer class="footer-section style-2 cs-footer">
+          <div class="container">
+            <!-- 1. Top Main Section (5-Column Layout) -->
+            <div class="cs-footer-top">
+              <div class="row gy-4">
+                
+                <!-- Column 1: Brand, Tagline, ISO Subtitle & Global Presence -->
+                <div class="col-xl-4 col-lg-4 col-md-12">
+                  <div class="cs-brand-column">
+                    <div class="cs-logo-wrapper">
+                      <a href="index.html" class="cs-logo-link">
+                        <img src="assets/img/vibranticklogo.png" alt="Vibrantick Infotech Solutions" class="cs-footer-logo" />
+                      </a>
+                      <span class="cs-iso-badge">An ISO/IEC 27001:2022 Certified Company</span>
+                    </div>
+                    <p class="cs-brand-bio">
+                      AI-powered engineering and digital transformation partner for enterprises and high-growth companies worldwide.
+                    </p>
+                    <div class="cs-global-presence">
+                      <span class="cs-gp-title">Office Locations:</span>
+                      <div class="cs-flags-row">
+                        <span class="cs-flag-item">
+                          <svg class="cs-flag-svg" viewBox="0 0 640 480" width="16" height="12">
+                            <rect width="640" height="160" fill="#f93"/>
+                            <rect y="160" width="640" height="160" fill="#fff"/>
+                            <rect y="320" width="640" height="160" fill="#128807"/>
+                            <circle cx="320" cy="240" r="50" fill="none" stroke="#008" stroke-width="8"/>
+                          </svg>
+                          Mohali
+                        </span>
+                        <span class="cs-flag-item">
+                          <svg class="cs-flag-svg" viewBox="0 0 640 480" width="16" height="12">
+                            <rect width="640" height="160" fill="#f93"/>
+                            <rect y="160" width="640" height="160" fill="#fff"/>
+                            <rect y="320" width="640" height="160" fill="#128807"/>
+                            <circle cx="320" cy="240" r="50" fill="none" stroke="#008" stroke-width="8"/>
+                          </svg>
+                          Noida
+                        </span>
+                        <span class="cs-flag-item">
+                          <svg class="cs-flag-svg" viewBox="0 0 640 480" width="16" height="12">
+                            <rect width="640" height="240" fill="#fff"/>
+                            <rect y="240" width="640" height="240" fill="#dc143c"/>
+                          </svg>
+                          Poland
+                        </span>
+                        <span class="cs-flag-item">
+                          <svg class="cs-flag-svg" viewBox="0 0 640 480" width="16" height="12">
+                            <rect width="640" height="480" fill="#bd3d44"/>
+                            <path stroke="#fff" stroke-width="37" d="M0 55h640M0 129h640M0 203h640M0 277h640M0 351h640M0 425h640"/>
+                            <rect width="260" height="260" fill="#192f5d"/>
+                          </svg>
+                          USA
+                        </span>
+                        <span class="cs-flag-item">
+                          <svg class="cs-flag-svg" viewBox="0 0 640 480" width="16" height="12">
+                            <rect width="640" height="480" fill="#00008b"/>
+                            <g>
+                              <clipPath id="aus-canton"><rect width="320" height="240"/></clipPath>
+                              <g clip-path="url(#aus-canton)">
+                                <path stroke="#fff" stroke-width="60" d="M0 0l320 240M320 0L0 240"/>
+                                <path stroke="#dc143c" stroke-width="36" d="M0 0l320 240M320 0L0 240"/>
+                                <path stroke="#fff" stroke-width="80" d="M160 0v240M0 120h320"/>
+                                <path stroke="#dc143c" stroke-width="48" d="M160 0v240M0 120h320"/>
+                              </g>
+                            </g>
+                            <circle cx="160" cy="360" r="22" fill="#fff"/>
+                            <circle cx="480" cy="120" r="14" fill="#fff"/>
+                            <circle cx="530" cy="210" r="14" fill="#fff"/>
+                            <circle cx="480" cy="320" r="14" fill="#fff"/>
+                            <circle cx="430" cy="240" r="14" fill="#fff"/>
+                            <circle cx="505" cy="265" r="9" fill="#fff"/>
+                          </svg>
+                          Australia
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Column 2: SERVICES -->
+                <div class="col-xl-2 col-lg-2 col-md-3 col-sm-6">
+                  <div class="cs-footer-nav-col">
+                    <h5 class="cs-nav-heading">SERVICES</h5>
+                    <ul class="cs-nav-list">
+                      <li><a href="service1.html">Web Development</a></li>
+                      <li><a href="service1.html">Cloud Engineering</a></li>
+                      <li><a href="service1.html">Mobile Development</a></li>
+                      <li><a href="service1.html">Digital Marketing</a></li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Column 3: SOLUTIONS -->
+                <div class="col-xl-2 col-lg-2 col-md-3 col-sm-6">
+                  <div class="cs-footer-nav-col">
+                    <h5 class="cs-nav-heading">SOLUTIONS</h5>
+                    <ul class="cs-nav-list">
+                      <li><a href="service1.html">Product Leader</a></li>
+                      <li><a href="service1.html">Start-up/Scale-up Solutions</a></li>
+                      <li><a href="service1.html">Enterprise CTO / VP Engineering</a></li>
+                      <li><a href="service1.html">Hire By Role</a></li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Column 4: COMPANY -->
+                <div class="col-xl-2 col-lg-2 col-md-3 col-sm-6">
+                  <div class="cs-footer-nav-col">
+                    <h5 class="cs-nav-heading">COMPANY</h5>
+                    <ul class="cs-nav-list">
+                      <li><a href="about-us.html">Culture</a></li>
+                      <li><a href="case-study.html">Engagement Models</a></li>
+                      <li><a href="contact.html">Contact Us</a></li>
+                      <li><a href="career.html">Careers</a></li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Column 5: RESOURCES -->
+                <div class="col-xl-2 col-lg-2 col-md-3 col-sm-6">
+                  <div class="cs-footer-nav-col">
+                    <h5 class="cs-nav-heading">RESOURCES</h5>
+                    <ul class="cs-nav-list">
+                      <li><a href="blog-grid.html">Blogs</a></li>
+                      <li><a href="contact.html">Book a Discovery Call</a></li>
+                    </ul>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- 2. Middle Badges Row (4 Recognition Cards) -->
+            <div class="cs-badges-row">
+              <!-- Left Trust text -->
+              <div class="cs-trust-intro">
+                <div class="cs-shield-icon">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    <polyline points="9 12 11 14 15 10"></polyline>
+                  </svg>
+                </div>
+                <div class="cs-trust-text">
+                  <p>Trusted by global enterprises.<br />Recognised by excellence</p>
+                </div>
+              </div>
+
+              <!-- Right 4 Cards Grid -->
+              <div class="cs-badges-grid">
+                <!-- Card 1: Clutch -->
+                <div class="cs-badge-card">
+                  <h4 class="cs-badge-brand">Clutch</h4>
+                  <div class="cs-stars stars-red">★★★★★</div>
+                  <span class="cs-rating-score">4.9/5.0</span>
+                  <p class="cs-badge-desc">Top Rated IT Services<br />Company</p>
+                </div>
+
+                <!-- Card 2: GoodFirms -->
+                <div class="cs-badge-card">
+                  <div class="cs-goodfirms-header">
+                    <span class="cs-gf-logo-box">G</span>
+                    <span class="cs-gf-brand-name">GoodFirms</span>
+                  </div>
+                  <div class="cs-stars stars-blue">★★★★★</div>
+                  <p class="cs-badge-desc">Top Web Development<br />Company</p>
+                </div>
+
+                <!-- Card 3: ISO 27001:2022 -->
+                <div class="cs-badge-card">
+                  <div class="cs-iso-header">
+                    <div class="cs-iso-globe">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                      </svg>
+                    </div>
+                    <span class="cs-iso-title"><strong>ISO</strong> 27001:2022</span>
+                  </div>
+                  <p class="cs-badge-desc cs-iso-desc">International Security<br />Management</p>
+                </div>
+
+                <!-- Card 4: Microsoft Solutions Partner -->
+                <div class="cs-badge-card">
+                  <div class="cs-msft-header">
+                    <div class="cs-msft-grid-logo">
+                      <span class="ms-square ms-red"></span>
+                      <span class="ms-square ms-green"></span>
+                      <span class="ms-square ms-blue"></span>
+                      <span class="ms-square ms-yellow"></span>
+                    </div>
+                    <div class="cs-msft-text">
+                      <span class="cs-msft-brand">Microsoft</span>
+                      <span class="cs-msft-partner">Solutions Partner</span>
+                    </div>
+                  </div>
+                  <p class="cs-badge-desc cs-msft-desc">Cloud Applications</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. Bottom Footer Bar -->
+            <div class="cs-footer-bottom">
+              <div class="cs-bottom-left">
+                <ul class="cs-social-list">
+                  <li><a href="https://www.linkedin.com/company/vibrantick-infotech-solutions/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a></li>
+                  <li><a href="https://twitter.com/vibrantick" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a></li>
+                  <li><a href="https://www.facebook.com/vibranticksolutions/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="bi bi-facebook"></i></a></li>
+                  <li><a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="bi bi-youtube"></i></a></li>
+                  <li><a href="https://www.instagram.com/vibrantickinfotech" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bi bi-instagram"></i></a></li>
+                  <li><a href="#" aria-label="RSS"><i class="bi bi-rss"></i></a></li>
+                </ul>
+              </div>
+
+              <div class="cs-bottom-center">
+                <span class="cs-copyright-text">&copy; 2026 Vibrantick Infotech Solutions. All rights reserved.</span>
+              </div>
+
+              <div class="cs-bottom-right">
+                <ul class="cs-legal-links">
+                  <li><a href="terms-and-condition.html">Privacy Policy</a></li>
+                  <li><a href="terms-and-condition.html">Terms of Use</a></li>
+                  <li><a href="terms-and-condition.html">Cookie Policy</a></li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </footer>
+  </main>
+
+  <script>
+    /* =========================================================
+       HEADER LOADER
+       Fetches the shared topbar/navbar HTML. If those files have
+       script tags, this loader re-creates them so they can execute.
+    ========================================================= */
+    async function loadSharedHeader(containerId, fileName) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+
+      try {
+        const response = await fetch(fileName);
+        if (!response.ok) throw new Error(`${fileName} returned ${response.status}`);
+
+        const html = await response.text();
+        const template = document.createElement("template");
+        template.innerHTML = html;
+
+        const scripts = Array.from(template.content.querySelectorAll("script"));
+        scripts.forEach(script => script.remove());
+        container.replaceChildren(template.content.cloneNode(true));
+
+        for (const oldScript of scripts) {
+          const newScript = document.createElement("script");
+          for (const attribute of oldScript.attributes) {
+            newScript.setAttribute(attribute.name, attribute.value);
+          }
+
+          if (oldScript.src) {
+            await new Promise((resolve, reject) => {
+              newScript.onload = resolve;
+              newScript.onerror = () => reject(new Error(`Could not load ${oldScript.src}`));
+              document.body.appendChild(newScript);
+            });
+          } else {
+            newScript.textContent = oldScript.textContent;
+            document.body.appendChild(newScript);
+            newScript.remove();
+          }
+        }
+
+        document.dispatchEvent(new CustomEvent("vibrantick:header-loaded", {
+          detail: { containerId, fileName }
+        }));
+      } catch (error) {
+        console.error(`Header loading error (${fileName}):`, error);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", async () => {
+      await Promise.all([
+        loadSharedHeader("topbar-container", "topbar.html"),
+        loadSharedHeader("navbar-container", "navbar.html")
+      ]);
+    });
+
+    /* =========================================================
+       PORTFOLIO PROJECT DATA
+    ========================================================= */
+    const vpProjects = [
+      { name: "Indus International University", category: "Education", location: "India", description: "An educational digital presence designed to connect students with academic information and university resources.", url: "https://iiuedu.in", image: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=900&q=85" },
+      { name: "IKG-PTU", category: "Education", location: "India", description: "A university platform supporting academic information and institutional digital services.", url: "https://ptu.ac.in", image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=900&q=85" },
+      { name: "CT University", category: "Education", location: "India", description: "A modern academic website for sharing university information and educational resources.", url: "https://ctuniversity.in", image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=900&q=85" },
+      { name: "NIT Delhi", category: "Education", location: "India", description: "An institutional digital platform for an engineering and technology education institute.", url: "https://nitdelhi.ac.in", image: "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=900&q=85" },
+      { name: "Amrik Shera Entertainment", category: "Entertainment", location: "India", description: "An entertainment-focused digital presence for showcasing creative work and media.", url: "https://amrikshera.com", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=900&q=85" },
+      { name: "MK Records", category: "Entertainment", location: "India", description: "A digital platform for a music and entertainment brand.", url: "https://mkrecords.co.in", image: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=900&q=85" },
+      { name: "13 Melbourne Cab Services", category: "Travel", location: "Australia", description: "A transportation service website focused on customer access to cab services.", url: "https://13melbournecabservices.com", image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=900&q=85" },
+      { name: "13 Silver Taxi", category: "Travel", location: "Australia", description: "A taxi service digital platform for transport and travel-related information.", url: "https://13silvertaxi.com.au", image: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=900&q=85" },
+      { name: "Viajes Divina India", category: "Travel", location: "Spain", description: "A travel-focused website presenting tourism and travel experiences.", url: "https://viajesdivinaindia.com", image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=85" },
+      { name: "Vinya Ayurveda", category: "E-commerce", location: "Australia", description: "An online presence for an Ayurveda and wellness product business.", url: "https://www.vinyaayurveda.com.au", image: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=900&q=85" },
+      { name: "Shriwing International", category: "E-commerce", location: "India", description: "A business-focused e-commerce platform for showcasing products and services.", url: "https://www.shriwing.com", image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=85" },
+      { name: "Electro World", category: "E-commerce", location: "Dubai", description: "An online business presence for an electronics-focused brand.", url: "https://www.electroworldfzco.com", image: "https://images.unsplash.com/photo-1498049794561-7780e7231661?auto=format&fit=crop&w=900&q=85" },
+      { name: "Topline Pacific Mechanical", category: "Corporate", location: "Canada", description: "A corporate website for a mechanical services business.", url: "https://toplinepacific.com", image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=85" },
+      { name: "Black Hawke", category: "Corporate", location: "Australia", description: "A digital presence for a security-focused business.", url: "https://www.blackhawkesecurity.com", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=900&q=85" },
+      { name: "Max Pro Business Solution", category: "Corporate", location: "India", description: "A corporate business website for showcasing professional solutions.", url: "https://maxpro.co.in", image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=85" },
+      { name: "TR Sharma Properties", category: "Real Estate", location: "India", description: "A real estate digital platform for property-related information and services.", url: "https://trsharmaproperties.in", image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=85" },
+      { name: "Dream Properties", category: "Real Estate", location: "India", description: "A property-focused website showcasing real estate opportunities.", url: "https://dreamproperties99.com", image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=85" },
+      { name: "All About Lab", category: "Health", location: "India", description: "A healthcare and laboratory-related digital platform.", url: "https://allaboutlab.com", image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=900&q=85" },
+      { name: "Holistick Health Clinic", category: "Health", location: "India", description: "A digital presence for health and wellness clinic services.", url: "https://vibrantick.org", image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=85" },
+      { name: "Quote Tender", category: "Other", location: "India", description: "A business platform listed in the IOT and CRM portfolio category.", url: "https://quotetender.in", image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=85" },
+      { name: "Brofin India", category: "Other", location: "India", description: "A finance and loan-related digital business project.", url: "https://brofinindia.com", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=85" },
+      { name: "Frigus Fiesta", category: "Other", location: "India", description: "An event and celebration-focused digital platform.", url: "https://frigusfiesta.com", image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=900&q=85" },
+      { name: "The Borgo", category: "Other", location: "India", description: "A digital project listed under the events and decor portfolio.", url: "https://theborgo.in", image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=900&q=85" }
+    ];
+
+    /* =========================================================
+       RENDER PROJECTS + FILTERS
+    ========================================================= */
+    const vpProjectGrid = document.getElementById("vpProjectGrid");
+    const vpFilters = document.getElementById("vpFilters");
+
+    function renderVPProjects(category = "All") {
+      if (!vpProjectGrid) return;
+
+      const filtered = category === "All"
+        ? vpProjects
+        : vpProjects.filter(project => project.category === category);
+
+      vpProjectGrid.replaceChildren();
+
+      if (filtered.length === 0) {
+        const empty = document.createElement("div");
+        empty.className = "no-results";
+        empty.textContent = "No projects found in this category.";
+        vpProjectGrid.appendChild(empty);
+        return;
+      }
+
+      filtered.forEach((project, index) => {
+        const card = document.createElement("article");
+        card.className = "project-card";
+
+        const imageBox = document.createElement("div");
+        imageBox.className = "project-image";
+
+        const image = document.createElement("img");
+        image.src = project.image;
+        image.alt = project.name;
+        image.loading = "lazy";
+        image.onerror = function () {
+          this.onerror = null;
+          this.src = "https://placehold.co/900x600/102744/20d7e8?text=Vibrantick+Project";
+        };
+
+        const categoryBadge = document.createElement("span");
+        categoryBadge.className = "project-category";
+        categoryBadge.textContent = project.category;
+        imageBox.append(image, categoryBadge);
+
+        const content = document.createElement("div");
+        content.className = "project-content";
+
+        const location = document.createElement("span");
+        location.className = "project-location";
+        location.textContent = project.location;
+
+        const heading = document.createElement("h3");
+        heading.textContent = project.name;
+
+        const description = document.createElement("p");
+        description.textContent = project.description;
+
+        const bottom = document.createElement("div");
+        bottom.className = "project-bottom";
+
+        const number = document.createElement("span");
+        number.textContent = `PROJECT ${String(index + 1).padStart(2, "0")}`;
+
+        const link = document.createElement("a");
+        link.href = project.url;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.append(document.createTextNode("Visit Website "));
+        const icon = document.createElement("i");
+        icon.className = "fa-solid fa-arrow-up-right-from-square";
+        link.appendChild(icon);
+
+        bottom.append(number, link);
+        content.append(location, heading, description, bottom);
+        card.append(imageBox, content);
+        vpProjectGrid.appendChild(card);
+      });
+    }
+
+    if (vpFilters) {
+      vpFilters.addEventListener("click", event => {
+        const button = event.target.closest(".filter-btn");
+        if (!button || !vpFilters.contains(button)) return;
+
+        vpFilters.querySelectorAll(".filter-btn").forEach(item => {
+          item.classList.toggle("active", item === button);
+        });
+
+        renderVPProjects(button.dataset.filter || "All");
+      });
+    }
+
+    renderVPProjects();
+
+    /* =========================================================
+       SCROLL REVEAL
+    ========================================================= */
+    if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll(".vp .reveal").forEach(element => {
+        revealObserver.observe(element);
+      });
+    } else {
+      document.querySelectorAll(".vp .reveal").forEach(element => {
+        element.classList.add("visible");
+      });
+    }
+  </script>
+
+</body>
+
+</html>

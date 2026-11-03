@@ -1,0 +1,1627 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Enterprise technology engineering and software delivery by Vibrantick Infotech Solutions." />
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/vibrantick_favicon.png" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap-icons.css" />
+    <link href="assets/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/magnific-popup.css" />
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/css/slick.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <title>Enterprise MEAN Stack Development (MongoDB, Express, Angular, Node) | Vibrantick Infotech Solutions</title>
+
+    <style>
+      :root {
+        --vb-blue: #007BFF;
+        --vb-blue-hover: #0056b3;
+        --vb-navy: #0A1C3D;
+        --vb-slate: #4A5568;
+        --vb-light: #F8FAFC;
+        --vb-border: #E2E8F0;
+      }
+      
+      body {
+        font-family: 'Plus Jakarta Sans', var(--font-poppins), sans-serif;
+        color: #1a202c;
+        background-color: #ffffff;
+        overflow-x: hidden;
+      }
+
+      /* HERO SECTION (DYNAMIC TECH BACKGROUND + 15PX COMFORTABLE CLEARANCE BELOW NAVBAR) */
+      /* Combined Persistent Header Wrapper (Fixed on Scroll) */
+      .home2-header-and-topbar-area,
+      .home2-header-and-topbar-area.header-two,
+      .home2-header-and-topbar-area.sticky {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        z-index: 9999 !important;
+        transform: none !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+      }
+      @media (max-width: 991px) {
+        .home2-header-and-topbar-area,
+        .home2-header-and-topbar-area.header-two,
+        .home2-header-and-topbar-area.sticky {
+          transform: none !important;
+        }
+      }
+
+      .tech-hero {
+        position: relative;
+        padding: 175px 0 80px;
+        color: #ffffff;
+        overflow: hidden;
+      }
+      @media (max-width: 991px) {
+        .tech-hero {
+          padding: 130px 0 60px;
+        }
+      }
+      .tech-hero .container {
+        position: relative;
+        z-index: 2;
+      }
+      .hero-pill-badge {
+        display: inline-flex !important;
+        width: fit-content !important;
+        align-items: center !important;
+        gap: 8px !important;
+        background: rgba(255, 255, 255, 0.08) !important;
+        border: 1px solid rgba(255, 255, 255, 0.18) !important;
+        padding: 7px 18px !important;
+        border-radius: 9999px !important;
+        font-family: 'Plus Jakarta Sans', var(--font-montserrat), sans-serif !important;
+        font-size: 12px !important;
+        font-weight: 700 !important;
+        color: #007bff !important;
+        letter-spacing: 0.8px !important;
+        text-transform: uppercase !important;
+        margin-bottom: 20px !important;
+      }
+      .hero-pill-badge .badge-dot {
+        width: 7px !important;
+        height: 7px !important;
+        background-color: #007bff !important;
+        border-radius: 50% !important;
+        display: inline-block !important;
+        box-shadow: 0 0 10px #007bff !important;
+        flex-shrink: 0 !important;
+      }
+      .tech-hero-title {
+        font-family: 'Plus Jakarta Sans', var(--font-montserrat), sans-serif;
+        font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+        font-weight: 800;
+        line-height: 1.2;
+        color: #ffffff;
+        margin-bottom: 18px;
+        letter-spacing: -0.5px;
+        text-align: left;
+      }
+      .tech-hero-title .text-primary-brand {
+        color: #007bff;
+      }
+      .tech-hero-desc {
+        font-size: 16px;
+        line-height: 1.65;
+        color: rgba(255, 255, 255, 0.82);
+        margin-bottom: 30px;
+        max-width: 580px;
+        text-align: left;
+      }
+      .hero-cta-btns {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .btn-hero-primary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        background-color: #007bff;
+        color: #ffffff !important;
+        font-size: 15px;
+        font-weight: 600;
+        padding: 13px 30px;
+        border-radius: 50px;
+        border: 1px solid #007bff;
+        transition: all 0.3s ease;
+        text-decoration: none !important;
+      }
+      .btn-hero-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 24px rgba(0, 123, 255, 0.3);
+      }
+      .btn-hero-outline {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        color: #ffffff !important;
+        font-size: 15px;
+        font-weight: 600;
+        padding: 13px 28px;
+        border-radius: 50px;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        transition: all 0.3s ease;
+        text-decoration: none !important;
+      }
+      .btn-hero-outline:hover {
+        border-color: #ffffff;
+        background-color: rgba(255, 255, 255, 0.1);
+        transform: translateY(-2px);
+      }
+
+      /* EXACT INDUSTRY STATS CARD OVERLAY (MATCHING HEALTHCARE BENCHMARK 100%) */
+      .cs-stats-card-overlay {
+        background: rgba(15, 23, 42, 0.82);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 20px;
+        padding: 38px 34px;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.55);
+        text-align: left;
+      }
+      .cs-stats-card-overlay .stats-card-tag {
+        font-family: 'Plus Jakarta Sans', var(--font-montserrat), sans-serif;
+        font-size: 11.5px;
+        font-weight: 700;
+        color: #007bff;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin-bottom: 24px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .cs-stats-card-overlay .stats-3col-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      .cs-stats-card-overlay .stat-col-block {
+        position: relative;
+        padding-right: 15px;
+        text-align: left;
+      }
+      .cs-stats-card-overlay .stat-col-block:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 15%;
+        height: 70%;
+        width: 1px;
+        background: rgba(255, 255, 255, 0.16);
+      }
+      .cs-stats-card-overlay .stat-col-block h3 {
+        font-family: 'Plus Jakarta Sans', var(--font-montserrat), sans-serif;
+        font-size: 2.1rem;
+        font-weight: 800;
+        color: #ffffff;
+        margin-bottom: 8px;
+        line-height: 1;
+        display: flex;
+        align-items: baseline;
+        gap: 5px;
+        white-space: nowrap;
+      }
+      .cs-stats-card-overlay .stat-col-block h3 .stat-highlight {
+        font-size: 1.05rem;
+        color: #007bff;
+        font-weight: 700;
+      }
+      .cs-stats-card-overlay .stat-col-block p {
+        font-family: 'Plus Jakarta Sans', var(--font-poppins), sans-serif;
+        font-size: 12.5px;
+        line-height: 1.55;
+        color: rgba(255, 255, 255, 0.72);
+        margin: 0;
+      }
+      @media (max-width: 991px) {
+        .cs-stats-card-overlay {
+          margin-top: 35px;
+          padding: 30px 24px;
+        }
+      }
+      @media (max-width: 650px) {
+        .cs-stats-card-overlay .stats-3col-row {
+          grid-template-columns: 1fr;
+          gap: 22px;
+        }
+        .cs-stats-card-overlay .stat-col-block:not(:last-child)::after {
+          display: none;
+        }
+        .cs-stats-card-overlay .stat-col-block {
+          padding-right: 0;
+          padding-bottom: 18px;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+      }
+
+      /* SECTION HEADERS (STRICT LEFT ALIGNMENT) */
+      .tech-section-title {
+        margin-bottom: 35px;
+        text-align: left;
+      }
+      .tech-section-title h2 {
+        font-family: 'Plus Jakarta Sans', var(--font-montserrat), sans-serif;
+        font-size: clamp(2rem, 3.2vw, 2.6rem);
+        font-weight: 800;
+        color: var(--vb-navy);
+        line-height: 1.25;
+        margin-bottom: 14px;
+        letter-spacing: -0.5px;
+        text-align: left;
+      }
+      .tech-section-title p {
+        font-size: 16px;
+        color: var(--vb-slate);
+        line-height: 1.65;
+        max-width: 720px;
+        margin: 0;
+        text-align: left;
+      }
+
+      /* OVERVIEW & CAPABILITY SECTION */
+      .tech-overview-area {
+        padding: 85px 0;
+        background: #ffffff;
+      }
+
+      /* PURE CSS GLASSMORPHISM TECH ARCHITECTURE MOCKUP (ZERO BROKEN IMAGES) */
+      .tech-stack-mockup-card {
+        background: linear-gradient(145deg, #0d1b2e 0%, #08111e 100%);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 20px;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 123, 255, 0.15);
+        overflow: hidden;
+        position: relative;
+        text-align: left;
+      }
+      .tech-stack-mockup-card::before {
+        content: '';
+        position: absolute;
+        top: -60px;
+        right: -60px;
+        width: 220px;
+        height: 220px;
+        background: radial-gradient(circle, rgba(0, 123, 255, 0.25) 0%, transparent 70%);
+        pointer-events: none;
+      }
+      .mockup-header {
+        background: rgba(10, 20, 36, 0.95);
+        padding: 14px 22px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .mockup-dots {
+        display: flex;
+        gap: 7px;
+      }
+      .mockup-dots .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+      .mockup-dots .dot.red { background: #ef4444; }
+      .mockup-dots .dot.yellow { background: #f59e0b; }
+      .mockup-dots .dot.green { background: #10b981; }
+      .mockup-title {
+        font-family: 'Plus Jakarta Sans', monospace, sans-serif;
+        font-size: 11.5px;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.75);
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+      }
+      .mockup-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(16, 185, 129, 0.15);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        color: #10b981;
+        font-size: 10.5px;
+        font-weight: 700;
+        padding: 3px 10px;
+        border-radius: 20px;
+        letter-spacing: 0.5px;
+      }
+      .mockup-badge .pulse-dot {
+        width: 6px;
+        height: 6px;
+        background: #10b981;
+        border-radius: 50%;
+        box-shadow: 0 0 8px #10b981;
+        display: inline-block;
+      }
+      .mockup-body {
+        padding: 26px 24px;
+        position: relative;
+        z-index: 1;
+      }
+      .mockup-tech-hero {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 22px;
+        padding-bottom: 18px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .mockup-icon-orb {
+        width: 58px;
+        height: 58px;
+        border-radius: 14px;
+        background: #0f223d;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        box-shadow: 0 0 20px rgba(0, 123, 255, 0.25);
+      }
+      .mockup-tech-info h4 {
+        color: #ffffff;
+        font-size: 17px;
+        font-weight: 800;
+        margin: 0 0 4px;
+        letter-spacing: -0.2px;
+      }
+      .mockup-subtext {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.65);
+        display: block;
+      }
+      .mockup-chips-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin-bottom: 22px;
+      }
+      .mockup-chip {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 10px;
+        padding: 12px 14px;
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        transition: all 0.3s ease;
+      }
+      .mockup-chip:hover {
+        background: rgba(255, 255, 255, 0.07);
+        border-color: rgba(0, 123, 255, 0.4);
+      }
+      .chip-num {
+        font-family: 'Plus Jakarta Sans', var(--font-montserrat), sans-serif;
+        font-size: 11px;
+        font-weight: 800;
+        color: #007bff;
+        background: rgba(0, 123, 255, 0.15);
+        width: 22px;
+        height: 22px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .chip-content strong {
+        display: block;
+        color: #ffffff;
+        font-size: 12px;
+        font-weight: 700;
+        margin-bottom: 2px;
+      }
+      .chip-content span {
+        display: block;
+        color: rgba(255, 255, 255, 0.65);
+        font-size: 11px;
+        line-height: 1.4;
+      }
+      .mockup-metrics-strip {
+        background: rgba(0, 0, 0, 0.35);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+        padding: 14px 18px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+      }
+      .m-metric-item {
+        text-align: center;
+      }
+      .m-val {
+        font-family: 'Plus Jakarta Sans', var(--font-montserrat), sans-serif;
+        font-size: 16px;
+        font-weight: 800;
+        color: #ffffff;
+        line-height: 1.2;
+      }
+      .m-val .m-unit {
+        font-size: 11px;
+        color: #007bff;
+        font-weight: 700;
+      }
+      .m-lbl {
+        font-size: 10.5px;
+        color: rgba(255, 255, 255, 0.6);
+        margin-top: 2px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .m-divider {
+        width: 1px;
+        height: 28px;
+        background: rgba(255, 255, 255, 0.12);
+      }
+
+      /* RIGHT-SIDE CHECK-LIST (EXACT INDUSTRY TYPOGRAPHY & LEFT ALIGNMENT) */
+      .tech-check-list {
+        list-style: none;
+        padding: 0;
+        margin: 25px 0 0;
+      }
+      .tech-check-list li {
+        display: flex;
+        gap: 16px;
+        margin-bottom: 20px;
+        align-items: flex-start;
+        text-align: left;
+      }
+      .tech-check-list .check-icon {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: rgba(0, 123, 255, 0.12);
+        color: var(--vb-blue);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: 700;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+      .tech-check-list strong {
+        display: block;
+        color: var(--vb-navy);
+        font-size: 16.5px;
+        font-weight: 700;
+        margin-bottom: 4px;
+        line-height: 1.35;
+        text-align: left;
+      }
+      .tech-check-list p {
+        margin: 0;
+        color: var(--vb-slate);
+        font-size: 14.5px;
+        line-height: 1.6;
+        text-align: left;
+      }
+
+      /* 6-CARD SERVICE GRID */
+      .tech-services-area {
+        padding: 85px 0;
+        background: var(--vb-light);
+      }
+      .tech-service-card {
+        background: #ffffff;
+        border: 1px solid var(--vb-border);
+        border-radius: 16px;
+        padding: 34px 28px;
+        height: 100%;
+        transition: all 0.35s ease;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+      }
+      .tech-service-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px rgba(0, 123, 255, 0.09);
+        border-color: rgba(0, 123, 255, 0.3);
+      }
+      .tech-service-icon {
+        width: 56px;
+        height: 56px;
+        border-radius: 12px;
+        background: rgba(0, 123, 255, 0.08);
+        color: var(--vb-blue);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 26px;
+        margin-bottom: 22px;
+        transition: all 0.3s ease;
+      }
+      .tech-service-card:hover .tech-service-icon {
+        background: var(--vb-blue);
+        color: #ffffff;
+      }
+      .tech-service-card h3 {
+        font-size: 19px;
+        font-weight: 700;
+        color: var(--vb-navy);
+        margin-bottom: 12px;
+        line-height: 1.35;
+      }
+      .tech-service-card p {
+        color: var(--vb-slate);
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        flex-grow: 1;
+      }
+      .tech-service-card .card-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        color: var(--vb-blue);
+        font-weight: 600;
+        font-size: 14px;
+        text-decoration: none;
+        margin-top: auto;
+      }
+
+      /* ARCHITECTURE HIGHLIGHTS */
+      .tech-arch-area {
+        padding: 85px 0;
+        background: #ffffff;
+      }
+      .tech-arch-box {
+        border-radius: 16px;
+        border: 1px solid var(--vb-border);
+        padding: 34px 28px;
+        height: 100%;
+        background: #ffffff;
+        transition: all 0.3s ease;
+        text-align: left;
+      }
+      .tech-arch-box:hover {
+        border-color: var(--vb-blue);
+        box-shadow: 0 16px 32px rgba(10, 28, 61, 0.06);
+      }
+      .tech-arch-num {
+        font-family: 'Plus Jakarta Sans', var(--font-montserrat), sans-serif;
+        font-size: 14px;
+        font-weight: 800;
+        color: var(--vb-blue);
+        letter-spacing: 1px;
+        margin-bottom: 12px;
+      }
+      .tech-arch-box h3 {
+        font-size: 19px;
+        font-weight: 700;
+        color: var(--vb-navy);
+        margin-bottom: 12px;
+      }
+      .tech-arch-box p {
+        font-size: 14.5px;
+        color: var(--vb-slate);
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      /* AGILE ENGINEERING LIFECYCLE (BALANCED 3x2 GRID) */
+      .tech-lifecycle-area {
+        padding: 85px 0;
+        background: var(--vb-light);
+      }
+      .lifecycle-step-card {
+        background: #ffffff;
+        border-radius: 14px;
+        border: 1px solid var(--vb-border);
+        padding: 28px 22px;
+        height: 100%;
+        position: relative;
+        text-align: left;
+      }
+      .lifecycle-badge {
+        display: inline-block;
+        font-size: 12px;
+        font-weight: 800;
+        color: var(--vb-blue);
+        background: rgba(0, 123, 255, 0.1);
+        padding: 4px 10px;
+        border-radius: 6px;
+        margin-bottom: 14px;
+      }
+      .lifecycle-step-card h3 {
+        font-size: 17px;
+        font-weight: 700;
+        color: var(--vb-navy);
+        margin-bottom: 10px;
+      }
+      .lifecycle-step-card p {
+        font-size: 13.5px;
+        color: var(--vb-slate);
+        line-height: 1.55;
+        margin: 0;
+      }
+
+      /* WHY CHOOSE VIBRANTICK */
+      .tech-why-area {
+        padding: 85px 0;
+        background: #ffffff;
+      }
+      .tech-why-card {
+        border-radius: 16px;
+        background: #ffffff;
+        border: 1px solid var(--vb-border);
+        padding: 34px 26px;
+        height: 100%;
+        transition: all 0.3s ease;
+        text-align: left;
+      }
+      .tech-why-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 18px 36px rgba(0, 123, 255, 0.08);
+        border-color: rgba(0, 123, 255, 0.25);
+      }
+      .tech-why-card .why-icon {
+        font-size: 32px;
+        color: var(--vb-blue);
+        margin-bottom: 18px;
+      }
+      .tech-why-card h3 {
+        font-size: 19px;
+        font-weight: 700;
+        color: var(--vb-navy);
+        margin-bottom: 10px;
+      }
+      .tech-why-card p {
+        font-size: 14px;
+        color: var(--vb-slate);
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      /* FAQS ACCORDION (STRICT LEFT ALIGNMENT & FULL WIDTH) */
+      .tech-faq-area {
+        padding: 85px 0;
+        background: var(--vb-light);
+      }
+      .accordion-tech {
+        width: 100%;
+      }
+      .accordion-tech .accordion-item {
+        border: 1px solid var(--vb-border);
+        border-radius: 12px !important;
+        margin-bottom: 16px;
+        overflow: hidden;
+        background: #ffffff;
+        width: 100%;
+      }
+      .accordion-tech .accordion-button {
+        font-size: 17px;
+        font-weight: 700;
+        color: var(--vb-navy);
+        padding: 22px 28px;
+        background: #ffffff;
+        box-shadow: none !important;
+        text-align: left;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .accordion-tech .accordion-button:not(.collapsed) {
+        color: var(--vb-blue);
+        background: #f0f7ff;
+      }
+      .accordion-tech .accordion-button::after {
+        transition: transform 0.25s ease-in-out;
+      }
+      .accordion-tech .accordion-button:not(.collapsed)::after {
+        transform: rotate(-180deg) !important;
+      }
+      .accordion-tech .accordion-body {
+        padding: 22px 28px;
+        color: var(--vb-slate);
+        font-size: 15px;
+        line-height: 1.7;
+        text-align: left;
+      }
+
+      /* BOTTOM CTA BANNER (PILL BUTTON) */
+      .tech-cta-banner {
+        background: radial-gradient(circle at 100% 0%, #172B3A 0%, #0c0d12 65%);
+        border-radius: 20px;
+        padding: 65px 50px;
+        color: #ffffff;
+        margin: 45px 0 85px;
+        position: relative;
+        overflow: hidden;
+        text-align: left;
+      }
+      .tech-cta-banner h2 {
+        font-size: clamp(1.8rem, 3vw, 2.4rem);
+        font-weight: 800;
+        margin-bottom: 12px;
+        color: #ffffff;
+      }
+      .tech-cta-banner p {
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.85);
+        max-width: 620px;
+        margin: 0;
+      }
+      .tech-cta-banner .btn-cta-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background-color: #007bff;
+        color: #ffffff !important;
+        font-size: 15px;
+        font-weight: 600;
+        padding: 14px 34px;
+        border-radius: 50px;
+        text-decoration: none !important;
+        transition: all 0.3s ease;
+      }
+      .tech-cta-banner .btn-cta-pill:hover {
+        background-color: #0056b3;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 24px rgba(0, 123, 255, 0.35);
+      }
+    </style>
+  </head>
+  <body class="tt-magic-cursor">
+    <div id="magic-cursor">
+      <div id="ball"></div>
+    </div>
+
+    <!-- PRELOADER -->
+    <div class="preloader">
+      <div class="loading-container">
+        <div class="loading"></div>
+        <div id="loading-icon"><img src="assets/img/vibrantick_favicon.png" alt="Loading" /></div>
+      </div>
+    </div>
+
+    <div id="smooth-wrapper">
+      <div id="smooth-content">
+
+    <!-- header Section Start-->
+    <!-- TEAMMATE CODE: Topbar & Navbar -->
+    <div class="home2-header-and-topbar-area header-two">
+
+        <!-- ========================== -->
+                   <!-- Topbar -->
+        <!-- ========================== -->
+        <div id="topbar-container"></div>
+
+        <!-- ========================== -->
+                  <!-- Navbar -->
+        <!-- ========================== -->
+        <div id="navbar-container"></div>
+     
+
+    </div>
+    <!-- header Section End-->
+
+        <!-- 1. HERO SECTION (DYNAMIC TECH BACKGROUND + EXACT HEALTHCARE BENCHMARK CARD) -->
+        <section class="tech-hero" style="background: linear-gradient(135deg, rgba(10, 15, 28, 0.92) 0%, rgba(15, 33, 58, 0.88) 100%), url('https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;">
+          <div class="container">
+            <div class="row align-items-center gy-5">
+              <div class="col-xl-6 col-lg-6">
+                <div class="hero-pill-badge">
+                  <span class="badge-dot"></span> TECHNOLOGY / FULL-STACK JAVASCRIPT
+                </div>
+                <h1 class="tech-hero-title">
+                  Enterprise <span class="text-primary-brand">MEAN Stack</span> Engineering Services
+                </h1>
+                <p class="tech-hero-desc">
+                  Vibrantick Infotech builds scalable, unified JavaScript/TypeScript enterprise software on the MEAN stack. Leveraging MongoDB, Express.js, Angular, and Node.js for high-speed single-page applications and cloud-native backends.
+                </p>
+                <div class="hero-cta-btns">
+                  <a href="contact.html" class="btn-hero-primary">Start Project <i class="bi bi-arrow-right"></i></a>
+                  <a href="contact.html" class="btn-hero-outline">Talk to an Expert</a>
+                </div>
+              </div>
+
+              <!-- Right Content: 3-Item Stats Card Overlay (Exact Healthcare Industry Standard) -->
+              <div class="col-xl-6 col-lg-6">
+                <div class="cs-stats-card-overlay">
+                  <div class="stats-card-tag">
+                    <i class="bi bi-shield-check" style="font-size: 16px;"></i> PROVEN MEAN FULL-STACK IMPACT
+                  </div>
+                  <div class="stats-3col-row">
+
+                  <div class="stat-col-block">
+                    <h3>5+ <span class="stat-highlight">Yrs</span></h3>
+                    <p>Industry IT &amp; Engineering Experience</p>
+                  </div>
+                  <div class="stat-col-block">
+                    <h3>100+ <span class="stat-highlight">Clients</span></h3>
+                    <p>Satisfied Global Clients</p>
+                  </div>
+                  <div class="stat-col-block">
+                    <h3>150+ <span class="stat-highlight">Projects</span></h3>
+                    <p>Successful Deployments</p>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. OVERVIEW & STRATEGIC VALUE (PURE CSS GLASSMORPHISM ARCHITECTURE MOCKUP) -->
+        <section class="tech-overview-area">
+          <div class="container">
+            <div class="row align-items-center gy-5">
+              <!-- Left Column: Pure CSS Glassmorphism Visual -->
+              <div class="col-lg-6">
+
+                <div class="tech-stack-mockup-card">
+                  <div class="mockup-header">
+                    <div class="mockup-dots">
+                      <span class="dot red"></span>
+                      <span class="dot yellow"></span>
+                      <span class="dot green"></span>
+                    </div>
+                    <div class="mockup-title">
+                      <i class="bi bi-terminal-fill me-1"></i> MEAN FULL-STACK // ARCHITECTURE
+                    </div>
+                    <div class="mockup-badge">
+                      <span class="pulse-dot"></span> Verified Stack
+                    </div>
+                  </div>
+                  <div class="mockup-body">
+                    <div class="mockup-tech-hero">
+                      <div class="mockup-icon-orb">
+                        <svg viewBox="0 0 128 128" width="34" height="34"><path fill="#47A248" d="M64 4c-1.8 2-26 27.8-26 57.5 0 25.5 18 45.5 26 58.5 8-13 26-33 26-58.5C90 31.8 65.8 6 64 4z"/><path fill="#FFF" d="M64 4v116c-.5 0-1-.3-1.4-.7C55 106.8 42 88.5 42 61.5 42 36.8 61 14.2 64 4z"/></svg>
+                      </div>
+                      <div class="mockup-tech-info">
+                        <h4>MEAN Full-Stack Enterprise Engine</h4>
+                        <span class="mockup-subtext">MongoDB, Express, Angular & Node Full-Stack Suite</span>
+                      </div>
+                    </div>
+                    <div class="mockup-chips-grid">
+
+            <div class="mockup-chip">
+              <span class="chip-num">01</span>
+              <div class="chip-content">
+                <strong>Database</strong>
+                <span>MongoDB Atlas Sharded Clusters</span>
+              </div>
+            </div>
+            <div class="mockup-chip">
+              <span class="chip-num">02</span>
+              <div class="chip-content">
+                <strong>Backend</strong>
+                <span>Express.js High-Throughput REST</span>
+              </div>
+            </div>
+            <div class="mockup-chip">
+              <span class="chip-num">03</span>
+              <div class="chip-content">
+                <strong>Frontend</strong>
+                <span>Angular Enterprise Reactive SPA</span>
+              </div>
+            </div>
+            <div class="mockup-chip">
+              <span class="chip-num">04</span>
+              <div class="chip-content">
+                <strong>TypeScript</strong>
+                <span>End-to-End Strict Typing</span>
+              </div>
+            </div>
+                    </div>
+                    <div class="mockup-metrics-strip">
+                      <div class="m-metric-item">
+                        <div class="m-val">5+ <span class="m-unit">Yrs</span></div>
+                        <div class="m-lbl">Tenure</div>
+                      </div>
+                      <div class="m-divider"></div>
+                      <div class="m-metric-item">
+                        <div class="m-val">99.9% <span class="m-unit">SLA</span></div>
+                        <div class="m-lbl">Reliability</div>
+                      </div>
+                      <div class="m-divider"></div>
+                      <div class="m-metric-item">
+                        <div class="m-val">+40% <span class="m-unit">Speed</span></div>
+                        <div class="m-lbl">Development Velocity</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Right Column: Structured Bullet Points (Strict Left Alignment) -->
+              <div class="col-lg-6">
+                <div class="tech-section-title">
+                  <h2>End-to-End TypeScript Architecture for High-Volume Enterprise Platforms</h2>
+                  <p>The MEAN stack (MongoDB, Express.js, Angular, Node.js) offers a unified, isomorphic JavaScript and TypeScript architecture. By standardizing language, tooling, and data contracts across frontend and backend layers, MEAN drastically accelerates development velocity, simplifies developer onboarding, and enables high-concurrency scaling.</p>
+                </div>
+                <ul class="tech-check-list">
+
+                  <li>
+                    <span class="check-icon"><i class="bi bi-check-lg"></i></span>
+                    <div>
+                      <strong>Modern Angular 17+ Frontend</strong>
+                      <p>Standalone components, signals reactivity, dependency injection, and enterprise-grade modularity.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="check-icon"><i class="bi bi-check-lg"></i></span>
+                    <div>
+                      <strong>High-Throughput Node.js & Express API</strong>
+                      <p>Non-blocking event loop handling tens of thousands of concurrent I/O operations.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="check-icon"><i class="bi bi-check-lg"></i></span>
+                    <div>
+                      <strong>Flexible MongoDB Document Datastore</strong>
+                      <p>Horizontally scalable NoSQL data modeling with automated indexing and aggregation pipelines.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="check-icon"><i class="bi bi-check-lg"></i></span>
+                    <div>
+                      <strong>Shared TypeScript Data Models</strong>
+                      <p>End-to-end type safety guaranteeing that database schemas match API contracts and frontend views.</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. SIX-CARD CORE ENGINEERING SERVICES -->
+        <section class="tech-services-area">
+          <div class="container">
+            <div class="tech-section-title">
+              <h2>Specialized Capabilities & Engineering Services</h2>
+              <p>End-to-end execution across application architecture, integration, security, and lifecycle management.</p>
+            </div>
+            <div class="row gy-4">
+
+              <div class="col-lg-4 col-md-6">
+                <div class="tech-service-card">
+                  <div class="tech-service-icon">
+                    <i class="bi bi-stack"></i>
+                  </div>
+                  <h3>Custom Full-Stack MEAN Application Engineering</h3>
+                  <p>Building complex enterprise dashboards, SaaS platforms, and internal operational portals on the MEAN stack.</p>
+                  <a href="contact.html" class="card-cta">Consult Architects <i class="bi bi-arrow-right"></i></a>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6">
+                <div class="tech-service-card">
+                  <div class="tech-service-icon">
+                    <i class="bi bi-window-fullscreen"></i>
+                  </div>
+                  <h3>Modern Angular Frontend Engineering</h3>
+                  <p>Developing responsive, accessible single-page web applications utilizing Angular signals and standalone components.</p>
+                  <a href="contact.html" class="card-cta">Consult Architects <i class="bi bi-arrow-right"></i></a>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6">
+                <div class="tech-service-card">
+                  <div class="tech-service-icon">
+                    <i class="bi bi-hdd-network"></i>
+                  </div>
+                  <h3>High-Performance Express & Node APIs</h3>
+                  <p>Engineering low-latency, modular RESTful APIs and middleware with automated Swagger/OpenAPI documentation.</p>
+                  <a href="contact.html" class="card-cta">Consult Architects <i class="bi bi-arrow-right"></i></a>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6">
+                <div class="tech-service-card">
+                  <div class="tech-service-icon">
+                    <i class="bi bi-database"></i>
+                  </div>
+                  <h3>MongoDB Architecture & Sharding</h3>
+                  <p>Designing normalized and embedded document schemas, aggregation pipelines, and sharded replica sets for massive scale.</p>
+                  <a href="contact.html" class="card-cta">Consult Architects <i class="bi bi-arrow-right"></i></a>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6">
+                <div class="tech-service-card">
+                  <div class="tech-service-icon">
+                    <i class="bi bi-arrow-repeat"></i>
+                  </div>
+                  <h3>Legacy App Modernization to MEAN</h3>
+                  <p>Transforming monolithic multi-tier architectures into decoupled, cloud-ready MEAN stack microservices.</p>
+                  <a href="contact.html" class="card-cta">Consult Architects <i class="bi bi-arrow-right"></i></a>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6">
+                <div class="tech-service-card">
+                  <div class="tech-service-icon">
+                    <i class="bi bi-shield-check"></i>
+                  </div>
+                  <h3>Enterprise Security & Performance Audits</h3>
+                  <p>Implementing JWT token authentication, RBAC permission matrices, rate limiting, and database query optimization.</p>
+                  <a href="contact.html" class="card-cta">Consult Architects <i class="bi bi-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. THREE-COLUMN ARCHITECTURE HIGHLIGHTS -->
+        <section class="tech-arch-area">
+          <div class="container">
+            <div class="tech-section-title">
+              <h2>Enterprise Technical Architecture Highlights</h2>
+              <p>Engineering standards, concurrency paradigms, and cloud resilience built directly into every deployment.</p>
+            </div>
+            <div class="row gy-4">
+
+              <div class="col-lg-4 col-md-6">
+                <div class="tech-arch-box">
+                  <div class="tech-arch-num">ISOMORPHIC TYPESCRIPT CONTRACTS</div>
+                  <h3>End-to-End Type Safety</h3>
+                  <p>Sharing DTOs and interface definitions between Angular and Node.js in a unified monorepo to eradicate contract drift and runtime payload mismatches.</p>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6">
+                <div class="tech-arch-box">
+                  <div class="tech-arch-num">ANGULAR SIGNALS REACTIVITY</div>
+                  <h3>Granular, High-Speed DOM Updates</h3>
+                  <p>Leveraging Angular 17+ signals for fine-grained reactive state management that updates only the exact DOM nodes affected by data changes.</p>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6">
+                <div class="tech-arch-box">
+                  <div class="tech-arch-num">MONGODB REPLICA SET SHARDING</div>
+                  <h3>Horizontal Cloud Scalability</h3>
+                  <p>Configuring multi-node replica sets with automated failover and shard keys to distribute read/write loads across global clusters.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. FIVE-PHASE AGILE ENGINEERING LIFECYCLE (BALANCED 3x2 GRID) -->
+        <section class="tech-lifecycle-area">
+          <div class="container">
+            <div class="tech-section-title">
+              <h2>Agile Software Engineering Methodology</h2>
+              <p>Structured, transparent execution framework powering high-velocity product delivery.</p>
+            </div>
+            <div class="row">
+
+              <div class="col-lg-4 col-md-6 mb-4">
+                <div class="lifecycle-step-card">
+                  <span class="lifecycle-badge">01</span>
+                  <h3>Domain Modeling & Architecture Scoping</h3>
+                  <p>Defining schema models, aggregation pipelines, RESTful contracts, and Angular component trees.</p>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 mb-4">
+                <div class="lifecycle-step-card">
+                  <span class="lifecycle-badge">02</span>
+                  <h3>Full-Stack TypeScript Monorepo Setup</h3>
+                  <p>Establishing project structure with Nx or Turborepo, ESLint, Prettier, and automated CI/CD pipelines.</p>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 mb-4">
+                <div class="lifecycle-step-card">
+                  <span class="lifecycle-badge">03</span>
+                  <h3>Sprint Test-Driven Development</h3>
+                  <p>Developing Angular components and Node.js controllers backed by Jasmine and Jest unit tests.</p>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 mb-4">
+                <div class="lifecycle-step-card">
+                  <span class="lifecycle-badge">04</span>
+                  <h3>Integration, Load & Database Benchmarking</h3>
+                  <p>Stress-testing API throughput with k6 and auditing MongoDB query performance with `.explain('executionStats')`.</p>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 mb-4">
+                <div class="lifecycle-step-card">
+                  <span class="lifecycle-badge">05</span>
+                  <h3>Security Hardening & Code Quality Gates</h3>
+                  <p>Enforcing Helmet.js security headers, CORS policies, sanitization middleware, and SonarQube quality gates.</p>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 mb-4">
+                <div class="lifecycle-step-card">
+                  <span class="lifecycle-badge">06</span>
+                  <h3>Containerized Cloud Deployment</h3>
+                  <p>Deploying multi-container Docker images to AWS ECS, Google Cloud Run, or Kubernetes with automated monitoring.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 6. WHY CHOOSE VIBRANTICK (ENTERPRISE VALUE PROPOSITION) -->
+        <section class="tech-why-area">
+          <div class="container">
+            <div class="tech-section-title">
+              <h2>Why Global Enterprises Choose Vibrantick</h2>
+              <p>Senior engineering talent, rigorous code audits, predictable delivery timelines, and strict IP security.</p>
+            </div>
+            <div class="row gy-4">
+              <div class="col-lg-3 col-md-6">
+                <div class="tech-why-card">
+                  <div class="why-icon"><i class="bi bi-award"></i></div>
+                  <h3>Top 1% Senior Engineers</h3>
+                  <p>Direct access to seasoned software architects with deep stack expertise and production track records.</p>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <div class="tech-why-card">
+                  <div class="why-icon"><i class="bi bi-shield-check"></i></div>
+                  <h3>ISO 27001 & IP Protection</h3>
+                  <p>Bank-grade confidentiality, strict NDAs, clean code repositories, and full client IP ownership.</p>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <div class="tech-why-card">
+                  <div class="why-icon"><i class="bi bi-speedometer2"></i></div>
+                  <h3>Rapid Time-to-Market</h3>
+                  <p>Agile sprints, automated CI/CD pipelines, and pre-built design systems that cut release cycles in half.</p>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <div class="tech-why-card">
+                  <div class="why-icon"><i class="bi bi-clock-history"></i></div>
+                  <h3>Overlapping Timezone Sync</h3>
+                  <p>Real-time collaboration across USA, Australia, and European business hours for seamless workflow.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 7. FREQUENTLY ASKED QUESTIONS (STRICT LEFT ALIGNMENT & FULL CONTAINER WIDTH) -->
+        <section class="tech-faq-area">
+          <div class="container">
+            <div class="tech-section-title">
+              <h2>Frequently Asked Questions</h2>
+              <p>Technical clarity and answers to common architectural and engagement questions.</p>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="accordion accordion-tech" id="techFaqAccordion">
+
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="faqHeading1">
+                  <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1" aria-expanded="true" aria-controls="faqCollapse1">
+                    Why choose the MEAN stack over traditional multi-language stacks (e.g. Java + Angular)?
+                  </button>
+                </h3>
+                <div id="faqCollapse1" class="accordion-collapse collapse show" aria-labelledby="faqHeading1" data-bs-parent="#techFaqAccordion">
+                  <div class="accordion-body">
+                    MEAN allows a single engineering team to master one unified language (TypeScript) across the entire application stack. This eliminates context switching, enables direct code sharing, accelerates sprint velocity by up to 35%, and lowers total development costs.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="faqHeading2">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2" aria-expanded="false" aria-controls="faqCollapse2">
+                    Is MongoDB suitable for applications requiring complex relational data?
+                  </button>
+                </h3>
+                <div id="faqCollapse2" class="accordion-collapse collapse " aria-labelledby="faqHeading2" data-bs-parent="#techFaqAccordion">
+                  <div class="accordion-body">
+                    Yes! Modern MongoDB supports multi-document ACID transactions, schema validation, and powerful aggregation pipelines with `$lookup` joins, giving you relational integrity when needed alongside NoSQL flexibility.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="faqHeading3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse3" aria-expanded="false" aria-controls="faqCollapse3">
+                    Can you upgrade our legacy AngularJS 1.x MEAN app to modern Angular 17+?
+                  </button>
+                </h3>
+                <div id="faqCollapse3" class="accordion-collapse collapse " aria-labelledby="faqHeading3" data-bs-parent="#techFaqAccordion">
+                  <div class="accordion-body">
+                    Yes. We execute de-risked incremental migrations, refactoring backend APIs first and using hybrid bridges or micro-frontends to migrate frontend modules progressively.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="faqHeading4">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse4" aria-expanded="false" aria-controls="faqCollapse4">
+                    How do you ensure enterprise security in MEAN stack backends?
+                  </button>
+                </h3>
+                <div id="faqCollapse4" class="accordion-collapse collapse " aria-labelledby="faqHeading4" data-bs-parent="#techFaqAccordion">
+                  <div class="accordion-body">
+                    We implement defense-in-depth security including bcrypt password hashing, rotating JWT session tokens, rate limiting via Redis, MongoDB query sanitization against NoSQL injection, and strict CORS configuration.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header" id="faqHeading5">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse5" aria-expanded="false" aria-controls="faqCollapse5">
+                    What testing methodologies do your MEAN developers follow?
+                  </button>
+                </h3>
+                <div id="faqCollapse5" class="accordion-collapse collapse " aria-labelledby="faqHeading5" data-bs-parent="#techFaqAccordion">
+                  <div class="accordion-body">
+                    We enforce Jasmine/Karma and Cypress testing on the Angular frontend, Jest and Supertest on the Node.js backend, and MongoMemoryServer for isolated database unit testing in CI/CD.
+                  </div>
+                </div>
+              </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 8. BOTTOM CTA BANNER (PILL BUTTON) -->
+        <div class="container">
+          <div class="tech-cta-banner">
+            <div class="row align-items-center gy-4">
+              <div class="col-lg-8">
+                <h2>Ready to Build Unified Enterprise Apps on the MEAN Stack?</h2>
+                <p>Consult with our certified full-stack JavaScript architects to design, scale, or modernize your MEAN stack application.</p>
+              </div>
+              <div class="col-lg-4 text-lg-end">
+                <a href="contact.html" class="btn-cta-pill">Schedule Technical Consultation <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+<!-- CS Soft Reference Inspired Vibrantick Footer Start -->
+        <footer class="footer-section style-2 cs-footer">
+          <div class="container">
+            <!-- 1. Top Main Section (5-Column Layout) -->
+            <div class="cs-footer-top">
+              <div class="row gy-4">
+                
+                <!-- Column 1: Brand, Tagline, ISO Subtitle & Global Presence -->
+                <div class="col-xl-4 col-lg-4 col-md-12">
+                  <div class="cs-brand-column">
+                    <div class="cs-logo-wrapper">
+                      <a href="index.html" class="cs-logo-link">
+                        <img src="assets/img/vibranticklogo.png" alt="Vibrantick Infotech Solutions" class="cs-footer-logo" />
+                      </a>
+                      <span class="cs-iso-badge">An ISO/IEC 27001:2022 Certified Company</span>
+                    </div>
+                    <p class="cs-brand-bio">
+                      AI-powered engineering and digital transformation partner for enterprises and high-growth companies worldwide.
+                    </p>
+                    <div class="cs-global-presence">
+                      <span class="cs-gp-title">Office Locations:</span>
+                      <div class="cs-flags-row">
+                        <span class="cs-flag-item">
+                          <svg class="cs-flag-svg" viewBox="0 0 640 480" width="16" height="12">
+                            <rect width="640" height="160" fill="#f93"/>
+                            <rect y="160" width="640" height="160" fill="#fff"/>
+                            <rect y="320" width="640" height="160" fill="#128807"/>
+                            <circle cx="320" cy="240" r="50" fill="none" stroke="#008" stroke-width="8"/>
+                          </svg>
+                          Mohali
+                        </span>
+                        <span class="cs-flag-item">
+                          <svg class="cs-flag-svg" viewBox="0 0 640 480" width="16" height="12">
+                            <rect width="640" height="160" fill="#f93"/>
+                            <rect y="160" width="640" height="160" fill="#fff"/>
+                            <rect y="320" width="640" height="160" fill="#128807"/>
+                            <circle cx="320" cy="240" r="50" fill="none" stroke="#008" stroke-width="8"/>
+                          </svg>
+                          Noida
+                        </span>
+                        <span class="cs-flag-item">
+                          <svg class="cs-flag-svg" viewBox="0 0 640 480" width="16" height="12">
+                            <rect width="640" height="240" fill="#fff"/>
+                            <rect y="240" width="640" height="240" fill="#dc143c"/>
+                          </svg>
+                          Poland
+                        </span>
+                        <span class="cs-flag-item">
+                          <svg class="cs-flag-svg" viewBox="0 0 640 480" width="16" height="12">
+                            <rect width="640" height="480" fill="#bd3d44"/>
+                            <path stroke="#fff" stroke-width="37" d="M0 55h640M0 129h640M0 203h640M0 277h640M0 351h640M0 425h640"/>
+                            <rect width="260" height="260" fill="#192f5d"/>
+                          </svg>
+                          USA
+                        </span>
+                        <span class="cs-flag-item">
+                          <svg class="cs-flag-svg" viewBox="0 0 640 480" width="16" height="12">
+                            <rect width="640" height="480" fill="#00008b"/>
+                            <g>
+                              <clipPath id="aus-canton"><rect width="320" height="240"/></clipPath>
+                              <g clip-path="url(#aus-canton)">
+                                <path stroke="#fff" stroke-width="60" d="M0 0l320 240M320 0L0 240"/>
+                                <path stroke="#dc143c" stroke-width="36" d="M0 0l320 240M320 0L0 240"/>
+                                <path stroke="#fff" stroke-width="80" d="M160 0v240M0 120h320"/>
+                                <path stroke="#dc143c" stroke-width="48" d="M160 0v240M0 120h320"/>
+                              </g>
+                            </g>
+                            <circle cx="160" cy="360" r="22" fill="#fff"/>
+                            <circle cx="480" cy="120" r="14" fill="#fff"/>
+                            <circle cx="530" cy="210" r="14" fill="#fff"/>
+                            <circle cx="480" cy="320" r="14" fill="#fff"/>
+                            <circle cx="430" cy="240" r="14" fill="#fff"/>
+                            <circle cx="505" cy="265" r="9" fill="#fff"/>
+                          </svg>
+                          Australia
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Column 2: SERVICES -->
+                <div class="col-xl-2 col-lg-2 col-md-3 col-sm-6">
+                  <div class="cs-footer-nav-col">
+                    <h5 class="cs-nav-heading">SERVICES</h5>
+                    <ul class="cs-nav-list">
+                      <li><a href="service1.html">Web Development</a></li>
+                      <li><a href="service1.html">Cloud Engineering</a></li>
+                      <li><a href="service1.html">Mobile Development</a></li>
+                      <li><a href="service1.html">Digital Marketing</a></li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Column 3: SOLUTIONS -->
+                <div class="col-xl-2 col-lg-2 col-md-3 col-sm-6">
+                  <div class="cs-footer-nav-col">
+                    <h5 class="cs-nav-heading">SOLUTIONS</h5>
+                    <ul class="cs-nav-list">
+                      <li><a href="service1.html">Product Leader</a></li>
+                      <li><a href="service1.html">Start-up/Scale-up Solutions</a></li>
+                      <li><a href="service1.html">Enterprise CTO / VP Engineering</a></li>
+                      <li><a href="service1.html">Hire By Role</a></li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Column 4: COMPANY -->
+                <div class="col-xl-2 col-lg-2 col-md-3 col-sm-6">
+                  <div class="cs-footer-nav-col">
+                    <h5 class="cs-nav-heading">COMPANY</h5>
+                    <ul class="cs-nav-list">
+                      <li><a href="about-us.html">Culture</a></li>
+                      <li><a href="case-study.html">Engagement Models</a></li>
+                      <li><a href="contact.html">Contact Us</a></li>
+                      <li><a href="career.html">Careers</a></li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Column 5: RESOURCES -->
+                <div class="col-xl-2 col-lg-2 col-md-3 col-sm-6">
+                  <div class="cs-footer-nav-col">
+                    <h5 class="cs-nav-heading">RESOURCES</h5>
+                    <ul class="cs-nav-list">
+                      <li><a href="blog-grid.html">Blogs</a></li>
+                      <li><a href="contact.html">Book a Discovery Call</a></li>
+                    </ul>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- 2. Middle Badges Row (4 Recognition Cards) -->
+            <div class="cs-badges-row">
+              <!-- Left Trust text -->
+              <div class="cs-trust-intro">
+                <div class="cs-shield-icon">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    <polyline points="9 12 11 14 15 10"></polyline>
+                  </svg>
+                </div>
+                <div class="cs-trust-text">
+                  <p>Trusted by global enterprises.<br />Recognised by excellence</p>
+                </div>
+              </div>
+
+              <!-- Right 4 Cards Grid -->
+              <div class="cs-badges-grid">
+                <!-- Card 1: Clutch -->
+                <div class="cs-badge-card">
+                  <h4 class="cs-badge-brand">Clutch</h4>
+                  <div class="cs-stars stars-red">★★★★★</div>
+                  <span class="cs-rating-score">4.9/5.0</span>
+                  <p class="cs-badge-desc">Top Rated IT Services<br />Company</p>
+                </div>
+
+                <!-- Card 2: GoodFirms -->
+                <div class="cs-badge-card">
+                  <div class="cs-goodfirms-header">
+                    <span class="cs-gf-logo-box">G</span>
+                    <span class="cs-gf-brand-name">GoodFirms</span>
+                  </div>
+                  <div class="cs-stars stars-blue">★★★★★</div>
+                  <p class="cs-badge-desc">Top Web Development<br />Company</p>
+                </div>
+
+                <!-- Card 3: ISO 27001:2022 -->
+                <div class="cs-badge-card">
+                  <div class="cs-iso-header">
+                    <div class="cs-iso-globe">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                      </svg>
+                    </div>
+                    <span class="cs-iso-title"><strong>ISO</strong> 27001:2022</span>
+                  </div>
+                  <p class="cs-badge-desc cs-iso-desc">International Security<br />Management</p>
+                </div>
+
+                <!-- Card 4: Microsoft Solutions Partner -->
+                <div class="cs-badge-card">
+                  <div class="cs-msft-header">
+                    <div class="cs-msft-grid-logo">
+                      <span class="ms-square ms-red"></span>
+                      <span class="ms-square ms-green"></span>
+                      <span class="ms-square ms-blue"></span>
+                      <span class="ms-square ms-yellow"></span>
+                    </div>
+                    <div class="cs-msft-text">
+                      <span class="cs-msft-brand">Microsoft</span>
+                      <span class="cs-msft-partner">Solutions Partner</span>
+                    </div>
+                  </div>
+                  <p class="cs-badge-desc cs-msft-desc">Cloud Applications</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. Bottom Footer Bar -->
+            <div class="cs-footer-bottom">
+              <div class="cs-bottom-left">
+                <ul class="cs-social-list">
+                  <li><a href="https://www.linkedin.com/company/vibrantick-infotech-solutions/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a></li>
+                  <li><a href="https://twitter.com/vibrantick" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a></li>
+                  <li><a href="https://www.facebook.com/vibranticksolutions/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="bi bi-facebook"></i></a></li>
+                  <li><a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="bi bi-youtube"></i></a></li>
+                  <li><a href="https://www.instagram.com/vibrantickinfotech" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bi bi-instagram"></i></a></li>
+                  <li><a href="#" aria-label="RSS"><i class="bi bi-rss"></i></a></li>
+                </ul>
+              </div>
+
+              <div class="cs-bottom-center">
+                <span class="cs-copyright-text">&copy; 2026 Vibrantick Infotech Solutions. All rights reserved.</span>
+              </div>
+
+              <div class="cs-bottom-right">
+                <ul class="cs-legal-links">
+                  <li><a href="terms-and-condition.html">Privacy Policy</a></li>
+                  <li><a href="terms-and-condition.html">Terms of Use</a></li>
+                  <li><a href="terms-and-condition.html">Cookie Policy</a></li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </footer>
+        <!-- CS Soft Reference Inspired Vibrantick Footer End -->
+
+      </div>
+    </div>
+
+    <!-- TEAMMATE CODE: Topbar & Navbar -->
+    <!-- ============================================== -->
+
+<script>
+  fetch('./topbar.html')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Topbar file not found');
+      }
+      return response.text();
+    })
+    .then(html => {
+      document.getElementById('topbar-container').innerHTML = html;
+    })
+    .catch(error => {
+      console.error(error);
+      if (window.jQuery) {
+        $('#topbar-container').load('./topbar.html');
+      }
+    });
+</script>
+
+<script>
+  fetch('./navbar.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('navbar-container').innerHTML = data;
+      if (window.jQuery) {
+        $('.sidebar-button, .mobile-menu-btn').off('click').on('click', function () {
+          $('.mobile-menu-wrapper').toggleClass('active');
+        });
+        $('.menu-close').off('click').on('click', function () {
+          $('.mobile-menu-wrapper').removeClass('active');
+        });
+      }
+    })
+    .catch(() => {
+      if (window.jQuery) {
+        $('#navbar-container').load('./navbar.html');
+      }
+    });
+</script>
+
+    <!-- Main JS Dependencies -->
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/slick.js"></script>
+    <script src="assets/js/custom.js"></script>
+
+    <!-- Interactive FAQ Accordion Toggle Script -->
+    <script>
+      (function () {
+        function setupFaqAccordion() {
+          var faqAccordion = document.getElementById('techFaqAccordion');
+          if (!faqAccordion) return;
+
+          var buttons = faqAccordion.querySelectorAll('.accordion-button');
+          buttons.forEach(function (button) {
+            if (button.dataset.accordionInit) return;
+            button.dataset.accordionInit = 'true';
+
+            button.addEventListener('click', function (e) {
+              e.preventDefault();
+              e.stopPropagation();
+
+              var targetSelector = this.getAttribute('data-bs-target') || this.getAttribute('data-target');
+              if (!targetSelector) return;
+              var targetCollapse = document.querySelector(targetSelector);
+              if (!targetCollapse) return;
+
+              // If Bootstrap 5 Collapse is active, utilize its native API for fluid animation
+              if (window.bootstrap && window.bootstrap.Collapse) {
+                var bsCollapse = window.bootstrap.Collapse.getOrCreateInstance(targetCollapse, {
+                  parent: '#techFaqAccordion'
+                });
+                bsCollapse.toggle();
+              } else {
+                // Direct vanilla JS toggle fallback
+                var isCurrentlyShown = targetCollapse.classList.contains('show');
+                
+                faqAccordion.querySelectorAll('.accordion-collapse.show').forEach(function (openCol) {
+                  openCol.classList.remove('show');
+                });
+                faqAccordion.querySelectorAll('.accordion-button').forEach(function (btn) {
+                  btn.classList.add('collapsed');
+                  btn.setAttribute('aria-expanded', 'false');
+                });
+
+                if (!isCurrentlyShown) {
+                  this.classList.remove('collapsed');
+                  this.setAttribute('aria-expanded', 'true');
+                  targetCollapse.classList.add('show');
+                }
+              }
+            });
+          });
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', setupFaqAccordion);
+        } else {
+          setupFaqAccordion();
+        }
+      })();
+    </script>
+  </body>
+</html>

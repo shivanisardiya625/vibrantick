@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 145 36" fill="none">
+  <!-- Bluebik Hexagon Icon -->
+  <polygon points="16,4 28,11 28,25 16,32 4,25 4,11" stroke="#ffffff" stroke-width="2.5" fill="none"/>
+  <polygon points="16,4 28,11 16,18 4,11" fill="rgba(255,255,255,0.3)"/>
+  <line x1="16" y1="18" x2="16" y2="32" stroke="#ffffff" stroke-width="2.5"/>
+  <!-- Text -->
+  <text x="36" y="22" fill="#ffffff" font-family="'Montserrat', sans-serif" font-size="19" font-weight="800">bluebik</text>
+  <text x="37" y="31" fill="rgba(255,255,255,0.7)" font-family="'Montserrat', sans-serif" font-size="8.5" font-weight="600" letter-spacing="2">GLOBAL</text>
+</svg>

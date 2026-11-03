@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 36" fill="none">
+  <!-- Mahindra Wings / Twin Peaks Icon -->
+  <path d="M12 24 C14 16 18 10 24 10 C30 10 34 16 36 24 C32 20 28 18 24 18 C20 18 16 20 12 24 Z" fill="#ffffff"/>
+  <path d="M4 26 C8 14 14 6 24 6 C34 6 40 14 44 26 C38 21 32 18 24 18 C16 18 10 21 4 26 Z" fill="#ffffff"/>
+  <!-- Text -->
+  <text x="50" y="25" fill="#ffffff" font-family="'Montserrat', sans-serif" font-size="24" font-weight="800" letter-spacing="-0.5">mahindra</text>
+</svg>

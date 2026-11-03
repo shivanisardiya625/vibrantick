@@ -1,0 +1,36 @@
+﻿<svg width="160" height="110" viewBox="0 0 160 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <linearGradient id="c6TaxiYellow" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#fef08a"/>
+                        <stop offset="50%" stop-color="#facc15"/>
+                        <stop offset="100%" stop-color="#eab308"/>
+                      </linearGradient>
+                      <linearGradient id="c6TaxiSide" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#eab308"/>
+                        <stop offset="100%" stop-color="#ca8a04"/>
+                      </linearGradient>
+                    </defs>
+                    <!-- Soft Drop Shadow on White -->
+                    <ellipse cx="80" cy="94" rx="60" ry="14" fill="#0f172a" opacity="0.1"/>
+                    <!-- 3D Yellow Taxi Cab Body -->
+                    <polygon points="40,62 82,44 122,57 80,78" fill="url(#c6TaxiYellow)"/>
+                    <polygon points="40,62 80,78 80,88 40,72" fill="url(#c6TaxiSide)"/>
+                    <polygon points="122,57 80,78 80,88 122,67" fill="#a16207"/>
+                    <!-- Cabin / Windshield Glass -->
+                    <polygon points="56,56 80,45 96,52 74,63" fill="#e0f2fe" stroke="#38bdf8" stroke-width="1.2"/>
+                    <!-- Taxi Roof Sign -->
+                    <polygon points="74,42 84,37 90,40 80,45" fill="#f8fafc" stroke="#0f172a" stroke-width="1"/>
+                    <!-- Checkered Decal Stripe -->
+                    <line x1="50,69" x2="72,77" stroke="#0f172a" stroke-width="3" stroke-dasharray="4 4"/>
+                    <!-- Front / Side Headlights -->
+                    <circle cx="44" cy="66" r="3.5" fill="#fef08a"/>
+                    <!-- 3D Wheels with Silver Rims -->
+                    <ellipse cx="56" cy="74" rx="6" ry="9" fill="#1e293b"/>
+                    <ellipse cx="56" cy="74" rx="3" ry="5" fill="#cbd5e1"/>
+                    <ellipse cx="106" cy="69" rx="6" ry="9" fill="#1e293b"/>
+                    <ellipse cx="106" cy="69" rx="3" ry="5" fill="#cbd5e1"/>
+                    <!-- 3D Red GPS Map Pin Floating Over Roof -->
+                    <circle cx="96" cy="22" r="8.5" fill="#ef4444" stroke="#ffffff" stroke-width="2.5"/>
+                    <path d="M96 30.5L96 40" stroke="#ef4444" stroke-width="3.5" stroke-linecap="round"/>
+                    <ellipse cx="96" cy="43" rx="5.5" ry="2.2" fill="#ef4444" opacity="0.35"/>
+                  </svg>
