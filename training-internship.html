@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
 
 <style>
 :root {
@@ -28,7 +28,7 @@
     --shadow:0 22px 70px rgba(11,32,66,.12);
 }
 
-* {
+/* * {
     box-sizing:border-box;
     margin:0;
     padding:0;
@@ -54,20 +54,40 @@ a {
 button {
     font:inherit;
     cursor:pointer;
+} */
+
+/* Training page basic reset */
+.training-page,
+.training-page *,
+.training-page *::before,
+.training-page *::after {
+    box-sizing: border-box;
+}
+
+/* Training page links */
+.training-page a {
+    text-decoration: none;
+}
+
+/* Training page buttons */
+.training-page button {
+    font: inherit;
+    cursor: pointer;
 }
 
 .container {
-    width:min(1160px,calc(100% - 40px));
-    margin:auto;
+    width: min(1160px, calc(100% - 40px));
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* HEADER */
-
+/* 
 header {
     position:relative;
     z-index:100;
     background:#fff;
-}
+} */
 
 /* Gap between navbar and hero */
 
@@ -82,12 +102,14 @@ header {
 .hero {
     position:relative;
     overflow:hidden;
-    margin-top: 110px;
+    margin-top: 0px;
     background:
     radial-gradient(circle at 78% 30%,#174c9b 0,transparent 34%),
     linear-gradient(115deg,#06142c 0%,#0a2044 58%,#102e5d 100%);
     color:#fff;
-    padding:92px 0 82px;
+    /* padding:92px 0 82px; */
+    padding: 110px 0 82px;
+    min-height: 460px;
 }
 
 .hero:before {
@@ -1229,10 +1251,320 @@ body .hero h1 .gradient-text {
 }
 
 
+
+
+
+
+/* =====================================================
+   TRAINING PAGE HERO - FINAL RESPONSIVE FIX
+   Keeps the shared navbar in normal document flow.
+===================================================== */
+
+/* Keep this page's header in the document flow so the
+   hero cannot slide underneath a fixed/overlapping header. */
+body.training-page > header {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    width: 100%;
+    z-index: 1000;
+}
+
+body.training-page > header .home2-header-and-topbar-area {
+    position: relative !important;
+    top: auto !important;
+    margin: 0 !important;
+}
+
+/* Add a clear gap between navbar and hero on laptop/desktop. */
+body.training-page main {
+    display: block;
+    padding-top: 32px;
+}
+
+body.training-page .hero {
+    display: block !important;
+    width: 100%;
+    min-height: 0 !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 76px 0 78px !important;
+    overflow: hidden;
+    border-radius: 0;
+}
+
+/* Actual HTML uses .container.hero-grid, .hero-visual
+   and an unclassed first child (not hero-content/hero-image). */
+body.training-page .hero-grid {
+    width: min(1160px, calc(100% - 48px));
+    max-width: 1160px;
+    margin: 0 auto;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+    align-items: center;
+    gap: clamp(28px, 4vw, 55px);
+    position: relative;
+}
+
+body.training-page .hero-grid > div:first-child {
+    min-width: 0;
+    max-width: 620px;
+    position: relative;
+    z-index: 2;
+}
+
+body.training-page .hero h1 {
+    max-width: 650px;
+    margin: 20px 0 18px;
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(36px, 4.2vw, 58px);
+    font-weight: 800;
+    line-height: 1.16;
+    letter-spacing: -1.8px;
+    color: #fff !important;
+    -webkit-text-fill-color: #fff !important;
+    overflow-wrap: normal;
+    word-break: normal;
+}
+
+body.training-page .hero h1 .highlight {
+    background: linear-gradient(90deg, #70caff, #a5d9ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+body.training-page .hero-copy {
+    max-width: 560px;
+    margin: 0;
+    color: #d7e8ff !important;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+body.training-page .hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 26px;
+}
+
+body.training-page .hero-note {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 25px;
+    line-height: 1.6;
+}
+
+body.training-page .hero-visual {
+    width: 100%;
+    min-width: 0;
+    min-height: 390px;
+    margin: 0;
+    display: grid;
+    place-items: center;
+    position: relative;
+}
+
+body.training-page .visual-card {
+    width: min(100%, 440px);
+    min-width: 0;
+    transform: rotate(1deg);
+}
+
+body.training-page .visual-card img {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 23vw, 270px);
+    object-fit: cover;
+}
+
+body.training-page .float-tag.one {
+    left: 0;
+}
+
+body.training-page .float-tag.two {
+    right: 0;
+}
+
+/* Laptop / small desktop */
+@media (max-width: 1100px) {
+    body.training-page main {
+        padding-top: 26px;
+    }
+
+    body.training-page .hero {
+        padding: 64px 0 68px !important;
+    }
+
+    body.training-page .hero-grid {
+        width: min(100% - 44px, 1000px);
+        gap: 28px;
+    }
+
+    body.training-page .hero h1 {
+        font-size: clamp(34px, 4vw, 46px);
+        letter-spacing: -1.3px;
+    }
+
+    body.training-page .hero-copy {
+        font-size: 15px;
+    }
+
+    body.training-page .hero-visual {
+        min-height: 340px;
+    }
+}
+
+/* Tablet and mobile: stack text above image */
+@media (max-width: 767px) {
+    body.training-page main {
+        padding-top: 18px;
+    }
+
+    body.training-page .hero {
+        padding: 48px 0 54px !important;
+    }
+
+    body.training-page .hero-grid {
+        width: min(100% - 32px, 600px);
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 36px;
+    }
+
+    body.training-page .hero-grid > div:first-child {
+        max-width: 100%;
+    }
+
+    body.training-page .hero h1 {
+        max-width: 100%;
+        margin: 17px 0;
+        font-size: clamp(32px, 8vw, 42px);
+        line-height: 1.2;
+        letter-spacing: -1.2px;
+    }
+
+    body.training-page .hero-copy {
+        font-size: 14px;
+        line-height: 1.75;
+    }
+
+    body.training-page .hero-buttons {
+        gap: 10px;
+        margin-top: 22px;
+    }
+
+    body.training-page .hero-buttons .btn {
+        padding: 11px 15px;
+        font-size: 12px;
+    }
+
+    body.training-page .hero-note {
+        margin-top: 20px;
+        font-size: 11px;
+    }
+
+    body.training-page .hero-visual {
+        min-height: 280px;
+        width: 100%;
+    }
+
+    body.training-page .visual-card {
+        width: min(100% - 24px, 440px);
+    }
+
+    body.training-page .visual-card img {
+        height: 220px;
+    }
+
+    body.training-page .float-tag {
+        padding: 9px 11px;
+        font-size: 10px;
+    }
+
+    body.training-page .float-tag.one {
+        top: 12px;
+        left: 0;
+    }
+
+    body.training-page .float-tag.two {
+        bottom: 12px;
+        right: 0;
+    }
+}
+
+/* Small phones */
+@media (max-width: 420px) {
+    body.training-page main {
+        padding-top: 12px;
+    }
+
+    body.training-page .hero {
+        padding: 38px 0 44px !important;
+    }
+
+    body.training-page .hero-grid {
+        width: calc(100% - 28px);
+        gap: 30px;
+    }
+
+    body.training-page .hero h1 {
+        font-size: 31px;
+    }
+
+    body.training-page .hero-visual {
+        min-height: 245px;
+    }
+
+    body.training-page .visual-card img {
+        height: 185px;
+    }
+
+    body.training-page .visual-bottom {
+        gap: 8px;
+        padding: 12px 5px 4px;
+    }
+
+    body.training-page .visual-bottom strong {
+        font-size: 13px;
+    }
+
+    body.training-page .visual-bottom small {
+        font-size: 10px;
+    }
+}
+
+/* Remove extra gap below navbar */
+main {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+.hero {
+    margin-top: 0 !important;
+    padding-top: 76px;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+    main {
+        padding-top: 0 !important;
+    }
+
+    .hero {
+        padding-top: 45px;
+    }
+}
+
+
 </style>
 </head>
 
-<body>
+<body class="training-page">
 
 <!-- HEADER -->
 
@@ -2021,6 +2353,61 @@ body .hero h1 .gradient-text {
 
 <script>
 
+//     fetch("topbar.html")
+//     .then(response => response.text())
+//     .then(data => {
+//         document.getElementById("topbar-container").innerHTML = data;
+//     });
+
+// fetch("navbar.html")
+//     .then(response => response.text())
+//     .then(data => {
+//         document.getElementById("navbar-container").innerHTML = data;
+//     });
+
+
+// ========================================
+// LOAD TOPBAR AND NAVBAR
+// ========================================
+
+async function loadHeader() {
+    try {
+        const [topbarResponse, navbarResponse] = await Promise.all([
+            fetch("./topbar.html"),
+            fetch("./navbar.html")
+        ]);
+
+        if (!topbarResponse.ok || !navbarResponse.ok) {
+            throw new Error("Header files could not be loaded.");
+        }
+
+        const [topbarHTML, navbarHTML] = await Promise.all([
+            topbarResponse.text(),
+            navbarResponse.text()
+        ]);
+
+        const topbarContainer = document.getElementById("topbar-container");
+        const navbarContainer = document.getElementById("navbar-container");
+
+        if (topbarContainer) {
+            topbarContainer.innerHTML = topbarHTML;
+        }
+
+        if (navbarContainer) {
+            navbarContainer.innerHTML = navbarHTML;
+        }
+
+        // Initialize navbar after loading HTML
+        initializeNavbar();
+
+    } catch (error) {
+        console.error("Header loading error:", error);
+    }
+}
+
+loadHeader();
+
+
 // ========================================
 // PROGRAM DATA
 // ========================================
@@ -2386,49 +2773,7 @@ if (!["training","internship"].includes(selectedType)) {
 const $ = (id) => document.getElementById(id);
 
 
-// ========================================
-// LOAD TOPBAR AND NAVBAR
-// ========================================
 
-document.addEventListener("DOMContentLoaded", async function () {
-
-    try {
-
-        const [topbarResponse, navbarResponse] = await Promise.all([
-            fetch("topbar.html"),
-            fetch("navbar.html")
-        ]);
-
-        if (!topbarResponse.ok) {
-            throw new Error("topbar.html not found");
-        }
-
-        if (!navbarResponse.ok) {
-            throw new Error("navbar.html not found");
-        }
-
-        const [topbarHTML, navbarHTML] = await Promise.all([
-            topbarResponse.text(),
-            navbarResponse.text()
-        ]);
-
-        $("topbar-container").innerHTML = topbarHTML;
-
-        $("navbar-container").innerHTML = navbarHTML;
-
-        initializeNavbar();
-
-    } catch (error) {
-
-        console.error("Header loading error:",error);
-
-    }
-
-    renderProgram();
-
-    $("year").textContent = new Date().getFullYear();
-
-});
 
 
 // ========================================
@@ -2687,6 +3032,22 @@ $("trainingTab").addEventListener("click",function() {
 $("internshipTab").addEventListener("click",function() {
 
     selectProgram(selectedKey,"internship");
+
+});
+
+// ========================================
+// INITIAL PAGE LOAD
+// ========================================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    renderProgram();
+
+    const yearElement = document.getElementById("year");
+
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+    }
 
 });
 
