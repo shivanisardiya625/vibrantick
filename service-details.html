@@ -521,11 +521,10 @@
                     >
                       <h2 class="accordion-header" id="headingOne">
                         <button
-                          class="accordion-button"
+                          class="accordion-button collapsed"
                           type="button"
-                          data-bs-toggle="collapse"
                           data-bs-target="#collapseOne"
-                          aria-expanded="true"
+                          aria-expanded="false"
                           aria-controls="collapseOne"
                         >
                           01. Is Qleviq suitable for my business?
@@ -533,8 +532,7 @@
                       </h2>
                       <div
                         id="collapseOne"
-                        class="accordion-collapse collapse show"
-                        data-bs-parent="#accordionExample"
+                        class="accordion-collapse collapse"
                       >
                         <div class="accordion-body">
                           Qlevic is designed to fit businesses of all sizes and
@@ -552,7 +550,6 @@
                         <button
                           class="accordion-button collapsed"
                           type="button"
-                          data-bs-toggle="collapse"
                           data-bs-target="#collapseTwo"
                           aria-expanded="false"
                           aria-controls="collapseTwo"
@@ -563,7 +560,6 @@
                       <div
                         id="collapseTwo"
                         class="accordion-collapse collapse"
-                        data-bs-parent="#accordionExample"
                       >
                         <div class="accordion-body">
                           Project timelines vary based on scope and
@@ -582,7 +578,6 @@
                         <button
                           class="accordion-button collapsed"
                           type="button"
-                          data-bs-toggle="collapse"
                           data-bs-target="#collapseThree"
                           aria-expanded="false"
                           aria-controls="collapseThree"
@@ -593,7 +588,6 @@
                       <div
                         id="collapseThree"
                         class="accordion-collapse collapse"
-                        data-bs-parent="#accordionExample"
                       >
                         <div class="accordion-body">
                           Yes, we provide reliable ongoing support and
@@ -914,7 +908,6 @@
                 <div class="cs-badge-card">
                   <h4 class="cs-badge-brand">Clutch</h4>
                   <div class="cs-stars stars-red">★★★★★</div>
-                  <span class="cs-rating-score">4.9/5.0</span>
                   <p class="cs-badge-desc">Top Rated IT Services<br />Company</p>
                 </div>
 
@@ -1082,6 +1075,77 @@
     <script src="assets/js/hover-effect.umd.js"></script>
     <!-- Custom JS -->
     <script src="assets/js/custom.js"></script>
+      <!-- Dedicated FAQ Accordion Toggle Script -->
+    <script>
+      (function () {
+        function initIndustryFaq() {
+          var buttons = document.querySelectorAll('.custom-accordion .accordion-button, .accordion .accordion-button');
+          if (!buttons.length) return;
+
+          buttons.forEach(function (button) {
+            button.addEventListener('click', function (e) {
+              e.preventDefault();
+
+              var targetSelector = this.getAttribute('data-bs-target') || this.getAttribute('data-target') || this.getAttribute('href');
+              if (!targetSelector) return;
+              var targetCollapse = document.querySelector(targetSelector);
+              if (!targetCollapse) return;
+
+              var parent = this.closest('.accordion, .custom-accordion');
+              var isCurrentlyOpen = targetCollapse.classList.contains('show') || !this.classList.contains('collapsed') || this.getAttribute('aria-expanded') === 'true';
+
+              if (isCurrentlyOpen) {
+                // Smoothly close this item
+                this.classList.add('collapsed');
+                this.setAttribute('aria-expanded', 'false');
+                targetCollapse.classList.remove('show');
+                if (window.jQuery) {
+                  window.jQuery(targetCollapse).stop(true, true).slideUp(280, function () {
+                    window.jQuery(this).css('display', '');
+                  });
+                }
+              } else {
+                // Close any open sibling in the same accordion
+                if (parent) {
+                  parent.querySelectorAll('.accordion-button').forEach(function (otherBtn) {
+                    if (otherBtn !== button) {
+                      otherBtn.classList.add('collapsed');
+                      otherBtn.setAttribute('aria-expanded', 'false');
+                    }
+                  });
+                  parent.querySelectorAll('.accordion-collapse.show').forEach(function (openCol) {
+                    if (openCol !== targetCollapse) {
+                      openCol.classList.remove('show');
+                      if (window.jQuery) {
+                        window.jQuery(openCol).stop(true, true).slideUp(280, function () {
+                          window.jQuery(this).css('display', '');
+                        });
+                      }
+                    }
+                  });
+                }
+
+                // Smoothly open this item
+                this.classList.remove('collapsed');
+                this.setAttribute('aria-expanded', 'true');
+                targetCollapse.classList.add('show');
+                if (window.jQuery) {
+                  window.jQuery(targetCollapse).stop(true, true).hide().slideDown(280, function () {
+                    window.jQuery(this).css('display', '');
+                  });
+                }
+              }
+            });
+          });
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', initIndustryFaq);
+        } else {
+          initIndustryFaq();
+        }
+      })();
+    </script>
   </body>
 
   <!-- Mirrored from demo.egenslab.com/html/qleviq/preview/service-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 Aug 2026 07:31:07 GMT -->

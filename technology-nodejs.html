@@ -252,7 +252,7 @@
 
       /* SECTION HEADERS (STRICT LEFT ALIGNMENT) */
       .tech-section-title {
-        margin-bottom: 35px;
+        margin-bottom: 22px;
         text-align: left;
       }
       .tech-section-title h2 {
@@ -278,6 +278,14 @@
       .tech-overview-area {
         padding: 85px 0;
         background: #ffffff;
+      }
+      .tech-overview-area .row {
+        align-items: flex-start !important;
+      }
+      @media (min-width: 992px) {
+        .tech-stack-mockup-card {
+          margin-top: 2px;
+        }
       }
 
       /* PURE CSS GLASSMORPHISM TECH ARCHITECTURE MOCKUP (ZERO BROKEN IMAGES) */
@@ -475,7 +483,7 @@
       .tech-check-list {
         list-style: none;
         padding: 0;
-        margin: 25px 0 0;
+        margin: 20px 0 0;
       }
       .tech-check-list li {
         display: flex;
@@ -779,6 +787,79 @@
         transform: translateY(-2px);
         box-shadow: 0 10px 24px rgba(0, 123, 255, 0.35);
       }
+          /* NATIVE DETAILS/SUMMARY ACCORDION (100% RELIABLE ZERO-FAIL TOGGLE) */
+      .tech-faq-container {
+        width: 100%;
+      }
+      .tech-faq-item {
+        border: 1px solid var(--vb-border, #e2e8f0);
+        border-radius: 12px !important;
+        margin-bottom: 16px;
+        overflow: hidden;
+        background: #ffffff;
+        width: 100%;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      }
+      .tech-faq-item[open] {
+        border-color: rgba(0, 123, 255, 0.35);
+        box-shadow: 0 4px 15px rgba(0, 123, 255, 0.06);
+      }
+      .tech-faq-summary {
+        list-style: none;
+        cursor: pointer;
+        font-size: 17px;
+        font-weight: 700;
+        color: var(--vb-navy, #0a1c3d);
+        padding: 22px 28px;
+        background: #ffffff;
+        text-align: left;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        user-select: none;
+        outline: none;
+        transition: background 0.25s ease, color 0.25s ease;
+      }
+      .tech-faq-summary::-webkit-details-marker {
+        display: none;
+      }
+      .tech-faq-summary::marker {
+        display: none;
+      }
+      .tech-faq-item[open] > .tech-faq-summary {
+        color: var(--vb-blue, #007bff);
+        background: #f0f7ff;
+        border-bottom: 1px solid var(--vb-border, #e2e8f0);
+      }
+      .tech-faq-summary .faq-chevron-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        color: var(--vb-navy, #0a1c3d);
+        transition: transform 0.25s ease-in-out, color 0.25s ease;
+        flex-shrink: 0;
+        margin-left: 16px;
+      }
+      .tech-faq-item[open] > .tech-faq-summary .faq-chevron-icon {
+        transform: rotate(-180deg);
+        color: var(--vb-blue, #007bff);
+      }
+      .tech-faq-content {
+        padding: 22px 28px;
+        color: var(--vb-slate, #4a5568);
+        font-size: 15px;
+        line-height: 1.7;
+        text-align: left;
+        background: #ffffff;
+      }
+      .tech-faq-content p {
+        margin: 0;
+        color: inherit;
+        font-size: inherit;
+        line-height: inherit;
+      }
     </style>
   </head>
   <body class="tt-magic-cursor">
@@ -818,7 +899,7 @@
         <!-- 1. HERO SECTION (DYNAMIC TECH BACKGROUND + EXACT HEALTHCARE BENCHMARK CARD) -->
         <section class="tech-hero" style="background: linear-gradient(135deg, rgba(10, 15, 28, 0.92) 0%, rgba(15, 33, 58, 0.88) 100%), url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;">
           <div class="container">
-            <div class="row align-items-center gy-5">
+            <div class="row align-items-start gy-5">
               <div class="col-xl-6 col-lg-6">
                 <div class="hero-pill-badge">
                   <span class="badge-dot"></span> TECHNOLOGY / BACKEND & RUNTIME
@@ -1196,69 +1277,54 @@
             </div>
             <div class="row">
               <div class="col-12">
-                <div class="accordion accordion-tech" id="techFaqAccordion">
+                <div class="tech-faq-container" id="techFaqAccordion">
 
-              <div class="accordion-item">
-                <h3 class="accordion-header" id="faqHeading1">
-                  <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1" aria-expanded="true" aria-controls="faqCollapse1">
-                    Why should our enterprise choose Node.js over traditional Java or .NET backends?
-                  </button>
-                </h3>
-                <div id="faqCollapse1" class="accordion-collapse collapse show" aria-labelledby="faqHeading1" data-bs-parent="#techFaqAccordion">
-                  <div class="accordion-body">
-                    Node.js offers unrivaled I/O speed, drastically lower memory consumption, unified full-stack TypeScript tooling, and immense development velocity—making it the ideal runtime for real-time applications, microservices, and high-concurrency APIs.
-                  </div>
+              <details class="tech-faq-item" name="tech-faq">
+                <summary class="tech-faq-summary">
+                  <span>Why should our enterprise choose Node.js over traditional Java or .NET backends?</span>
+                  <span class="faq-chevron-icon"><i class="bi bi-chevron-down"></i></span>
+                </summary>
+                <div class="tech-faq-content">
+                  <p>Node.js offers unrivaled I/O speed, drastically lower memory consumption, unified full-stack TypeScript tooling, and immense development velocity—making it the ideal runtime for real-time applications, microservices, and high-concurrency APIs.</p>
                 </div>
-              </div>
-              <div class="accordion-item">
-                <h3 class="accordion-header" id="faqHeading2">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2" aria-expanded="false" aria-controls="faqCollapse2">
-                    How does Node.js prevent CPU-intensive tasks from freezing user requests?
-                  </button>
-                </h3>
-                <div id="faqCollapse2" class="accordion-collapse collapse " aria-labelledby="faqHeading2" data-bs-parent="#techFaqAccordion">
-                  <div class="accordion-body">
-                    While Node.js uses a single-threaded event loop for I/O, heavy computational workloads are isolated using native Worker Threads or delegated to asynchronous microservices, keeping the main loop completely unblocked.
-                  </div>
+              </details>
+              <details class="tech-faq-item" name="tech-faq">
+                <summary class="tech-faq-summary">
+                  <span>How does Node.js prevent CPU-intensive tasks from freezing user requests?</span>
+                  <span class="faq-chevron-icon"><i class="bi bi-chevron-down"></i></span>
+                </summary>
+                <div class="tech-faq-content">
+                  <p>While Node.js uses a single-threaded event loop for I/O, heavy computational workloads are isolated using native Worker Threads or delegated to asynchronous microservices, keeping the main loop completely unblocked.</p>
                 </div>
-              </div>
-              <div class="accordion-item">
-                <h3 class="accordion-header" id="faqHeading3">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse3" aria-expanded="false" aria-controls="faqCollapse3">
-                    What framework do you recommend for enterprise Node.js applications?
-                  </button>
-                </h3>
-                <div id="faqCollapse3" class="accordion-collapse collapse " aria-labelledby="faqHeading3" data-bs-parent="#techFaqAccordion">
-                  <div class="accordion-body">
-                    We strongly favor NestJS for enterprise systems because it provides an opinionated architecture inspired by Angular (featuring Dependency Injection, modularity, and TypeScript natively), and Fastify when raw HTTP throughput is the top priority.
-                  </div>
+              </details>
+              <details class="tech-faq-item" name="tech-faq">
+                <summary class="tech-faq-summary">
+                  <span>What framework do you recommend for enterprise Node.js applications?</span>
+                  <span class="faq-chevron-icon"><i class="bi bi-chevron-down"></i></span>
+                </summary>
+                <div class="tech-faq-content">
+                  <p>We strongly favor NestJS for enterprise systems because it provides an opinionated architecture inspired by Angular (featuring Dependency Injection, modularity, and TypeScript natively), and Fastify when raw HTTP throughput is the top priority.</p>
                 </div>
-              </div>
-              <div class="accordion-item">
-                <h3 class="accordion-header" id="faqHeading4">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse4" aria-expanded="false" aria-controls="faqCollapse4">
-                    How do you ensure enterprise data security in Node.js backends?
-                  </button>
-                </h3>
-                <div id="faqCollapse4" class="accordion-collapse collapse " aria-labelledby="faqHeading4" data-bs-parent="#techFaqAccordion">
-                  <div class="accordion-body">
-                    We implement comprehensive security middleware including Helmet.js header protection, CORS policies, rate limiting, parameterized queries against SQL injection, data encryption at rest and in transit, and continuous automated npm audit checks.
-                  </div>
+              </details>
+              <details class="tech-faq-item" name="tech-faq">
+                <summary class="tech-faq-summary">
+                  <span>How do you ensure enterprise data security in Node.js backends?</span>
+                  <span class="faq-chevron-icon"><i class="bi bi-chevron-down"></i></span>
+                </summary>
+                <div class="tech-faq-content">
+                  <p>We implement comprehensive security middleware including Helmet.js header protection, CORS policies, rate limiting, parameterized queries against SQL injection, data encryption at rest and in transit, and continuous automated npm audit checks.</p>
                 </div>
-              </div>
-              <div class="accordion-item">
-                <h3 class="accordion-header" id="faqHeading5">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse5" aria-expanded="false" aria-controls="faqCollapse5">
-                    Can you migrate our existing monolithic backend to a Node.js microservices architecture?
-                  </button>
-                </h3>
-                <div id="faqCollapse5" class="accordion-collapse collapse " aria-labelledby="faqHeading5" data-bs-parent="#techFaqAccordion">
-                  <div class="accordion-body">
-                    Yes. We apply the Strangler Fig pattern, systematically routing API endpoints from your legacy backend to new Node.js microservices with zero downtime.
-                  </div>
+              </details>
+              <details class="tech-faq-item" name="tech-faq">
+                <summary class="tech-faq-summary">
+                  <span>Can you migrate our existing monolithic backend to a Node.js microservices architecture?</span>
+                  <span class="faq-chevron-icon"><i class="bi bi-chevron-down"></i></span>
+                </summary>
+                <div class="tech-faq-content">
+                  <p>Yes. We apply the Strangler Fig pattern, systematically routing API endpoints from your legacy backend to new Node.js microservices with zero downtime.</p>
                 </div>
-              </div>
-                </div>
+              </details>
+            </div>
               </div>
             </div>
           </div>
@@ -1434,7 +1500,6 @@
                 <div class="cs-badge-card">
                   <h4 class="cs-badge-brand">Clutch</h4>
                   <div class="cs-stars stars-red">★★★★★</div>
-                  <span class="cs-rating-score">4.9/5.0</span>
                   <p class="cs-badge-desc">Top Rated IT Services<br />Company</p>
                 </div>
 
@@ -1567,60 +1632,22 @@
     <script src="assets/js/slick.js"></script>
     <script src="assets/js/custom.js"></script>
 
-    <!-- Interactive FAQ Accordion Toggle Script -->
+            <!-- Native Details/Summary FAQ Accordion Toggle Script -->
     <script>
       (function () {
-        function setupFaqAccordion() {
-          var faqAccordion = document.getElementById('techFaqAccordion');
-          if (!faqAccordion) return;
-
-          var buttons = faqAccordion.querySelectorAll('.accordion-button');
-          buttons.forEach(function (button) {
-            if (button.dataset.accordionInit) return;
-            button.dataset.accordionInit = 'true';
-
-            button.addEventListener('click', function (e) {
-              e.preventDefault();
-              e.stopPropagation();
-
-              var targetSelector = this.getAttribute('data-bs-target') || this.getAttribute('data-target');
-              if (!targetSelector) return;
-              var targetCollapse = document.querySelector(targetSelector);
-              if (!targetCollapse) return;
-
-              // If Bootstrap 5 Collapse is active, utilize its native API for fluid animation
-              if (window.bootstrap && window.bootstrap.Collapse) {
-                var bsCollapse = window.bootstrap.Collapse.getOrCreateInstance(targetCollapse, {
-                  parent: '#techFaqAccordion'
-                });
-                bsCollapse.toggle();
-              } else {
-                // Direct vanilla JS toggle fallback
-                var isCurrentlyShown = targetCollapse.classList.contains('show');
-                
-                faqAccordion.querySelectorAll('.accordion-collapse.show').forEach(function (openCol) {
-                  openCol.classList.remove('show');
-                });
-                faqAccordion.querySelectorAll('.accordion-button').forEach(function (btn) {
-                  btn.classList.add('collapsed');
-                  btn.setAttribute('aria-expanded', 'false');
-                });
-
-                if (!isCurrentlyShown) {
-                  this.classList.remove('collapsed');
-                  this.setAttribute('aria-expanded', 'true');
-                  targetCollapse.classList.add('show');
-                }
+        document.addEventListener('click', function (e) {
+          var summary = e.target.closest('.tech-faq-summary');
+          if (!summary) return;
+          var details = summary.parentElement;
+          if (!details) return;
+          if (!details.open) {
+            document.querySelectorAll('details.tech-faq-item[open]').forEach(function (openItem) {
+              if (openItem !== details) {
+                openItem.open = false;
               }
             });
-          });
-        }
-
-        if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', setupFaqAccordion);
-        } else {
-          setupFaqAccordion();
-        }
+          }
+        });
       })();
     </script>
   </body>

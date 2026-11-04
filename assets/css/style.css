@@ -4523,44 +4523,45 @@ header.style-2 .main-menu > ul > li ul.sub-menu > li:last-child {
   border-bottom: none;
 }
 /* =========================================
-   INDUSTRY DROPDOWN - FULL WIDTH MEGA MENU
+   INDUSTRY DROPDOWN - COMPACT CARD LAYOUT
+   Hugs list items neatly in a single column without excessive width or empty voids.
    ========================================= */
 
-/* 1. Force the parent <li> to be static so the menu can break out and span the header */
 header.style-2 .main-menu > ul > li:has(> ul.industry-sub-menu) {
-  position: static !important;
-  transition: all 0.55s ease-in-out;
+  position: relative !important;
+  transition: all 0.3s ease-in-out;
 }
 
-/* 2. Match the exact sizing, centering, and styling of your standard mega-menus */
 header.style-2 .main-menu > ul > li > ul.industry-sub-menu {
   display: none;
-  grid-template-columns: repeat(4, 1fr) !important; /* Changed to 4 columns */
-  gap: 10px 20px;
+  flex-direction: column !important;
+  gap: 2px !important;
   
-  /* Full Width & Centering */
+  /* Compact Card Dimensions */
   position: absolute !important;
+  top: calc(100% - 2px) !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
-  width: 100% !important;
-  max-width: 1320px !important;
-  top: 75px !important; /* Matches your other mega menus */
-  transform-origin: top; /* Ensures the animation originates from the top */
-  z-index: 1;
+  width: 320px !important;
+  max-width: 360px !important;
+  min-width: 290px !important;
+  padding: 12px 14px !important;
   
   /* Box Styling */
-  padding: 30px !important;
-  background: var(--white-color, #ffffff);
-  border: 1px solid rgba(var(--borders-color-opc, 0,0,0), 0.05);
-  box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.10);
-  border-radius: 20px;
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.10) !important;
+  border-radius: 14px !important;
+  z-index: 9999 !important;
+  box-sizing: border-box !important;
+  transform-origin: top;
 }
 
-/* 3. Top-to-Bottom Slide Animation */
-@keyframes megaMenuSlideDown {
+/* Slide animation */
+@keyframes industrySubMenuSlideDown {
   0% {
     opacity: 0;
-    transform: translateX(-50%) translateY(-15px);
+    transform: translateX(-50%) translateY(-10px);
   }
   100% {
     opacity: 1;
@@ -4568,60 +4569,41 @@ header.style-2 .main-menu > ul > li > ul.industry-sub-menu {
   }
 }
 
-/* Show grid only on hover with the custom top-to-bottom animation */
 @media (min-width: 992px) {
-  header.style-2 .main-menu > ul > li:hover > ul.industry-sub-menu {
-    display: grid !important;
-    animation: megaMenuSlideDown 0.35s ease-out forwards;
+  header.style-2 .main-menu > ul > li:hover > ul.industry-sub-menu,
+  header.style-2 .main-menu > ul > li > ul.industry-sub-menu:hover,
+  header.style-2 .main-menu > ul > li.menu-open > ul.industry-sub-menu,
+  header.style-2 .main-menu > ul > li.menu-open > ul.industry-sub-menu:hover {
+    display: flex !important;
+    flex-direction: column !important;
+    animation: industrySubMenuSlideDown 0.25s ease-out forwards;
   }
 }
-
-/* Responsive sizes mirroring your existing mega-menu CSS */
-@media (max-width: 1399px) {
-  header.style-2 .main-menu > ul > li > ul.industry-sub-menu {
-    max-width: 1180px !important;
-  }
-}
-@media (min-width: 992px) and (max-width: 1199px) {
-  header.style-2 .main-menu > ul > li > ul.industry-sub-menu {
-    max-width: calc(100% - 20px) !important;
-  }
-}
-
 
 /* =========================================
-   INDUSTRY SUB-ITEMS (Unchanged Inner Styling)
+   INDUSTRY SUB-ITEMS (Compact List Styling)
    ========================================= */
 header.style-2 .main-menu > ul > li > ul.industry-sub-menu > li {
-  display: block;
-  width: 100%;
+  display: block !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
 }
 
 header.style-2 .main-menu > ul > li > ul.industry-sub-menu > li > a {
-  display: block;
-  padding: 12px 14px;
-  border-radius: 8px;
-  transition: background-color 0.25s ease;
-}
-
-header.style-2 .main-menu > ul > li > ul.industry-sub-menu > li > a,
-header.style-2 .main-menu > ul > li > ul.industry-sub-menu > li:hover > a,
-header.style-2 .main-menu > ul > li > ul.industry-sub-menu > li > a:hover {
-  color: var(--title-color) !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 9px 12px !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease !important;
+  white-space: nowrap !important;
   text-decoration: none !important;
-}
-
-header.style-2 .main-menu > ul > li > ul.industry-sub-menu > li > a svg,
-header.style-2 .main-menu > ul > li > ul.industry-sub-menu > li:hover > a svg,
-header.style-2 .main-menu > ul > li > ul.industry-sub-menu > li > a:hover svg {
-  fill: #555555 !important;
-  transform: none !important;
-  transition: none !important;
+  color: var(--title-color, #172B3A) !important;
 }
 
 header.style-2 .main-menu > ul > li > ul.industry-sub-menu > li > a:hover {
-  background-color: #f2f4ff;
-  border-radius: 8px;
+  background-color: #f0f7ff !important;
 }
 
 header.style-2 .main-menu > ul > li > ul.industry-sub-menu > li > a::before,
@@ -4630,26 +4612,40 @@ header.style-2 .main-menu > ul > li > ul.industry-sub-menu > li > a:hover::befor
 }
 
 header.style-2 .main-menu > ul > li > ul.industry-sub-menu > li > a .industry-item {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 10px;
-  width: 100%;
-  text-align: left;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 12px !important;
+  width: 100% !important;
+  text-align: left !important;
 }
 
 header.style-2 .main-menu > ul > li > ul.industry-sub-menu > li > a .industry-item svg {
-  width: 24px;
-  height: 24px;
-  flex: 0 0 24px;
+  width: 20px !important;
+  height: 20px !important;
+  flex: 0 0 20px !important;
+  fill: #475569 !important;
+  transition: transform 0.2s ease, fill 0.2s ease !important;
+}
+
+header.style-2 .main-menu > ul > li > ul.industry-sub-menu > li > a:hover .industry-item svg {
+  fill: #007bff !important;
+  transform: scale(1.1) !important;
 }
 
 header.style-2 .main-menu > ul > li > ul.industry-sub-menu > li > a .industry-item > span {
-  display: block;
-  text-align: left;
+  display: inline-block !important;
+  text-align: left !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: var(--title-color, #172B3A) !important;
+  transition: color 0.2s ease !important;
 }
 
+header.style-2 .main-menu > ul > li > ul.industry-sub-menu > li > a:hover .industry-item > span {
+  color: #007bff !important;
+}
 
 
 /* Mega Menu */
@@ -18782,7 +18778,9 @@ header.style-2 .main-menu > ul > li:hover > a.ai-menu-btn {
   padding-left: 2px;
 }
 
-/* 2. Middle Badges Row */
+/*================================================
+  2. Middle Badges Row (Uniform Alignment Across All Pages)
+=================================================*/
 .cs-badges-row {
   display: flex;
   align-items: center;
@@ -18792,6 +18790,7 @@ header.style-2 .main-menu > ul > li:hover > a.ai-menu-btn {
   margin-top: 5px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
+
 .cs-trust-intro {
   display: flex;
   align-items: center;
@@ -18799,10 +18798,12 @@ header.style-2 .main-menu > ul > li:hover > a.ai-menu-btn {
   min-width: 230px;
   flex-shrink: 0;
 }
+
 .cs-shield-icon {
   color: #38bdf8;
   flex-shrink: 0;
 }
+
 .cs-trust-text p {
   color: #ffffff;
   font-size: 13px;
@@ -18810,140 +18811,178 @@ header.style-2 .main-menu > ul > li:hover > a.ai-menu-btn {
   line-height: 1.35;
   margin: 0;
 }
+
 .cs-badges-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
   width: 100%;
 }
+
 .cs-badge-card {
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 6px;
-  padding: 10px 12px;
+  padding: 12px 10px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 84px;
+  min-height: 88px;
+  height: 88px;
+  box-sizing: border-box;
   transition: all 0.3s ease;
 }
+
 .cs-badge-card:hover {
   border-color: rgba(255, 255, 255, 0.3);
   background: rgba(255, 255, 255, 0.04);
   transform: translateY(-2px);
 }
+
+/* Card 1 & Card 2: Brand Headers */
 .cs-badge-brand {
   font-size: 16px;
   font-weight: 700;
   color: #ffffff;
-  margin-bottom: 1px;
-}
-.cs-stars {
-  font-size: 12px;
-  letter-spacing: 1.5px;
-  margin-bottom: 1px;
-}
-.stars-red { color: #f93232; }
-.stars-blue { color: #007bff; }
-.cs-rating-score {
-  font-size: 11px;
-  font-weight: 600;
-  color: #ffffff;
-  margin-bottom: 2px;
-}
-.cs-badge-desc {
-  font-size: 10.5px;
-  color: rgba(255, 255, 255, 0.7);
-  line-height: 1.25;
-  margin: 0;
+  letter-spacing: -0.2px;
+  line-height: 1.1;
+  margin: 0 0 5px 0;
 }
 
-/* GoodFirms Badge Header */
 .cs-goodfirms-header {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
-  margin-bottom: 2px;
+  line-height: 1.1;
+  margin: 0 0 5px 0;
 }
+
 .cs-gf-logo-box {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 900;
   background: #ffffff;
   color: #080c14;
-  width: 17px;
-  height: 17px;
+  width: 16px;
+  height: 16px;
   border-radius: 2px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   line-height: 1;
 }
+
 .cs-gf-brand-name {
-  font-size: 15px;
+  font-size: 14.5px;
   font-weight: 700;
   color: #ffffff;
 }
 
-/* ISO Badge Header */
+/* Stars */
+.cs-stars {
+  font-size: 11.5px;
+  letter-spacing: 2px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 6px 0;
+}
+
+.stars-red {
+  color: #f93232;
+}
+
+.stars-blue {
+  color: #007bff;
+}
+
+/* Card 3: ISO Badge Header & Centering */
 .cs-iso-header {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
-  margin-bottom: 4px;
+  line-height: 1.1;
+  margin: 0 0 8px 0;
 }
+
 .cs-iso-globe {
   color: #ffffff;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
+
 .cs-iso-title {
   font-size: 13px;
   color: #ffffff;
-}
-.cs-iso-desc {
-  font-size: 10.5px;
+  font-weight: 600;
+  line-height: 1;
 }
 
-/* Microsoft Partner Header */
+/* Card 4: Microsoft Partner Header & Centering */
 .cs-msft-header {
   display: flex;
   align-items: center;
-  gap: 6px;
-  margin-bottom: 4px;
+  justify-content: center;
+  gap: 7px;
+  line-height: 1.1;
+  margin: 0 0 8px 0;
   text-align: left;
 }
+
 .cs-msft-grid-logo {
   display: grid;
   grid-template-columns: 7px 7px;
   gap: 2px;
 }
+
 .ms-square {
   width: 7px;
   height: 7px;
   display: block;
 }
+
 .ms-red { background: #f25022; }
 .ms-green { background: #7fba00; }
 .ms-blue { background: #00a4ef; }
 .ms-yellow { background: #ffb900; }
+
 .cs-msft-text {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
+
 .cs-msft-brand {
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 700;
   color: #ffffff;
   line-height: 1.1;
 }
+
 .cs-msft-partner {
+  font-size: 9.5px;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1;
+  margin-top: 1px;
+}
+
+/* Uniform Descriptions across all 4 cards */
+.cs-badge-desc {
   font-size: 10px;
   color: rgba(255, 255, 255, 0.75);
+  line-height: 1.25;
+  margin: 0;
+  text-align: center;
 }
+
+.cs-iso-desc,
 .cs-msft-desc {
-  font-size: 10.5px;
+  margin: 0;
 }
 
 /* 3. Bottom Footer Bar */
@@ -43004,5 +43043,615 @@ header.style-2.three {
   .home2-header-and-topbar-area.header-two,
   .home2-header-and-topbar-area.sticky {
     transform: none !important;
+  }
+}
+
+/* Leadership View Full Team Button Hover */
+.leadership-view-team-btn:hover {
+    background-color: #0052a3 !important;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 102, 204, 0.35) !important;
+}
+
+/* Leadership Section & Member Cards */
+.leadership-team-section {
+    background-color: #FAF9F6;
+    padding-top: 75px;
+    padding-bottom: 50px;
+}
+
+.leadership-subtag {
+    display: inline-flex;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: #0066cc;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+}
+
+.leadership-subtag-line {
+    display: inline-block;
+    width: 22px;
+    height: 3px;
+    background-color: #0066cc;
+    margin-right: 10px;
+    border-radius: 2px;
+}
+
+.leadership-member-card {
+    background: #ffffff;
+    border: 1px solid #e9ecef;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px;
+}
+
+.leadership-member-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.09);
+}
+
+.member-img-wrap {
+    height: 250px;
+    width: 100%;
+    background-color: #36454f;
+    overflow: hidden;
+    position: relative;
+}
+
+.member-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.leadership-member-card:hover .member-img-wrap img {
+    transform: scale(1.04);
+}
+
+.member-info-wrap {
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background: #ffffff;
+    border-top: 1px solid #f1f5f9;
+}
+
+.member-name {
+    font-family: var(--font-montserrat), sans-serif;
+    font-size: 16.5px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 3px 0;
+    line-height: 1.3;
+}
+
+.member-role {
+    font-family: var(--font-poppins), sans-serif;
+    font-size: 13.5px;
+    color: #64748b;
+    font-weight: 500;
+    margin: 0;
+}
+
+.member-linkedin {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    background: rgba(0, 119, 181, 0.08);
+    color: #0077b5;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    flex-shrink: 0;
+}
+
+.member-linkedin:hover {
+    background: #0077b5;
+    color: #ffffff !important;
+    transform: scale(1.06);
+}
+
+.leadership-view-all-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #0066cc;
+    color: #ffffff;
+    padding: 13px 34px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px rgba(0, 102, 204, 0.22);
+}
+
+.leadership-view-all-btn:hover {
+    background-color: #0052a3 !important;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 102, 204, 0.35) !important;
+}
+
+/* ==========================================================================
+   RESPONSIVE MEDIA QUERIES & VIEWPORT SCALING SAFEGUARDS
+   Zero overrides on standard desktop (> 1200px) - preserves 100% original view
+   Activated strictly on <= 1200px, <= 992px, <= 768px
+   ========================================================================== */
+
+/* Prevent accidental horizontal overflow on zoom or narrow screens */
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+/* ==========================================================================
+   PROPORTIONAL NAVBAR ZOOM-SCALING & ALIGNMENT SAFEGUARDS
+   Handles 110% to 140% Zoom levels on standard screens and medium laptops (1201px to 1599px).
+   Prevents items from crowding, wrapping into multiple rows, or overlapping the logo/button.
+   Standard desktop (> 1600px at 100% zoom) remains 100% pixel-perfect and untouched.
+   ========================================================================== */
+@media (max-width: 1599px) and (min-width: 1201px) {
+  header.style-2 {
+    padding: 0 clamp(14px, 2.2vw, 36px) !important;
+  }
+
+  header.style-2 .container-fluid {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: clamp(8px, 1.2vw, 20px) !important;
+  }
+
+  header.style-2 .header-logo {
+    flex-shrink: 0 !important;
+  }
+
+  header.style-2 .header-logo img {
+    width: clamp(110px, 7.5vw, 138px) !important;
+    height: auto !important;
+    max-height: 42px !important;
+  }
+
+  header.style-2 .main-menu {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+  }
+
+  header.style-2 .main-menu > ul.menu-list {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: clamp(2px, 0.5vw, 10px) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+    width: auto !important;
+  }
+
+  header.style-2 .main-menu > ul.menu-list > li {
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 16px 0 !important;
+    margin: 0 !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+
+  header.style-2 .main-menu > ul.menu-list > li > a {
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 5px clamp(6px, 0.7vw, 14px) !important;
+    font-size: clamp(11.5px, 0.78vw, 13px) !important;
+    white-space: nowrap !important;
+    line-height: 1 !important;
+    letter-spacing: 0.2px !important;
+  }
+
+  header.style-2 .main-menu > ul.menu-list > li > a.ai-menu-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    padding: 5px clamp(7px, 0.7vw, 12px) !important;
+  }
+
+  header.style-2 .main-menu > ul.menu-list > li > a.ai-menu-btn svg.right-sparkles {
+    width: clamp(14px, 1vw, 18px) !important;
+    height: clamp(14px, 1vw, 18px) !important;
+  }
+
+  header.style-2 .nav-right {
+    display: flex !important;
+    align-items: center !important;
+    gap: clamp(8px, 1vw, 16px) !important;
+    flex-shrink: 0 !important;
+  }
+
+  header.style-2 .nav-right .btn-get-quote,
+  header.style-2 .btn-get-quote,
+  .nav-cta-buttons .btn-get-quote {
+    padding: 6px clamp(12px, 0.9vw, 18px) !important;
+    height: clamp(34px, 2.3vw, 38px) !important;
+    font-size: clamp(12px, 0.78vw, 13.5px) !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1 !important;
+  }
+
+  .topbar-area .topbar-wrap {
+    padding: 8px clamp(14px, 2.2vw, 36px) !important;
+  }
+
+  .topbar-area .topbar-wrap a,
+  .topbar-area .certification-item {
+    font-size: clamp(12px, 0.8vw, 13.5px) !important;
+  }
+}
+
+
+/* ==========================================================================
+   DROPDOWN HOVER BRIDGE & SUB-MENU STABILIZATION
+   Fixes dropdown vanishing issue across Technology, Industries, Services, AI, Company, etc.
+   Adds transparent hover bridge (::before), zero-gap top positioning, transition-delay,
+   and click-to-pin persistence until a sub-item is selected or user clicks outside.
+   ========================================================================== */
+@media (min-width: 992px) {
+  /* 1. Seamless Top Alignment: Negative 2px overlap ensures zero physical gap */
+  header.style-2 .main-menu > ul > li > .mega-menu,
+  header.style-2 .main-menu > ul > li > .mega-menu2,
+  header.style-2 .main-menu > ul > li > ul.industry-sub-menu,
+  header.style-2 .main-menu > ul > li > ul.sub-menu,
+  .menu-item-has-children > .mega-menu,
+  .menu-item-has-children > .mega-menu2,
+  .menu-item-has-children > ul.sub-menu,
+  .menu-item-has-children > ul.industry-sub-menu {
+    top: calc(100% - 2px) !important;
+  }
+
+  /* Responsive safety for Technology mega menu on smaller desktop screens */
+  header.style-2 .main-menu > ul > li .mega-menu2,
+  .menu-item-has-children .mega-menu2 {
+    max-width: calc(100vw - 40px) !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 2. Transparent Hover Bridge on all dropdown containers:
+     Spans 35px upwards to overlap the header link, eliminating any hover dropouts */
+  header.style-2 .main-menu > ul > li > .mega-menu::before,
+  header.style-2 .main-menu > ul > li > .mega-menu2::before,
+  header.style-2 .main-menu > ul > li > ul.sub-menu::before,
+  header.style-2 .main-menu > ul > li > ul.industry-sub-menu::before,
+  .menu-item-has-children > .mega-menu::before,
+  .menu-item-has-children > .mega-menu2::before,
+  .menu-item-has-children > ul.sub-menu::before,
+  .menu-item-has-children > ul.industry-sub-menu::before {
+    content: "" !important;
+    position: absolute !important;
+    top: -35px !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 40px !important;
+    background: transparent !important;
+    display: block !important;
+    pointer-events: auto !important;
+    z-index: 9999 !important;
+  }
+
+  /* 3. Subtle transition delay before hiding so moving cursor never drops hover state */
+  header.style-2 .main-menu > ul > li > .mega-menu,
+  header.style-2 .main-menu > ul > li > .mega-menu2,
+  header.style-2 .main-menu > ul > li > ul.sub-menu,
+  header.style-2 .main-menu > ul > li > ul.industry-sub-menu,
+  .menu-item-has-children > .mega-menu,
+  .menu-item-has-children > .mega-menu2,
+  .menu-item-has-children > ul.sub-menu,
+  .menu-item-has-children > ul.industry-sub-menu {
+    transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease !important;
+    transition-delay: 0.15s !important;
+  }
+
+  /* 4. Active / Hovered / Clicked Open States */
+  /* Instantly reveals (0s delay) on hover or when pinned open via click (.menu-open) */
+  header.style-2 .main-menu > ul > li:hover > .mega-menu,
+  header.style-2 .main-menu > ul > li > .mega-menu:hover,
+  header.style-2 .main-menu > ul > li.menu-open > .mega-menu,
+  header.style-2 .main-menu > ul > li.menu-open > .mega-menu:hover,
+  .menu-item-has-children:hover > .mega-menu,
+  .menu-item-has-children > .mega-menu:hover,
+  .menu-item-has-children.menu-open > .mega-menu,
+  .menu-item-has-children.menu-open > .mega-menu:hover {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transition-delay: 0s !important;
+  }
+
+  header.style-2 .main-menu > ul > li:hover > .mega-menu2,
+  header.style-2 .main-menu > ul > li > .mega-menu2:hover,
+  header.style-2 .main-menu > ul > li.menu-open > .mega-menu2,
+  header.style-2 .main-menu > ul > li.menu-open > .mega-menu2:hover,
+  .menu-item-has-children:hover > .mega-menu2,
+  .menu-item-has-children > .mega-menu2:hover,
+  .menu-item-has-children.menu-open > .mega-menu2,
+  .menu-item-has-children.menu-open > .mega-menu2:hover {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transition-delay: 0s !important;
+  }
+
+  header.style-2 .main-menu > ul > li:hover > ul.industry-sub-menu,
+  header.style-2 .main-menu > ul > li > ul.industry-sub-menu:hover,
+  header.style-2 .main-menu > ul > li.menu-open > ul.industry-sub-menu,
+  header.style-2 .main-menu > ul > li.menu-open > ul.industry-sub-menu:hover,
+  .menu-item-has-children:hover > ul.industry-sub-menu,
+  .menu-item-has-children > ul.industry-sub-menu:hover,
+  .menu-item-has-children.menu-open > ul.industry-sub-menu,
+  .menu-item-has-children.menu-open > ul.industry-sub-menu:hover {
+    display: flex !important;
+    flex-direction: column !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transition-delay: 0s !important;
+  }
+
+  header.style-2 .main-menu > ul > li:hover > ul.sub-menu,
+  header.style-2 .main-menu > ul > li > ul.sub-menu:hover,
+  header.style-2 .main-menu > ul > li.menu-open > ul.sub-menu,
+  header.style-2 .main-menu > ul > li.menu-open > ul.sub-menu:hover,
+  .menu-item-has-children:hover > ul.sub-menu,
+  .menu-item-has-children > ul.sub-menu:hover,
+  .menu-item-has-children.menu-open > ul.sub-menu,
+  .menu-item-has-children.menu-open > ul.sub-menu:hover {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transition-delay: 0s !important;
+  }
+}
+
+/* 1. Standard Breakpoint: max-width 1200px (Laptops & Zoom-In) */
+@media (max-width: 1200px) {
+  /* Prevent header menu links from wrapping into multiple rows by switching to responsive drawer */
+  header.style-2 .nav-right .mobile-menu-btn,
+  header.style-2 .sidebar-button {
+    display: flex !important;
+    visibility: visible !important;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-width: 44px;
+    max-width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    border: 1px solid rgba(var(--title-color-opc, 23, 43, 58), 0.15);
+    background: transparent;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  header.style-2 .nav-right .mobile-menu-btn svg {
+    fill: var(--title-color, #172B3A);
+    width: 20px;
+    height: 18px;
+  }
+
+  /* Off-canvas mobile menu drawer */
+  header.style-2 .main-menu {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: min(330px, 85vw) !important;
+    padding: 24px 20px 40px !important;
+    z-index: 999999 !important;
+    height: 100% !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    background: #ffffff !important;
+    border-right: 1px solid var(--borders-color, #D9E4EA) !important;
+    transform: translateX(-100%) !important;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.15) !important;
+    display: block !important;
+  }
+
+  header.style-2 .main-menu.show-menu {
+    transform: translateX(0) !important;
+  }
+
+  header.style-2 .main-menu .mobile-logo-area {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding-bottom: 20px !important;
+    margin-bottom: 20px !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+  }
+
+  header.style-2 .main-menu .menu-close-btn {
+    cursor: pointer !important;
+    font-size: 26px !important;
+    color: var(--title-color, #172B3A) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 50% !important;
+    background: #f8fafc !important;
+  }
+
+  header.style-2 .main-menu .menu-list {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    list-style: none !important;
+  }
+
+  header.style-2 .main-menu > ul > li {
+    display: block !important;
+    width: 100% !important;
+    padding: 0 !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+  }
+
+  header.style-2 .main-menu > ul > li > a {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 13px 6px !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    color: var(--title-color, #172B3A) !important;
+    text-decoration: none !important;
+  }
+
+  header.style-2 .main-menu > ul > li ul.sub-menu,
+  header.style-2 .main-menu > ul > li .mega-menu,
+  header.style-2 .main-menu > ul > li .mega-menu2 {
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    box-shadow: none !important;
+    background: #f8fafc !important;
+    border-radius: 8px !important;
+    padding: 10px 14px !important;
+    margin: 6px 0 12px !important;
+    display: none;
+  }
+
+  header.style-2 .main-menu > ul > li ul.sub-menu > li a,
+  header.style-2 .main-menu > ul > li .mega-menu a,
+  header.style-2 .main-menu > ul > li .mega-menu2 a {
+    padding: 8px 0 !important;
+    font-size: 13.5px !important;
+    color: #475569 !important;
+    display: block !important;
+  }
+
+  header.style-2 .main-menu > ul > li i.dropdown-icon,
+  header.style-2 .main-menu > ul > li > i {
+    cursor: pointer !important;
+    font-size: 18px !important;
+    color: var(--primary-color1, #086AD8) !important;
+    padding: 8px !important;
+  }
+
+  /* Main wrapper & container box-sizing and overflow safeguards */
+  .container,
+  .hero-container,
+  .services-custom-container,
+  .about-custom-container,
+  .toxsl-custom-container,
+  .industries-custom-container,
+  .contact-custom-container,
+  section,
+  .hero-section {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Hero grid flexibility on <= 1200px */
+  .hero-content-grid {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.95fr) !important;
+    gap: 28px !important;
+    box-sizing: border-box !important;
+  }
+
+  .hero-text-block,
+  .hero-metrics-card {
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* 2. Standard Breakpoint: max-width 992px (Tablets & Higher Zoom) */
+@media (max-width: 992px) {
+  .hero-section,
+  .vibrantick-hero-section {
+    height: auto !important;
+    min-height: 100vh;
+  }
+
+  .hero-container {
+    padding-top: 130px;
+    padding-bottom: 40px;
+  }
+
+  .hero-content-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+
+  .hero-metrics-card {
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-top: 15px !important;
+  }
+
+  .hero-marquee,
+  .client-marquee-area {
+    margin-top: 30px;
+  }
+}
+
+/* 3. Standard Breakpoint: max-width 768px (Mobile Screens) */
+@media (max-width: 768px) {
+  .hero-container {
+    padding-top: 115px;
+    padding-bottom: 30px;
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .hero-cta-group {
+    flex-wrap: wrap !important;
+    gap: 12px !important;
   }
 }

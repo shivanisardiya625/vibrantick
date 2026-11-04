@@ -60,6 +60,51 @@
     jQuery(this).parent().siblings().children(".active").removeClass("active");
   });
 
+  // ==========================================================================
+  // NAVBAR DROPDOWN CLICK & PIN HANDLER
+  // Allows users to click on top menu links to keep dropdown open.
+  // Stays open until a sub-item is selected or the user clicks outside.
+  // ==========================================================================
+  $(document).on("click", "header.style-2 .main-menu > ul.menu-list > li.menu-item-has-children > a, .menu-item-has-children > a.drop-down, .menu-item-has-children > a.ai-menu-btn", function (e) {
+    var $parentLi = $(this).closest("li.menu-item-has-children");
+    
+    // Desktop View (> 1200px)
+    if (window.innerWidth > 1200) {
+      e.preventDefault();
+      var wasOpen = $parentLi.hasClass("menu-open");
+      
+      // Close other open menus
+      $("header.style-2 .main-menu > ul.menu-list > li.menu-item-has-children, .menu-item-has-children").removeClass("menu-open");
+      
+      // Toggle current menu
+      if (!wasOpen) {
+        $parentLi.addClass("menu-open");
+      }
+    } else {
+      // Mobile / Tablet Drawer (<= 1200px)
+      e.preventDefault();
+      var $submenu = $parentLi.children("ul, .mega-menu, .mega-menu2");
+      var $icon = $parentLi.children(".dropdown-icon");
+      $icon.toggleClass("active");
+      $submenu.slideToggle();
+      $parentLi.siblings().children("ul, .mega-menu, .mega-menu2").slideUp();
+      $parentLi.siblings().children(".dropdown-icon").removeClass("active");
+    }
+  });
+
+  // Close open dropdown when clicking outside
+  $(document).on("click", function (e) {
+    if (!$(e.target).closest("header.style-2 .main-menu > ul.menu-list > li.menu-item-has-children, .menu-item-has-children").length) {
+      $("header.style-2 .main-menu > ul.menu-list > li.menu-item-has-children, .menu-item-has-children").removeClass("menu-open");
+    }
+  });
+
+  // Close pinned dropdown when a sub-menu item link is selected
+  $(document).on("click", "header.style-2 .main-menu .mega-menu a, header.style-2 .main-menu .mega-menu2 a, header.style-2 .main-menu ul.sub-menu a", function () {
+    $("header.style-2 .main-menu > ul.menu-list > li.menu-item-has-children, .menu-item-has-children").removeClass("menu-open");
+  });
+
+
   // sticky header
   window.addEventListener("scroll", function () {
     const header = document.querySelector("header.header-area, .header-two");
@@ -2035,27 +2080,37 @@
   }
 
 
-    // Global FAQ Accordion Interactive Click Handler
-  jQuery(document).on('click', '.accordion-tech .accordion-button', function (e) {
-    if (window.bootstrap && window.bootstrap.Collapse) {
-      return;
-    }
-    e.preventDefault();
+                // Global FAQ Accordion Interactive Slide Toggle (Bidirectional Open & Close)
+  jQuery(document).on('click', '.custom-accordion .accordion-button, .accordion .accordion-button, .faq-accordion .accordion-button', function (e) {
     var $btn = jQuery(this);
-    var target = $btn.attr('data-bs-target') || $btn.attr('data-target');
-    var $target = jQuery(target);
-    var $parent = $btn.closest('.accordion');
-    var isExpanded = $btn.attr('aria-expanded') === 'true' || $target.hasClass('show');
+    var targetSelector = $btn.attr('data-bs-target') || $btn.attr('data-target') || $btn.attr('href');
+    if (!targetSelector) return;
+    var $target = jQuery(targetSelector);
+    if (!$target.length) return;
 
-    if ($parent.length) {
-      $parent.find('.accordion-collapse.show').removeClass('show');
-      $parent.find('.accordion-button').addClass('collapsed').attr('aria-expanded', 'false');
-    }
+    e.preventDefault();
 
-    if (!isExpanded) {
+    var $parent = $btn.closest('.accordion, .custom-accordion');
+    var isCurrentlyOpen = $target.hasClass('show') || !$btn.hasClass('collapsed') || $btn.attr('aria-expanded') === 'true' || ($target.is(':visible') && $target.height() > 0);
+
+    if (isCurrentlyOpen) {
+      $btn.addClass('collapsed').attr('aria-expanded', 'false');
+      $target.stop(true, true).slideUp(280, function () {
+        jQuery(this).removeClass('show').css('display', '');
+      });
+    } else {
+      if ($parent && $parent.length) {
+        $parent.find('.accordion-button').not($btn).addClass('collapsed').attr('aria-expanded', 'false');
+        $parent.find('.accordion-collapse').filter('.show, :visible').not($target).stop(true, true).slideUp(280, function () {
+          jQuery(this).removeClass('show').css('display', '');
+        });
+      }
+
       $btn.removeClass('collapsed').attr('aria-expanded', 'true');
-      $target.addClass('show');
+      $target.stop(true, true).slideDown(280, function () {
+        jQuery(this).addClass('show').css('display', '');
+      });
     }
   });
 
-})(jQuery);
+  })(jQuery);

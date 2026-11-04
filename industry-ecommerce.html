@@ -33,6 +33,81 @@
       type="image/gif"
       sizes="20x20"
     />
+    <style>
+      /* NATIVE DETAILS/SUMMARY FAQ ACCORDION (100% RELIABLE ZERO-FAIL TOGGLE) */
+      .tech-faq-container {
+        width: 100%;
+      }
+      .tech-faq-item {
+        border: 1px solid var(--vb-border, #e2e8f0);
+        border-radius: 12px !important;
+        margin-bottom: 16px;
+        overflow: hidden;
+        background: #ffffff;
+        width: 100%;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      }
+      .tech-faq-item[open] {
+        border-color: rgba(0, 123, 255, 0.35);
+        box-shadow: 0 4px 15px rgba(0, 123, 255, 0.06);
+      }
+      .tech-faq-summary {
+        list-style: none;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--title-color, var(--vb-navy, #0a1c3d));
+        padding: 22px 28px;
+        background: #ffffff;
+        text-align: left;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        user-select: none;
+        outline: none;
+        transition: background 0.25s ease, color 0.25s ease;
+      }
+      .tech-faq-summary::-webkit-details-marker {
+        display: none;
+      }
+      .tech-faq-summary::marker {
+        display: none;
+      }
+      .tech-faq-item[open] > .tech-faq-summary {
+        color: var(--vb-blue, #007bff);
+        background: #f0f7ff;
+        border-bottom: 1px solid var(--vb-border, #e2e8f0);
+      }
+      .tech-faq-summary .faq-chevron-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        color: var(--title-color, var(--vb-navy, #0a1c3d));
+        transition: transform 0.25s ease-in-out, color 0.25s ease;
+        flex-shrink: 0;
+        margin-left: 16px;
+      }
+      .tech-faq-item[open] > .tech-faq-summary .faq-chevron-icon {
+        transform: rotate(-180deg);
+        color: var(--vb-blue, #007bff);
+      }
+      .tech-faq-content {
+        padding: 22px 28px;
+        color: var(--vb-slate, #475569);
+        font-size: 14.5px;
+        line-height: 1.7;
+        text-align: left;
+        background: #ffffff;
+      }
+      .tech-faq-content p {
+        margin: 0;
+        color: inherit;
+        font-size: inherit;
+        line-height: inherit;
+      }
+    </style>
   </head>
 
   <body class="tt-magic-cursor">
@@ -272,17 +347,17 @@
 <!-- Why Choose Us -->
       <div class="pt-100 pb-100 bg-white">
         <div class="container">
-          <div class="row align-items-center gy-5">
-            <div class="col-lg-6 pe-lg-5">
-              <div class="position-relative">
-                <img src="assets/img/home1/service.jpg" alt="Why Vibrantick" class="img-fluid w-100" style="height: 480px; object-fit: cover; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.06);" />
-                <div style="position: absolute; bottom: 30px; left: 30px; background: #007bff; color: #fff; padding: 20px 26px; border-radius: 16px; box-shadow: 0 15px 30px rgba(0, 123, 255, 0.35);">
+          <div class="row align-items-stretch gy-5">
+            <div class="col-lg-6 pe-lg-5 d-flex flex-column">
+              <div class="position-relative h-100 w-100" style="min-height: 520px;">
+                <img src="assets/img/home1/service.jpg" alt="Why Vibrantick" class="img-fluid w-100 h-100" style="min-height: 520px; object-fit: cover; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.06);" />
+                <div style="position: absolute; bottom: 30px; left: 30px; background: #007bff; color: #fff; padding: 20px 26px; border-radius: 16px; box-shadow: 0 15px 30px rgba(0, 123, 255, 0.35); z-index: 2;">
                   <span class="d-block" style="font-size: 32px; font-weight: 800; line-height: 1;">5+</span>
                   <span style="font-size: 13.5px; font-weight: 600;">Years of<br>Excellence</span>
                 </div>
               </div>
             </div>
-            <div class="col-lg-6 ps-lg-4">
+            <div class="col-lg-6 ps-lg-4 d-flex flex-column justify-content-between">
               <div class="hero-pill-badge compact-pill-badge mb-3" style="display: inline-flex; width: fit-content; max-width: fit-content; align-items: center; gap: 8px; background: rgba(0, 123, 255, 0.08); border: 1px solid rgba(0, 123, 255, 0.2); padding: 6px 16px; border-radius: 9999px; margin-bottom: 16px;">
                 <span class="badge-dot"></span> WHY VIBRANTICK
               </div>
@@ -498,7 +573,7 @@
                   </div>
                   <div class="tech-card">
                     <div class="tech-card-icon">
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/joomla/joomla-original.svg" alt="Joomla" />
+                      <img src="assets/img/technology/joomla.svg" alt="Joomla" />
                     </div>
                     <h4 class="tech-card-name">Joomla</h4>
                   </div>
@@ -516,7 +591,7 @@
                   </div>
                   <div class="tech-card">
                     <div class="tech-card-icon">
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/shopify/shopify-original.svg" alt="Shopify" />
+                      <img src="assets/img/technology/shopify.svg" alt="Shopify" />
                     </div>
                     <h4 class="tech-card-name">Shopify</h4>
                   </div>
@@ -532,7 +607,7 @@
                 <div class="tech-tab-pane" id="tab-cloud-solutions">
                   <div class="tech-card">
                     <div class="tech-card-icon">
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="Amazon Web Services (AWS)" />
+                      <img src="assets/img/technology/aws.svg" alt="Amazon Web Services (AWS)" />
                     </div>
                     <h4 class="tech-card-name">Amazon Web Services (AWS)</h4>
                   </div>
@@ -596,47 +671,38 @@
           </div>
           <div class="row">
             <div class="col-xl-10 col-lg-11">
-              <div class="accordion custom-accordion" id="faqAcc_ecommerce">
-                
-                <div class="accordion-item mb-3" style="border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; background: #ffffff;">
-                  <h2 class="accordion-header" id="faqH_ecommerce_0">
-                    <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#faqC_ecommerce_0" aria-expanded="true" style="font-weight: 700; font-size: 15.5px;">
-                      Can you migrate our existing store to a modern headless platform without losing SEO rankings?
-                    </button>
-                  </h2>
-                  <div id="faqC_ecommerce_0" class="accordion-collapse collapse show" data-bs-parent="#faqAcc_ecommerce">
-                    <div class="accordion-body" style="font-size: 14.5px; color: #475569; line-height: 1.7;">
-                      Yes. We implement precise 301 redirect mappings, preserve URL structures, and migrate product catalogs, customer histories, and metadata safely with zero loss of SEO authority.
-                    </div>
+              <div class="tech-faq-container" id="faqAcc_ecommerce">
+
+                <details class="tech-faq-item" name="industry-faq">
+                  <summary class="tech-faq-summary">
+                    <span>Can you migrate our existing store to a modern headless platform without losing SEO rankings?</span>
+                    <span class="faq-chevron-icon"><i class="bi bi-chevron-down"></i></span>
+                  </summary>
+                  <div class="tech-faq-content">
+                    <p>Yes. We implement precise 301 redirect mappings, preserve URL structures, and migrate product catalogs, customer histories, and metadata safely with zero loss of SEO authority.</p>
                   </div>
-                </div>
-                
-                <div class="accordion-item mb-3" style="border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; background: #ffffff;">
-                  <h2 class="accordion-header" id="faqH_ecommerce_1">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqC_ecommerce_1" aria-expanded="false" style="font-weight: 700; font-size: 15.5px;">
-                      How do your platforms perform during massive traffic surges like Black Friday?
-                    </button>
-                  </h2>
-                  <div id="faqC_ecommerce_1" class="accordion-collapse collapse " data-bs-parent="#faqAcc_ecommerce">
-                    <div class="accordion-body" style="font-size: 14.5px; color: #475569; line-height: 1.7;">
-                      We architect on auto-scaling cloud microservices with Redis caching and global CDN edge delivery, engineered to handle tens of thousands of concurrent shoppers seamlessly.
-                    </div>
+                </details>
+
+                <details class="tech-faq-item" name="industry-faq">
+                  <summary class="tech-faq-summary">
+                    <span>How do your platforms perform during massive traffic surges like Black Friday?</span>
+                    <span class="faq-chevron-icon"><i class="bi bi-chevron-down"></i></span>
+                  </summary>
+                  <div class="tech-faq-content">
+                    <p>We architect on auto-scaling cloud microservices with Redis caching and global CDN edge delivery, engineered to handle tens of thousands of concurrent shoppers seamlessly.</p>
                   </div>
-                </div>
-                
-                <div class="accordion-item mb-3" style="border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; background: #ffffff;">
-                  <h2 class="accordion-header" id="faqH_ecommerce_2">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqC_ecommerce_2" aria-expanded="false" style="font-weight: 700; font-size: 15.5px;">
-                      Do you build native mobile commerce apps for iOS and Android?
-                    </button>
-                  </h2>
-                  <div id="faqC_ecommerce_2" class="accordion-collapse collapse " data-bs-parent="#faqAcc_ecommerce">
-                    <div class="accordion-body" style="font-size: 14.5px; color: #475569; line-height: 1.7;">
-                      Yes. We develop React Native and Flutter shopping apps featuring push notifications, saved wishlists, and one-tap biometric checkout.
-                    </div>
+                </details>
+
+                <details class="tech-faq-item" name="industry-faq">
+                  <summary class="tech-faq-summary">
+                    <span>Do you build native mobile commerce apps for iOS and Android?</span>
+                    <span class="faq-chevron-icon"><i class="bi bi-chevron-down"></i></span>
+                  </summary>
+                  <div class="tech-faq-content">
+                    <p>Yes. We develop React Native and Flutter shopping apps featuring push notifications, saved wishlists, and one-tap biometric checkout.</p>
                   </div>
-                </div>
-                
+                </details>
+
               </div>
             </div>
           </div>
@@ -821,7 +887,6 @@
                 <div class="cs-badge-card">
                   <h4 class="cs-badge-brand">Clutch</h4>
                   <div class="cs-stars stars-red">★★★★★</div>
-                  <span class="cs-rating-score">4.9/5.0</span>
                   <p class="cs-badge-desc">Top Rated IT Services<br />Company</p>
                 </div>
 
@@ -980,5 +1045,23 @@
     <script src="assets/js/three.js"></script>
     <script src="assets/js/hover-effect.umd.js"></script>
     <script src="assets/js/custom.js"></script>
+          <!-- Native Details/Summary FAQ Accordion Toggle Script -->
+    <script>
+      (function () {
+        document.addEventListener('click', function (e) {
+          var summary = e.target.closest('.tech-faq-summary');
+          if (!summary) return;
+          var details = summary.parentElement;
+          if (!details) return;
+          if (!details.open) {
+            document.querySelectorAll('details.tech-faq-item[open]').forEach(function (openItem) {
+              if (openItem !== details) {
+                openItem.open = false;
+              }
+            });
+          }
+        });
+      })();
+    </script>
   </body>
 </html>

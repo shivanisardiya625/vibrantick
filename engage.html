@@ -484,11 +484,10 @@
                   <div class="accordion-item">
                     <h2 class="accordion-header" id="faqHeading1">
                       <button
-                        class="accordion-button"
+                        class="accordion-button collapsed"
                         type="button"
-                        data-bs-toggle="collapse"
                         data-bs-target="#faqCollapse1"
-                        aria-expanded="true"
+                        aria-expanded="false"
                         aria-controls="faqCollapse1"
                       >
                         Why are remote PHP developers beneficial?
@@ -496,9 +495,8 @@
                     </h2>
                     <div
                       id="faqCollapse1"
-                      class="accordion-collapse collapse show"
+                      class="accordion-collapse collapse"
                       aria-labelledby="faqHeading1"
-                      data-bs-parent="#phpFaqAccordion"
                     >
                       <div class="accordion-body">
                         Remote PHP developers provide a cost-effective solution without compromising on quality, granting you access to global talent, flexible working hours, and reduced overhead costs for your enterprise.
@@ -510,7 +508,6 @@
                       <button
                         class="accordion-button collapsed"
                         type="button"
-                        data-bs-toggle="collapse"
                         data-bs-target="#faqCollapse2"
                         aria-expanded="false"
                         aria-controls="faqCollapse2"
@@ -522,7 +519,6 @@
                       id="faqCollapse2"
                       class="accordion-collapse collapse"
                       aria-labelledby="faqHeading2"
-                      data-bs-parent="#phpFaqAccordion"
                     >
                       <div class="accordion-body">
                         The cost varies depending on the specific model you choose (Hourly, Full-time, or Cost Center) and the complexity of the project. Contact our expert team for a customized, transparent quote.
@@ -534,7 +530,6 @@
                       <button
                         class="accordion-button collapsed"
                         type="button"
-                        data-bs-toggle="collapse"
                         data-bs-target="#faqCollapse3"
                         aria-expanded="false"
                         aria-controls="faqCollapse3"
@@ -546,7 +541,6 @@
                       id="faqCollapse3"
                       class="accordion-collapse collapse"
                       aria-labelledby="faqHeading3"
-                      data-bs-parent="#phpFaqAccordion"
                     >
                       <div class="accordion-body">
                         Yes, our transparent process ensures you can thoroughly interview, screen, and technically evaluate any candidates before onboarding them to your dedicated team.
@@ -558,7 +552,6 @@
                       <button
                         class="accordion-button collapsed"
                         type="button"
-                        data-bs-toggle="collapse"
                         data-bs-target="#faqCollapse4"
                         aria-expanded="false"
                         aria-controls="faqCollapse4"
@@ -570,7 +563,6 @@
                       id="faqCollapse4"
                       class="accordion-collapse collapse"
                       aria-labelledby="faqHeading4"
-                      data-bs-parent="#phpFaqAccordion"
                     >
                       <div class="accordion-body">
                         Absolutely. Security and confidentiality are our highest priorities. We execute strict Non-Disclosure Agreements (NDAs) to guarantee 100% code authorization and IP protection.
@@ -771,7 +763,6 @@
                 <div class="cs-badge-card">
                   <h4 class="cs-badge-brand">Clutch</h4>
                   <div class="cs-stars stars-red">★★★★★</div>
-                  <span class="cs-rating-score">4.9/5.0</span>
                   <p class="cs-badge-desc">Top Rated IT Services<br />Company</p>
                 </div>
 
@@ -939,6 +930,77 @@
     <script src="assets/js/hover-effect.umd.js"></script>
     <!-- Custom JS -->
     <script src="assets/js/custom.js"></script>
+      <!-- Dedicated FAQ Accordion Toggle Script -->
+    <script>
+      (function () {
+        function initIndustryFaq() {
+          var buttons = document.querySelectorAll('.custom-accordion .accordion-button, .accordion .accordion-button');
+          if (!buttons.length) return;
+
+          buttons.forEach(function (button) {
+            button.addEventListener('click', function (e) {
+              e.preventDefault();
+
+              var targetSelector = this.getAttribute('data-bs-target') || this.getAttribute('data-target') || this.getAttribute('href');
+              if (!targetSelector) return;
+              var targetCollapse = document.querySelector(targetSelector);
+              if (!targetCollapse) return;
+
+              var parent = this.closest('.accordion, .custom-accordion');
+              var isCurrentlyOpen = targetCollapse.classList.contains('show') || !this.classList.contains('collapsed') || this.getAttribute('aria-expanded') === 'true';
+
+              if (isCurrentlyOpen) {
+                // Smoothly close this item
+                this.classList.add('collapsed');
+                this.setAttribute('aria-expanded', 'false');
+                targetCollapse.classList.remove('show');
+                if (window.jQuery) {
+                  window.jQuery(targetCollapse).stop(true, true).slideUp(280, function () {
+                    window.jQuery(this).css('display', '');
+                  });
+                }
+              } else {
+                // Close any open sibling in the same accordion
+                if (parent) {
+                  parent.querySelectorAll('.accordion-button').forEach(function (otherBtn) {
+                    if (otherBtn !== button) {
+                      otherBtn.classList.add('collapsed');
+                      otherBtn.setAttribute('aria-expanded', 'false');
+                    }
+                  });
+                  parent.querySelectorAll('.accordion-collapse.show').forEach(function (openCol) {
+                    if (openCol !== targetCollapse) {
+                      openCol.classList.remove('show');
+                      if (window.jQuery) {
+                        window.jQuery(openCol).stop(true, true).slideUp(280, function () {
+                          window.jQuery(this).css('display', '');
+                        });
+                      }
+                    }
+                  });
+                }
+
+                // Smoothly open this item
+                this.classList.remove('collapsed');
+                this.setAttribute('aria-expanded', 'true');
+                targetCollapse.classList.add('show');
+                if (window.jQuery) {
+                  window.jQuery(targetCollapse).stop(true, true).hide().slideDown(280, function () {
+                    window.jQuery(this).css('display', '');
+                  });
+                }
+              }
+            });
+          });
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', initIndustryFaq);
+        } else {
+          initIndustryFaq();
+        }
+      })();
+    </script>
   </body>
 
   <!-- Mirrored from demo.egenslab.com/html/qleviq/preview/industry.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 Aug 2026 07:31:11 GMT -->

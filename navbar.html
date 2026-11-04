@@ -1,4 +1,130 @@
 <style>
+
+/* ==========================================================================
+   DROPDOWN HOVER BRIDGE & SUB-MENU STABILIZATION
+   Fixes dropdown vanishing issue across Technology, Industries, Services, AI, Company, etc.
+   Adds transparent hover bridge (::before), zero-gap top positioning, transition-delay,
+   and click-to-pin persistence until a sub-item is selected or user clicks outside.
+   ========================================================================== */
+@media (min-width: 992px) {
+  /* 1. Seamless Top Alignment: Negative 2px overlap ensures zero physical gap */
+  header.style-2 .main-menu > ul > li > .mega-menu,
+  header.style-2 .main-menu > ul > li > .mega-menu2,
+  header.style-2 .main-menu > ul > li > ul.industry-sub-menu,
+  header.style-2 .main-menu > ul > li > ul.sub-menu,
+  .menu-item-has-children > .mega-menu,
+  .menu-item-has-children > .mega-menu2,
+  .menu-item-has-children > ul.sub-menu,
+  .menu-item-has-children > ul.industry-sub-menu {
+    top: calc(100% - 2px) !important;
+  }
+
+  /* Responsive safety for Technology mega menu on smaller desktop screens */
+  header.style-2 .main-menu > ul > li .mega-menu2,
+  .menu-item-has-children .mega-menu2 {
+    max-width: calc(100vw - 40px) !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 2. Transparent Hover Bridge on all dropdown containers:
+     Spans 35px upwards to overlap the header link, eliminating any hover dropouts */
+  header.style-2 .main-menu > ul > li > .mega-menu::before,
+  header.style-2 .main-menu > ul > li > .mega-menu2::before,
+  header.style-2 .main-menu > ul > li > ul.sub-menu::before,
+  header.style-2 .main-menu > ul > li > ul.industry-sub-menu::before,
+  .menu-item-has-children > .mega-menu::before,
+  .menu-item-has-children > .mega-menu2::before,
+  .menu-item-has-children > ul.sub-menu::before,
+  .menu-item-has-children > ul.industry-sub-menu::before {
+    content: "" !important;
+    position: absolute !important;
+    top: -35px !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 40px !important;
+    background: transparent !important;
+    display: block !important;
+    pointer-events: auto !important;
+    z-index: 9999 !important;
+  }
+
+  /* 3. Subtle transition delay before hiding so moving cursor never drops hover state */
+  header.style-2 .main-menu > ul > li > .mega-menu,
+  header.style-2 .main-menu > ul > li > .mega-menu2,
+  header.style-2 .main-menu > ul > li > ul.sub-menu,
+  header.style-2 .main-menu > ul > li > ul.industry-sub-menu,
+  .menu-item-has-children > .mega-menu,
+  .menu-item-has-children > .mega-menu2,
+  .menu-item-has-children > ul.sub-menu,
+  .menu-item-has-children > ul.industry-sub-menu {
+    transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease !important;
+    transition-delay: 0.15s !important;
+  }
+
+  /* 4. Active / Hovered / Clicked Open States */
+  /* Instantly reveals (0s delay) on hover or when pinned open via click (.menu-open) */
+  header.style-2 .main-menu > ul > li:hover > .mega-menu,
+  header.style-2 .main-menu > ul > li > .mega-menu:hover,
+  header.style-2 .main-menu > ul > li.menu-open > .mega-menu,
+  header.style-2 .main-menu > ul > li.menu-open > .mega-menu:hover,
+  .menu-item-has-children:hover > .mega-menu,
+  .menu-item-has-children > .mega-menu:hover,
+  .menu-item-has-children.menu-open > .mega-menu,
+  .menu-item-has-children.menu-open > .mega-menu:hover {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transition-delay: 0s !important;
+  }
+
+  header.style-2 .main-menu > ul > li:hover > .mega-menu2,
+  header.style-2 .main-menu > ul > li > .mega-menu2:hover,
+  header.style-2 .main-menu > ul > li.menu-open > .mega-menu2,
+  header.style-2 .main-menu > ul > li.menu-open > .mega-menu2:hover,
+  .menu-item-has-children:hover > .mega-menu2,
+  .menu-item-has-children > .mega-menu2:hover,
+  .menu-item-has-children.menu-open > .mega-menu2,
+  .menu-item-has-children.menu-open > .mega-menu2:hover {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transition-delay: 0s !important;
+  }
+
+  header.style-2 .main-menu > ul > li:hover > ul.industry-sub-menu,
+  header.style-2 .main-menu > ul > li > ul.industry-sub-menu:hover,
+  header.style-2 .main-menu > ul > li.menu-open > ul.industry-sub-menu,
+  header.style-2 .main-menu > ul > li.menu-open > ul.industry-sub-menu:hover,
+  .menu-item-has-children:hover > ul.industry-sub-menu,
+  .menu-item-has-children > ul.industry-sub-menu:hover,
+  .menu-item-has-children.menu-open > ul.industry-sub-menu,
+  .menu-item-has-children.menu-open > ul.industry-sub-menu:hover {
+    display: flex !important;
+    flex-direction: column !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transition-delay: 0s !important;
+  }
+
+  header.style-2 .main-menu > ul > li:hover > ul.sub-menu,
+  header.style-2 .main-menu > ul > li > ul.sub-menu:hover,
+  header.style-2 .main-menu > ul > li.menu-open > ul.sub-menu,
+  header.style-2 .main-menu > ul > li.menu-open > ul.sub-menu:hover,
+  .menu-item-has-children:hover > ul.sub-menu,
+  .menu-item-has-children > ul.sub-menu:hover,
+  .menu-item-has-children.menu-open > ul.sub-menu,
+  .menu-item-has-children.menu-open > ul.sub-menu:hover {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transition-delay: 0s !important;
+  }
+}
+
   /* Single Persistent Fixed Header Wrapper */
   .home2-header-and-topbar-area,
   .home2-header-and-topbar-area.header-two,
@@ -18,6 +144,30 @@
     font-size: 13.5px !important;
     border-radius: 50px !important;
   }
+
+  /* Industries Clean Compact Submenu */
+  header.style-2 .main-menu > ul > li:has(> ul.industry-sub-menu) {
+    position: relative !important;
+  }
+  header.style-2 .main-menu > ul > li > ul.industry-sub-menu {
+    width: 320px !important;
+    max-width: 360px !important;
+    min-width: 290px !important;
+    display: none;
+    flex-direction: column !important;
+    gap: 2px !important;
+    padding: 12px 14px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    border-radius: 14px !important;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.10) !important;
+  }
+  header.style-2 .main-menu > ul > li:hover > ul.industry-sub-menu,
+  header.style-2 .main-menu > ul > li.menu-open > ul.industry-sub-menu {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
 </style>
 <!doctype html>
 <html lang="en">
@@ -1245,50 +1395,78 @@
 
 
 
-          </div>
         </div>
         </header>
 
-    </body>
+    
+<script>
+  (function () {
+    if (window.__vibrantickDropdownInit) return;
+    window.__vibrantickDropdownInit = true;
 
-     <script>
-      
-document.addEventListener("DOMContentLoaded", function () {
+    function initNavbarDropdowns() {
+      if (typeof jQuery === "undefined") {
+        setTimeout(initNavbarDropdowns, 50);
+        return;
+      }
 
-    const trainingMenu = document.querySelector(
-        ".menu-item-has-children:has(.training-dropdown)"
-    );
-
-    if (!trainingMenu) return;
-
-    const trainingLink = trainingMenu.querySelector(".drop-down");
-    const plusIcon = trainingMenu.querySelector(".dropdown-icon");
-
-    // Desktop click
-    trainingLink.addEventListener("click", function (e) {
-        e.preventDefault();
-        trainingMenu.classList.toggle("active");
-    });
-
-    // Mobile plus icon
-    if (plusIcon) {
-        plusIcon.addEventListener("click", function (e) {
+      jQuery(document).on(
+        "click",
+        "header.style-2 .main-menu > ul.menu-list > li.menu-item-has-children > a, .menu-item-has-children > a.drop-down, .menu-item-has-children > a.ai-menu-btn",
+        function (e) {
+          var $parentLi = jQuery(this).closest("li.menu-item-has-children");
+          if (window.innerWidth > 1200) {
             e.preventDefault();
-            e.stopPropagation();
-            trainingMenu.classList.toggle("active");
-        });
+            var wasOpen = $parentLi.hasClass("menu-open");
+            jQuery(
+              "header.style-2 .main-menu > ul.menu-list > li.menu-item-has-children, .menu-item-has-children"
+            ).removeClass("menu-open");
+            if (!wasOpen) {
+              $parentLi.addClass("menu-open");
+            }
+          } else {
+            e.preventDefault();
+            var $submenu = $parentLi.children("ul, .mega-menu, .mega-menu2");
+            var $icon = $parentLi.children(".dropdown-icon");
+            $icon.toggleClass("active");
+            $submenu.slideToggle();
+            $parentLi.siblings().children("ul, .mega-menu, .mega-menu2").slideUp();
+            $parentLi.siblings().children(".dropdown-icon").removeClass("active");
+          }
+        }
+      );
+
+      jQuery(document).on("click", function (e) {
+        if (
+          !jQuery(e.target).closest(
+            "header.style-2 .main-menu > ul.menu-list > li.menu-item-has-children, .menu-item-has-children"
+          ).length
+        ) {
+          jQuery(
+            "header.style-2 .main-menu > ul.menu-list > li.menu-item-has-children, .menu-item-has-children"
+          ).removeClass("menu-open");
+        }
+      });
+
+      jQuery(document).on(
+        "click",
+        "header.style-2 .main-menu .mega-menu a, header.style-2 .main-menu .mega-menu2 a, header.style-2 .main-menu ul.sub-menu a",
+        function () {
+          jQuery(
+            "header.style-2 .main-menu > ul.menu-list > li.menu-item-has-children, .menu-item-has-children"
+          ).removeClass("menu-open");
+        }
+      );
     }
 
-    // Outside click closes dropdown
-    document.addEventListener("click", function (e) {
-        if (!trainingMenu.contains(e.target)) {
-            trainingMenu.classList.remove("active");
-        }
-    });
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initNavbarDropdowns);
+    } else {
+      initNavbarDropdowns();
+    }
+  })();
+</script>
 
-});
-
-    </script>
-
+</body>
 
 </html>   
