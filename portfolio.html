@@ -14,6 +14,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
+  <link rel="stylesheet" href="./assets/css/style.css">
+
   <style>
     /* =========================================================
    VIBRANTICK PORTFOLIO
@@ -1468,31 +1470,686 @@
     /* =========================================================
        PORTFOLIO PROJECT DATA
     ========================================================= */
+    // const vpProjects = [
+    //   { name: "Indus International University", category: "Education", location: "India", description: "An educational digital presence designed to connect students with academic information and university resources.", url: "https://iiuedu.in", image: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=900&q=85" },
+    //   { name: "IKG-PTU", category: "Education", location: "India", description: "A university platform supporting academic information and institutional digital services.", url: "https://ptu.ac.in", image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=900&q=85" },
+    //   { name: "CT University", category: "Education", location: "India", description: "A modern academic website for sharing university information and educational resources.", url: "https://ctuniversity.in", image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=900&q=85" },
+    //   { name: "NIT Delhi", category: "Education", location: "India", description: "An institutional digital platform for an engineering and technology education institute.", url: "https://nitdelhi.ac.in", image: "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=900&q=85" },
+    //   { name: "Amrik Shera Entertainment", category: "Entertainment", location: "India", description: "An entertainment-focused digital presence for showcasing creative work and media.", url: "https://amrikshera.com", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=900&q=85" },
+    //   { name: "MK Records", category: "Entertainment", location: "India", description: "A digital platform for a music and entertainment brand.", url: "https://mkrecords.co.in", image: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=900&q=85" },
+    //   { name: "13 Melbourne Cab Services", category: "Travel", location: "Australia", description: "A transportation service website focused on customer access to cab services.", url: "https://13melbournecabservices.com", image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=900&q=85" },
+    //   { name: "13 Silver Taxi", category: "Travel", location: "Australia", description: "A taxi service digital platform for transport and travel-related information.", url: "https://13silvertaxi.com.au", image: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=900&q=85" },
+    //   { name: "Viajes Divina India", category: "Travel", location: "Spain", description: "A travel-focused website presenting tourism and travel experiences.", url: "https://viajesdivinaindia.com", image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=85" },
+    //   { name: "Vinya Ayurveda", category: "E-commerce", location: "Australia", description: "An online presence for an Ayurveda and wellness product business.", url: "https://www.vinyaayurveda.com.au", image: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=900&q=85" },
+    //   { name: "Shriwing International", category: "E-commerce", location: "India", description: "A business-focused e-commerce platform for showcasing products and services.", url: "https://www.shriwing.com", image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=85" },
+    //   { name: "Electro World", category: "E-commerce", location: "Dubai", description: "An online business presence for an electronics-focused brand.", url: "https://www.electroworldfzco.com", image: "https://images.unsplash.com/photo-1498049794561-7780e7231661?auto=format&fit=crop&w=900&q=85" },
+    //   { name: "Topline Pacific Mechanical", category: "Corporate", location: "Canada", description: "A corporate website for a mechanical services business.", url: "https://toplinepacific.com", image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=85" },
+    //   { name: "Black Hawke", category: "Corporate", location: "Australia", description: "A digital presence for a security-focused business.", url: "https://www.blackhawkesecurity.com", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=900&q=85" },
+    //   { name: "Max Pro Business Solution", category: "Corporate", location: "India", description: "A corporate business website for showcasing professional solutions.", url: "https://maxpro.co.in", image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=85" },
+    //   { name: "TR Sharma Properties", category: "Real Estate", location: "India", description: "A real estate digital platform for property-related information and services.", url: "https://trsharmaproperties.in", image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=85" },
+    //   { name: "Dream Properties", category: "Real Estate", location: "India", description: "A property-focused website showcasing real estate opportunities.", url: "https://dreamproperties99.com", image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=85" },
+    //   { name: "All About Lab", category: "Health", location: "India", description: "A healthcare and laboratory-related digital platform.", url: "https://allaboutlab.com", image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=900&q=85" },
+    //   { name: "Holistick Health Clinic", category: "Health", location: "India", description: "A digital presence for health and wellness clinic services.", url: "https://vibrantick.org", image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=85" },
+    //   { name: "Quote Tender", category: "Other", location: "India", description: "A business platform listed in the IOT and CRM portfolio category.", url: "https://quotetender.in", image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=85" },
+    //   { name: "Brofin India", category: "Other", location: "India", description: "A finance and loan-related digital business project.", url: "https://brofinindia.com", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=85" },
+    //   { name: "Frigus Fiesta", category: "Other", location: "India", description: "An event and celebration-focused digital platform.", url: "https://frigusfiesta.com", image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=900&q=85" },
+    //   { name: "The Borgo", category: "Other", location: "India", description: "A digital project listed under the events and decor portfolio.", url: "https://theborgo.in", image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=900&q=85" }
+    // ];
+
+
     const vpProjects = [
-      { name: "Indus International University", category: "Education", location: "India", description: "An educational digital presence designed to connect students with academic information and university resources.", url: "https://iiuedu.in", image: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=900&q=85" },
-      { name: "IKG-PTU", category: "Education", location: "India", description: "A university platform supporting academic information and institutional digital services.", url: "https://ptu.ac.in", image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=900&q=85" },
-      { name: "CT University", category: "Education", location: "India", description: "A modern academic website for sharing university information and educational resources.", url: "https://ctuniversity.in", image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=900&q=85" },
-      { name: "NIT Delhi", category: "Education", location: "India", description: "An institutional digital platform for an engineering and technology education institute.", url: "https://nitdelhi.ac.in", image: "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=900&q=85" },
-      { name: "Amrik Shera Entertainment", category: "Entertainment", location: "India", description: "An entertainment-focused digital presence for showcasing creative work and media.", url: "https://amrikshera.com", image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=900&q=85" },
-      { name: "MK Records", category: "Entertainment", location: "India", description: "A digital platform for a music and entertainment brand.", url: "https://mkrecords.co.in", image: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=900&q=85" },
-      { name: "13 Melbourne Cab Services", category: "Travel", location: "Australia", description: "A transportation service website focused on customer access to cab services.", url: "https://13melbournecabservices.com", image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=900&q=85" },
-      { name: "13 Silver Taxi", category: "Travel", location: "Australia", description: "A taxi service digital platform for transport and travel-related information.", url: "https://13silvertaxi.com.au", image: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=900&q=85" },
-      { name: "Viajes Divina India", category: "Travel", location: "Spain", description: "A travel-focused website presenting tourism and travel experiences.", url: "https://viajesdivinaindia.com", image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=85" },
-      { name: "Vinya Ayurveda", category: "E-commerce", location: "Australia", description: "An online presence for an Ayurveda and wellness product business.", url: "https://www.vinyaayurveda.com.au", image: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=900&q=85" },
-      { name: "Shriwing International", category: "E-commerce", location: "India", description: "A business-focused e-commerce platform for showcasing products and services.", url: "https://www.shriwing.com", image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=85" },
-      { name: "Electro World", category: "E-commerce", location: "Dubai", description: "An online business presence for an electronics-focused brand.", url: "https://www.electroworldfzco.com", image: "https://images.unsplash.com/photo-1498049794561-7780e7231661?auto=format&fit=crop&w=900&q=85" },
-      { name: "Topline Pacific Mechanical", category: "Corporate", location: "Canada", description: "A corporate website for a mechanical services business.", url: "https://toplinepacific.com", image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=85" },
-      { name: "Black Hawke", category: "Corporate", location: "Australia", description: "A digital presence for a security-focused business.", url: "https://www.blackhawkesecurity.com", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=900&q=85" },
-      { name: "Max Pro Business Solution", category: "Corporate", location: "India", description: "A corporate business website for showcasing professional solutions.", url: "https://maxpro.co.in", image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=85" },
-      { name: "TR Sharma Properties", category: "Real Estate", location: "India", description: "A real estate digital platform for property-related information and services.", url: "https://trsharmaproperties.in", image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=85" },
-      { name: "Dream Properties", category: "Real Estate", location: "India", description: "A property-focused website showcasing real estate opportunities.", url: "https://dreamproperties99.com", image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=85" },
-      { name: "All About Lab", category: "Health", location: "India", description: "A healthcare and laboratory-related digital platform.", url: "https://allaboutlab.com", image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=900&q=85" },
-      { name: "Holistick Health Clinic", category: "Health", location: "India", description: "A digital presence for health and wellness clinic services.", url: "https://vibrantick.org", image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=85" },
-      { name: "Quote Tender", category: "Other", location: "India", description: "A business platform listed in the IOT and CRM portfolio category.", url: "https://quotetender.in", image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=85" },
-      { name: "Brofin India", category: "Other", location: "India", description: "A finance and loan-related digital business project.", url: "https://brofinindia.com", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=85" },
-      { name: "Frigus Fiesta", category: "Other", location: "India", description: "An event and celebration-focused digital platform.", url: "https://frigusfiesta.com", image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=900&q=85" },
-      { name: "The Borgo", category: "Other", location: "India", description: "A digital project listed under the events and decor portfolio.", url: "https://theborgo.in", image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=900&q=85" }
-    ];
+
+  // ================= EDUCATION =================
+  {
+    name: "Indus International University",
+    category: "Education",
+    location: "India",
+    description: "Educational website providing university information, academic resources and student services.",
+    url: "https://iiuedu.in",
+    image: "./assets/projects/indus.png"
+  },
+  {
+    name: "IKG-PTU",
+    category: "Education",
+    location: "India",
+    description: "University platform supporting academic information and institutional digital services.",
+    url: "https://ptu.ac.in",
+    image: "assets/projects/c.png"
+  },
+  {
+    name: "CT University",
+    category: "Education",
+    location: "India",
+    description: "Academic website for university information and educational resources.",
+    url: "https://ctuniversity.in",
+    image: "assets/projects/g.png"
+  },
+  {
+    name: "Ludhiana College of Engineering and Technology",
+    category: "Education",
+    location: "India",
+    description: "Educational institution website.",
+    url: "https://lcetldh.com",
+    image: "assets/projects/k.png"
+  },
+  {
+    name: "GNIEM",
+    category: "Education",
+    location: "India",
+    description: "Educational institution digital platform.",
+    url: "https://www.gniem.ac.in",
+    image: "assets/projects/x2.png"
+  },
+  {
+    name: "GNCE",
+    category: "Education",
+    location: "India",
+    description: "College website for academic and institutional information.",
+    url: "https://gnce.ac.in",
+    image: "assets/projects/gnce-1.png"
+  },
+  {
+    name: "GNIP",
+    category: "Education",
+    location: "India",
+    description: "Educational institution website.",
+    url: "https://gnip.ac.in",
+    image: "assets/projects/gniem-1.png"
+  },
+  {
+    name: "GNIT",
+    category: "Education",
+    location: "India",
+    description: "Educational website for institutional and academic information.",
+    url: "https://gnitdalewal.ac.in",
+    image: "assets/projects/gnit-1.png"
+  },
+  {
+    name: "SBCMS",
+    category: "Education",
+    location: "India",
+    description: "Educational institution digital presence.",
+    url: "https://sbcmsit.ac.in",
+    image: "assets/projects/sbcms-1.png"
+  },
+  {
+    name: "SBCMS",
+    category: "Education",
+    location: "India",
+    description: "Educational institution digital presence.",
+    url: "https://sbcmsit.ac.in",
+    image: "assets/projects/x2.png"
+  },
+  {
+    name: "SGGSCE",
+    category: "Education",
+    location: "India",
+    description: "College website providing institutional and educational information.",
+    url: "https://sggscekamlooh.ac.in",
+    image: "assets/projects/sggs-1.png"
+  },
+  {
+    name: "Sanjay Rungta Group of Institute",
+    category: "Education",
+    location: "India",
+    description: "Educational group website and academic information platform.",
+    url: "https://allaboutexam.com",
+    image: "assets/projects/srgi-1.png"
+  },
+  {
+    name: "NIT Delhi",
+    category: "Education",
+    location: "India",
+    description: "Institutional digital platform for an engineering and technology institute.",
+    url: "https://nitdelhi.ac.in",
+    image: "assets/projects/d.png"
+  },
+  {
+    name: "Amrita Edu",
+    category: "Education",
+    location: "India",
+    description: "Educational website and academic information platform.",
+    url: "https://www.amrita.edu",
+    image: "assets/projects/e.png"
+  },
+  {
+    name: "Dream LMS",
+    category: "Education",
+    location: "USA",
+    description: "Learning management platform.",
+    url: "https://vibrantick.org",
+    image: "assets/projects/x.png"
+  },
+  {
+    name: "Subh Chandra Foundation",
+    category: "Education",
+    location: "India",
+    description: "Foundation website and educational initiatives.",
+    url: "https://subhchandrafoundation.com",
+    image: "assets/projects/t.png"
+  },
+  {
+    name: "Institute of Banking Skills and Careers",
+    category: "Education",
+    location: "India",
+    description: "Website for banking skills, career development and educational services.",
+    url: "https://ibscedu.com",
+    image: "assets/projects/3.png"
+  },
+  {
+    name: "Sanjay Rungta Group of Institute",
+    category: "Education",
+    location: "India",
+    description: "Institutional website for the Rungta education group.",
+    url: "https://www.rungtacolleges.com",
+    image: "assets/projects/4.png"
+  },
+  {
+    name: "Rungta Public School",
+    category: "Education",
+    location: "India",
+    description: "School website and educational information platform.",
+    url: "https://rungtapublicschool.ac.in",
+    image: "assets/projects/5.png"
+  },
+  {
+    name: "Arabic Sphere",
+    category: "Education",
+    location: "India",
+    description: "Educational and language learning website.",
+    url: "https://www.arabicsphere.com",
+    image: "assets/projects/x3.png"
+  },
+  {
+    name: "AIPH University",
+    category: "Education",
+    location: "India",
+    description: "University website for academic and institutional information.",
+    url: "https://aiph.ac.in",
+    image: "assets/projects/6.png"
+  },
+  {
+    name: "E2 Matrix",
+    category: "Education",
+    location: "India",
+    description: "Educational and professional services website.",
+    url: "https://e2matrix.com",
+    image: "assets/projects/7.png"
+  },
+  {
+    name: "Anix SkillUp",
+    category: "Education",
+    location: "India",
+    description: "Skill development and learning platform.",
+    url: "https://anixskillup.com",
+    image: "assets/projects/9.png"
+  },
+  {
+    name: "Anix Systems",
+    category: "Education",
+    location: "India",
+    description: "Technology and educational services platform.",
+    url: "https://anixsystems.com",
+    image: "assets/projects/10.png"
+  },
+  {
+    name: "Dfree Novalish",
+    category: "Education",
+    location: "India",
+    description: "Digital platform listed in the education portfolio.",
+    url: "https://dfreenovelish.com",
+    image: "assets/projects/8.png"
+  },
+  {
+    name: "Intezam",
+    category: "Education",
+    location: "India",
+    description: "Education portfolio project.",
+    url: "https://vibrantick.com/our-work.php",
+    image: "assets/projects/app1.png"
+  },
+  {
+    name: "Tuli International Career Consultancy",
+    category: "Education",
+    location: "India",
+    description: "Career consultancy website project.",
+    url: "https://vibrantick.com/our-work.php",
+    image: "assets/projects/r.png"
+  },
+  {
+    name: "Web World Institute",
+    category: "Education",
+    location: "India",
+    description: "Educational institute website.",
+    url: "https://webworldinstitute.in",
+    image: "assets/projects/web-world-institute.png"
+  },
+  {
+    name: "CT Group",
+    category: "Education",
+    location: "India",
+    description: "Educational group website and institutional platform.",
+    url: "https://www.ctgroup.in",
+    image: "assets/projects/ctgroup.png"
+  },
+
+  // ================= ENTERTAINMENT =================
+  {
+    name: "Amrik Shera Entertainment",
+    category: "Entertainment",
+    location: "India",
+    description: "Entertainment-focused digital presence for showcasing creative work and media.",
+    url: "https://amrikshera.com",
+    image: "assets/projects/amrik.png"
+  },
+  {
+    name: "MK Records",
+    category: "Entertainment",
+    location: "India",
+    description: "Digital platform for a music and entertainment brand.",
+    url: "https://mkrecords.co.in",
+    image: "assets/projects/mk.png"
+  },
+
+  // ================= CHARITY =================
+  {
+    name: "Bihar Samaj Seva Sangh",
+    category: "Other",
+    location: "India",
+    description: "Charity and social service organization website.",
+    url: "https://biharsamajseva.org",
+    image: "assets/projects/bihar.png"
+  },
+  {
+    name: "Aadya Foundation",
+    category: "Other",
+    location: "India",
+    description: "Foundation and social service portfolio project.",
+    url: "https://vibrantick.org",
+    image: "assets/projects/o.png"
+  },
+  {
+    name: "The Nri Care",
+    category: "Other",
+    location: "India",
+    description: "Social support and service platform.",
+    url: "https://vibrantick.org",
+    image: "assets/projects/n.png"
+  },
+  {
+    name: "Kartar Asra",
+    category: "Other",
+    location: "India",
+    description: "Charity and social service project.",
+    url: "https://allaboutexam.com",
+    image: "assets/projects/kartar-asra.png"
+  },
+
+  // ================= NEWS PORTAL =================
+  {
+    name: "News Portal",
+    category: "Other",
+    location: "India",
+    description: "News and information portal project.",
+    url: "https://vibrantick.in",
+    image: "assets/projects/a1.png"
+  },
+  {
+    name: "24News",
+    category: "Other",
+    location: "India",
+    description: "Digital news portal project.",
+    url: "https://vibrantick.org",
+    image: "assets/projects/11.png"
+  },
+
+  // ================= TRAVEL & TOURISM =================
+  {
+    name: "13 Melbourne Cab Services",
+    category: "Travel",
+    location: "Australia",
+    description: "Transportation service website focused on cab services.",
+    url: "https://13melbournecabservices.com",
+    image: "assets/projects/13-melbourne.png"
+  },
+  {
+    name: "13 Silver Taxi",
+    category: "Travel",
+    location: "Australia",
+    description: "Taxi service digital platform for transport and travel information.",
+    url: "https://13silvertaxi.com.au",
+    image: "assets/projects/13silver.png"
+  },
+  {
+    name: "13 Silver Taxxi",
+    category: "Travel",
+    location: "Australia",
+    description: "Taxi and transportation service website.",
+    url: "https://13silvertaxxi.com.au",
+    image: "assets/projects/a.png"
+  },
+  {
+    name: "Corify",
+    category: "Travel",
+    location: "India",
+    description: "Travel and tourism portfolio project.",
+    url: "https://vibrantick.org",
+    image: "assets/projects/w.png"
+  },
+  {
+    name: "Maddy Transport Pty",
+    category: "Travel",
+    location: "Australia",
+    description: "Transport service portfolio project.",
+    url: "https://vibrantick.org",
+    image: "assets/projects/p.png"
+  },
+  {
+    name: "Listee",
+    category: "Travel",
+    location: "India",
+    description: "Travel and tourism portfolio project.",
+    url: "https://vibrantick.org",
+    image: "assets/projects/z.png"
+  },
+  {
+    name: "Viajes Divina India",
+    category: "Travel",
+    location: "Spain",
+    description: "Travel-focused website presenting tourism and travel experiences.",
+    url: "https://viajesdivinaindia.com",
+    image: "assets/projects/travel.png"
+  },
+  {
+    name: "Freaky Travellers",
+    category: "Travel",
+    location: "India",
+    description: "Travel website for tourism and travel experiences.",
+    url: "https://www.freakytravellers.in",
+    image: "assets/projects/freaky-travellers.png"
+  },
+  {
+    name: "The Flightshub",
+    category: "Travel",
+    location: "New Zealand",
+    description: "Travel and flight-related digital platform.",
+    url: "https://www.theflightshub.co.nz",
+    image: "assets/projects/the flightshub.png"
+  },
+  {
+    name: "AAC Global Gateways",
+    category: "Travel",
+    location: "India",
+    description: "Global travel and consultancy services website.",
+    url: "https://aacglobal.in",
+    image: "assets/projects/aac.png"
+  },
+  {
+    name: "Hotel Waze",
+    category: "Travel",
+    location: "India",
+    description: "Hotel and hospitality digital platform.",
+    url: "https://www.hotelwaze.com",
+    image: "assets/projects/Hotel Waze.png"
+  },
+
+  // ================= E-COMMERCE =================
+  {
+    name: "Vinya Ayurveda",
+    category: "E-commerce",
+    location: "Australia",
+    description: "Online presence for an Ayurveda and wellness product business.",
+    url: "https://www.vinyaayurveda.com.au",
+    image: "assets/projects/j.png"
+  },
+  {
+    name: "Baaz Landscaping",
+    category: "E-commerce",
+    location: "Australia",
+    description: "Business website for landscaping products and services.",
+    url: "https://baazlandscaping.com.au",
+    image: "assets/projects/1.png"
+  },
+  {
+    name: "Shriwing International",
+    category: "E-commerce",
+    location: "India",
+    description: "Business-focused e-commerce platform for products and services.",
+    url: "https://www.shriwing.com",
+    image: "assets/projects/shriwing.png"
+  },
+  {
+    name: "Electro World",
+    category: "E-commerce",
+    location: "Dubai",
+    description: "Online business presence for an electronics-focused brand.",
+    url: "https://www.electroworldfzco.com",
+    image: "assets/projects/electro-world.png"
+  },
+
+  // ================= PERSONAL =================
+  {
+    name: "Prashant Pandey",
+    category: "Other",
+    location: "India",
+    description: "Personal website and professional digital presence.",
+    url: "https://prashantpandey.org",
+    image: "assets/projects/i.png"
+  },
+
+  // ================= CORPORATE =================
+  {
+    name: "Learn Astrology",
+    category: "Corporate",
+    location: "Canada",
+    description: "Astrology learning and information website.",
+    url: "https://learnastrology.ca",
+    image: "assets/projects/2.png"
+  },
+  {
+    name: "Shri Jagannath Mandir Chandigarh",
+    category: "Corporate",
+    location: "India",
+    description: "Temple website and information platform.",
+    url: "https://jagannathmandirchandigarh.com",
+    image: "assets/projects/jag.png"
+  },
+  {
+    name: "Topline Pacific Mechanical LTD",
+    category: "Corporate",
+    location: "Canada",
+    description: "Corporate website for a mechanical services business.",
+    url: "https://toplinepacific.com",
+    image: "assets/projects/b.png"
+  },
+  {
+    name: "Black Hawke",
+    category: "Corporate",
+    location: "Australia",
+    description: "Digital presence for a security-focused business.",
+    url: "https://www.blackhawkesecurity.com",
+    image: "assets/projects/v.png"
+  },
+  {
+    name: "Kundali Insights",
+    category: "Corporate",
+    location: "India",
+    description: "Astrology and kundali insights portfolio project.",
+    url: "https://vibrantick.org",
+    image: "assets/projects/q.png"
+  },
+  {
+    name: "Six Side Painting",
+    category: "Corporate",
+    location: "Australia",
+    description: "Painting and professional service business website.",
+    url: "https://www.sixsidepainting.com",
+    image: "https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    name: "Cleaning Expert",
+    category: "Corporate",
+    location: "India",
+    description: "Cleaning services portfolio project.",
+    url: "https://vibrantick.org",
+    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    name: "Max Pro Business Solution",
+    category: "Corporate",
+    location: "India",
+    description: "Corporate business website for professional solutions.",
+    url: "https://maxpro.co.in",
+    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    name: "DVEPL",
+    category: "Corporate",
+    location: "India",
+    description: "Corporate business website.",
+    url: "https://www.dvepl.com",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    name: "Khush Khush Hotel",
+    category: "Corporate",
+    location: "India",
+    description: "Hotel and hospitality business website.",
+    url: "https://khushkhushhotel.in",
+    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    name: "Arborguard",
+    category: "Corporate",
+    location: "New Zealand",
+    description: "Security services business website.",
+    url: "https://www.arborguardsecurity.co.nz",
+    image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    name: "Anix System",
+    category: "Corporate",
+    location: "India",
+    description: "Technology and business services website.",
+    url: "https://anixsystems.com",
+    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=85"
+  },
+
+  // ================= REAL ESTATE =================
+  {
+    name: "Resido",
+    category: "Real Estate",
+    location: "India",
+    description: "Real estate portfolio project.",
+    url: "https://vibrantick.org",
+    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    name: "TR Sharma Properties",
+    category: "Real Estate",
+    location: "India",
+    description: "Real estate platform for property-related information and services.",
+    url: "https://trsharmaproperties.in",
+    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    name: "Dream Properties",
+    category: "Real Estate",
+    location: "India",
+    description: "Property-focused website showcasing real estate opportunities.",
+    url: "https://dreamproperties99.com",
+    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=85"
+  },
+
+  // ================= IOT / CRM =================
+  {
+    name: "Quote Tender",
+    category: "Other",
+    location: "India",
+    description: "Business platform listed in the IoT and CRM portfolio category.",
+    url: "https://quotetender.in",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=85"
+  },
+
+  // ================= LOAN / FINANCE =================
+  {
+    name: "Pushtivardhanam",
+    category: "Other",
+    location: "India",
+    description: "Finance and loan-related portfolio project.",
+    url: "https://vibrantick.org",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    name: "Brofin India",
+    category: "Other",
+    location: "India",
+    description: "Finance and loan-related digital business project.",
+    url: "https://brofinindia.com",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=85"
+  },
+
+  // ================= HEALTH & CARE =================
+  {
+    name: "All About Lab",
+    category: "Health",
+    location: "India",
+    description: "Healthcare and laboratory-related digital platform.",
+    url: "https://allaboutlab.com",
+    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    name: "Holistick Health Clinic",
+    category: "Health",
+    location: "India",
+    description: "Digital presence for health and wellness clinic services.",
+    url: "https://vibrantick.org",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=85"
+  },
+
+  // ================= EVENTS / DECOR =================
+  {
+    name: "CTH Jalandhar",
+    category: "Other",
+    location: "India",
+    description: "Events and celebration portfolio project.",
+    url: "https://cthjalandhar.com",
+    image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    name: "Frigus Fiesta",
+    category: "Other",
+    location: "India",
+    description: "Event and celebration-focused digital platform.",
+    url: "https://frigusfiesta.com",
+    image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    name: "Master Key",
+    category: "Other",
+    location: "India",
+    description: "Events and business solutions website.",
+    url: "https://themasterkeysolutions.com",
+    image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    name: "Dream Decor",
+    category: "Other",
+    location: "Australia",
+    description: "Decor and event design business website.",
+    url: "https://phulkaridecor.com.au",
+    image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    name: "The Borgo",
+    category: "Other",
+    location: "India",
+    description: "Digital project listed under events and decor portfolio.",
+    url: "https://theborgo.in",
+    image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=900&q=85"
+  }
+
+];
 
     /* =========================================================
        RENDER PROJECTS + FILTERS
