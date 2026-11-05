@@ -24,7 +24,7 @@
     <!-- BoxIcon  CSS -->
     <link href="assets/css/boxicons.min.css" rel="stylesheet" />
     <!--  Style CSS  -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
     <link rel="stylesheet" href="assets/css/style.css" />
     <!-- Title -->
     <title>
@@ -36,6 +36,136 @@
       type="image/gif"
       sizes="20x20"
     />
+    <!-- Google Maps Global Presence Styling -->
+    <style>
+      .cs-map-container {
+        position: relative;
+        width: 100%;
+        height: 520px;
+        border-radius: 20px;
+        overflow: hidden;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 10px 35px rgba(15, 23, 42, 0.05);
+        background: #f8fafc;
+      }
+      .cs-google-map-iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        display: block;
+        transition: opacity 0.3s ease;
+      }
+      .cs-map-header-bar {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        right: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 10px 16px;
+        background: rgba(255, 255, 255, 0.94);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(226, 232, 240, 0.9);
+        border-radius: 12px;
+        box-shadow: 0 4px 18px rgba(15, 23, 42, 0.08);
+        z-index: 5;
+        pointer-events: auto;
+      }
+      .cs-map-header-info {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 0;
+      }
+      .cs-map-pulse-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #10b981;
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+        animation: csPulseGreen 2s infinite;
+        flex-shrink: 0;
+      }
+      @keyframes csPulseGreen {
+        0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+        70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+        100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+      }
+      .cs-map-loc-label {
+        font-family: 'Plus Jakarta Sans', var(--font-montserrat), sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        color: #0f172a;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .cs-map-directions-btn {
+        display: inline-flex;
+        align-items: center;
+        font-family: 'Plus Jakarta Sans', var(--font-montserrat), sans-serif;
+        font-size: 12.5px;
+        font-weight: 600;
+        color: #007bff;
+        background: rgba(0, 123, 255, 0.08);
+        padding: 6px 12px;
+        border-radius: 8px;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: all 0.2s ease;
+        flex-shrink: 0;
+      }
+      .cs-map-directions-btn:hover {
+        background: #007bff;
+        color: #ffffff;
+      }
+      .cs-map-loader {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(255, 255, 255, 0.92);
+        padding: 10px 16px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 4;
+        transition: opacity 0.25s ease;
+      }
+      .cs-loc-item-card {
+        user-select: none;
+      }
+      .cs-loc-item-card:focus-visible {
+        outline: 2px solid #007bff;
+        outline-offset: 2px;
+      }
+      @media (max-width: 991px) {
+        .cs-map-container {
+          height: 400px;
+          margin-bottom: 30px;
+        }
+      }
+      @media (max-width: 575px) {
+        .cs-map-header-bar {
+          top: 10px;
+          left: 10px;
+          right: 10px;
+          padding: 8px 12px;
+        }
+        .cs-map-loc-label {
+          font-size: 12px;
+        }
+        .cs-map-directions-btn {
+          font-size: 11px;
+          padding: 4px 8px;
+        }
+      }
+    </style>
   </head>
 
   <body class="tt-magic-cursor">
@@ -232,37 +362,43 @@
           <div class="container custom-container" style="max-width: 1240px; margin: 0 auto; padding: 0 20px;">
             <div class="row g-4 align-items-center">
               
-              <!-- Left Side: Interactive Styled World Map -->
+              <!-- Left Side: Interactive Styled Office Google Map -->
               <div class="col-lg-7">
                 <div class="cs-map-container" id="csGlobalMapContainer">
-                  <div id="leafletGlobalMap" class="cs-leaflet-map"></div>
-                  
-                  <!-- Fallback vector map overlay in case Leaflet tiles take a moment or offline -->
-                  <div class="cs-map-fallback-overlay" id="mapFallbackOverlay" style="display: none;">
-                    <img src="assets/img/innerpages/global-map-placeholder.jpg" alt="Global Presence Map" class="cs-fallback-map-img" />
-                    
-                    <div class="cs-map-pin pin-us" style="top: 32%; left: 22%;" onclick="focusMapLocation('us')">
-                      <div class="cs-pin-pulse"></div>
-                      <div class="cs-pin-marker"><i class="bi bi-geo-alt-fill"></i></div>
-                      <span class="cs-pin-tag">USA</span>
+                  <!-- Floating Active Office Header Bar -->
+                  <div class="cs-map-header-bar">
+                    <div class="cs-map-header-info">
+                      <span class="cs-map-pulse-dot"></span>
+                      <span class="cs-map-loc-label" id="csMapLocLabel">India HQ (Mohali, Punjab)</span>
                     </div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=E-261%2C+Industrial+Area%2C+Sector+74A%2C+Mohali%2C+Punjab+160055" 
+                       id="csMapDirectionsBtn" 
+                       class="cs-map-directions-btn" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       title="Open location in Google Maps">
+                      <i class="bi bi-box-arrow-up-right me-1"></i> Open in Maps
+                    </a>
+                  </div>
 
-                    <div class="cs-map-pin pin-in" style="top: 48%; left: 68%;" onclick="focusMapLocation('in')">
-                      <div class="cs-pin-pulse"></div>
-                      <div class="cs-pin-marker"><i class="bi bi-geo-alt-fill"></i></div>
-                      <span class="cs-pin-tag">INDIA</span>
-                    </div>
+                  <!-- Google Maps Responsive Iframe -->
+                  <iframe 
+                    id="csGoogleMapIframe" 
+                    class="cs-google-map-iframe" 
+                    src="https://maps.google.com/maps?q=E-261%2C%20Industrial%20Area%2C%20Sector%2074A%2C%20Sahibzada%20Ajit%20Singh%20Nagar%2C%20Mohali%2C%20Punjab%20160055%2C%20India&t=m&z=15&output=embed&iwloc=near" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Office Location Map">
+                  </iframe>
 
-                    <div class="cs-map-pin pin-pl" style="top: 30%; left: 52%;" onclick="focusMapLocation('pl')">
-                      <div class="cs-pin-pulse"></div>
-                      <div class="cs-pin-marker"><i class="bi bi-geo-alt-fill"></i></div>
-                      <span class="cs-pin-tag">POLAND</span>
-                    </div>
-
-                    <div class="cs-map-pin pin-au" style="top: 76%; left: 86%;" onclick="focusMapLocation('au')">
-                      <div class="cs-pin-pulse"></div>
-                      <div class="cs-pin-marker"><i class="bi bi-geo-alt-fill"></i></div>
-                      <span class="cs-pin-tag">AUSTRALIA</span>
+                  <!-- Smooth Loading Transition Overlay -->
+                  <div class="cs-map-loader" id="csMapLoader" style="opacity: 0; pointer-events: none;">
+                    <div class="spinner-border text-primary spinner-border-sm" role="status">
+                      <span class="visually-hidden">Loading map...</span>
                     </div>
                   </div>
                 </div>
@@ -274,7 +410,7 @@
                 <div class="cs-location-cards-stack">
                   
                   <!-- Location 1: USA -->
-                  <div class="cs-loc-item-card" data-loc="us" onclick="focusMapLocation('us')">
+                  <div class="cs-loc-item-card" data-loc="us" onclick="focusMapLocation('us')" role="button" tabindex="0" aria-label="USA Office">
                     <div class="cs-loc-badge">US</div>
                     <div class="cs-loc-content">
                       <h4 class="cs-loc-name">USA</h4>
@@ -283,7 +419,7 @@
                   </div>
 
                   <!-- Location 2: INDIA (HQ) -->
-                  <div class="cs-loc-item-card active" data-loc="in" onclick="focusMapLocation('in')">
+                  <div class="cs-loc-item-card active" data-loc="in" onclick="focusMapLocation('in')" role="button" tabindex="0" aria-label="India HQ Office">
                     <div class="cs-loc-badge">IN</div>
                     <div class="cs-loc-content">
                       <h4 class="cs-loc-name">INDIA <span class="cs-hq-pill">HQ</span></h4>
@@ -292,7 +428,7 @@
                   </div>
 
                   <!-- Location 3: POLAND -->
-                  <div class="cs-loc-item-card" data-loc="pl" onclick="focusMapLocation('pl')">
+                  <div class="cs-loc-item-card" data-loc="pl" onclick="focusMapLocation('pl')" role="button" tabindex="0" aria-label="Poland Office">
                     <div class="cs-loc-badge">PL</div>
                     <div class="cs-loc-content">
                       <h4 class="cs-loc-name">POLAND</h4>
@@ -301,7 +437,7 @@
                   </div>
 
                   <!-- Location 4: AUSTRALIA -->
-                  <div class="cs-loc-item-card" data-loc="au" onclick="focusMapLocation('au')">
+                  <div class="cs-loc-item-card" data-loc="au" onclick="focusMapLocation('au')" role="button" tabindex="0" aria-label="Australia Office">
                     <div class="cs-loc-badge">AU</div>
                     <div class="cs-loc-content">
                       <h4 class="cs-loc-name">AUSTRALIA</h4>
@@ -640,91 +776,85 @@
     <!-- Custom JS -->
     <script src="assets/js/custom.js"></script>
   
-    <!-- Leaflet JS & Map Interactive Setup -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <!-- Interactive Google Maps Global Presence Sync Setup -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         var locations = {
-          us: { coords: [39.9205, -105.0867], name: "USA Office", addr: "11705 Airport Way, Suite 301, Broomfield, CO 80021" },
-          in: { coords: [30.7046, 76.7179], name: "India HQ (Mohali)", addr: "E-261, Sector 74A, Mohali, Punjab 160055" },
-          pl: { coords: [52.2297, 21.0122], name: "Poland Office", addr: "Ul. Złota 59, Warsaw, Poland" },
-          au: { coords: [-33.8821, 151.0028], name: "Australia Office", addr: "9/10 Ferngrove Pl, Chester Hill NSW 2162" }
+          in: {
+            label: "India HQ (Mohali, Punjab)",
+            query: "E-261, Industrial Area, Sector 74A, Sahibzada Ajit Singh Nagar, Mohali, Punjab 160055, India",
+            mapsUrl: "https://www.google.com/maps/search/?api=1&query=E-261%2C+Industrial+Area%2C+Sector+74A%2C+Mohali%2C+Punjab+160055"
+          },
+          us: {
+            label: "USA Office (Broomfield, Colorado)",
+            query: "11705 Airport Way, Suite 301, Broomfield, CO 80021, USA",
+            mapsUrl: "https://www.google.com/maps/search/?api=1&query=11705+Airport+Way%2C+Suite+301%2C+Broomfield%2C+CO+80021%2C+USA"
+          },
+          pl: {
+            label: "Poland Office (Warsaw)",
+            query: "Złota 59, 00-120 Warszawa, Poland",
+            mapsUrl: "https://www.google.com/maps/search/?api=1&query=Złota+59%2C+00-120+Warszawa%2C+Poland"
+          },
+          au: {
+            label: "Australia Office (Chester Hill, NSW)",
+            query: "9/10 Ferngrove Pl, Chester Hill NSW 2162, Australia",
+            mapsUrl: "https://www.google.com/maps/search/?api=1&query=9%2F10+Ferngrove+Pl%2C+Chester+Hill+NSW+2162%2C+Australia"
+          }
         };
 
-        var mapEl = document.getElementById("leafletGlobalMap");
-        if (!mapEl) return;
+        var iframe = document.getElementById("csGoogleMapIframe");
+        var labelEl = document.getElementById("csMapLocLabel");
+        var directionsBtn = document.getElementById("csMapDirectionsBtn");
+        var loader = document.getElementById("csMapLoader");
 
-        try {
-          if (typeof L !== "undefined") {
-            var map = L.map("leafletGlobalMap", {
-              center: [28, 15],
-              zoom: 2,
-              minZoom: 1.5,
-              maxZoom: 6,
-              scrollWheelZoom: false,
-              zoomControl: true,
-              attributionControl: false
-            });
+        window.focusMapLocation = function (locKey) {
+          var loc = locations[locKey];
+          if (!loc) return;
 
-            L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-              subdomains: "abcd",
-              maxZoom: 19
-            }).addTo(map);
+          // Highlight card
+          document.querySelectorAll(".cs-loc-item-card").forEach(function (card) {
+            card.classList.remove("active");
+          });
+          var targetCard = document.querySelector('.cs-loc-item-card[data-loc="' + locKey + '"]');
+          if (targetCard) targetCard.classList.add("active");
 
-            var markers = {};
+          // Update header label and directions link
+          if (labelEl) labelEl.textContent = loc.label;
+          if (directionsBtn) directionsBtn.href = loc.mapsUrl;
 
-            var pinIcon = L.divIcon({
-              className: "cs-leaflet-pin-wrap",
-              html: '<div class="cs-map-pin-pulse"></div><div class="cs-map-pin-circle"><svg width="12" height="12" viewBox="0 0 24 24" fill="#ffffff"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg></div>',
-              iconSize: [28, 28],
-              iconAnchor: [14, 14]
-            });
-
-            Object.keys(locations).forEach(function (key) {
-              var loc = locations[key];
-              var marker = L.marker(loc.coords, { icon: pinIcon }).addTo(map);
-              marker.bindPopup("<strong style='color:#007bff;'>" + loc.name + "</strong><br><small style='color:#475569;'>" + loc.addr + "</small>");
-              markers[key] = marker;
-
-              marker.on("click", function () {
-                highlightCard(key);
-              });
-            });
-
-            window.focusMapLocation = function (locKey) {
-              if (locations[locKey] && map) {
-                map.flyTo(locations[locKey].coords, 4, { duration: 1.2 });
-                highlightCard(locKey);
-                if (markers[locKey]) {
-                  setTimeout(function() {
-                    markers[locKey].openPopup();
-                  }, 1200);
-                }
-              }
-            };
-
-            function highlightCard(key) {
-              document.querySelectorAll(".cs-loc-item-card").forEach(function (card) {
-                card.classList.remove("active");
-              });
-              var targetCard = document.querySelector('.cs-loc-item-card[data-loc="' + key + '"]');
-              if (targetCard) targetCard.classList.add("active");
+          // Update iframe src with smooth transition
+          if (iframe) {
+            var newSrc = "https://maps.google.com/maps?q=" + encodeURIComponent(loc.query) + "&t=m&z=15&output=embed&iwloc=near";
+            if (iframe.src !== newSrc) {
+              if (loader) loader.style.opacity = "1";
+              iframe.style.opacity = "0.35";
+              iframe.src = newSrc;
+              iframe.onload = function () {
+                iframe.style.opacity = "1";
+                if (loader) loader.style.opacity = "0";
+              };
+              setTimeout(function () {
+                iframe.style.opacity = "1";
+                if (loader) loader.style.opacity = "0";
+              }, 900);
             }
-          } else {
-            showFallbackMap();
           }
-        } catch (e) {
-          console.error("Map load error:", e);
-          showFallbackMap();
-        }
+        };
 
-        function showFallbackMap() {
-          var fallback = document.getElementById("mapFallbackOverlay");
-          if (fallback) fallback.style.display = "block";
-        }
+        // Keyboard navigation for office cards
+        document.querySelectorAll(".cs-loc-item-card").forEach(function (card) {
+          card.addEventListener("keydown", function (e) {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              var locKey = card.getAttribute("data-loc");
+              if (locKey && window.focusMapLocation) {
+                window.focusMapLocation(locKey);
+              }
+            }
+          });
+        });
       });
     </script>
-
   </body>
 
   <!-- Mirrored from demo.egenslab.com/html/qleviq/preview/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 Aug 2026 07:31:08 GMT -->

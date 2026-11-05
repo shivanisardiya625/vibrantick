@@ -94,6 +94,12 @@
         color: #0f172a;
         cursor: pointer;
         transition: all 0.25s ease;
+        user-select: none;
+        -webkit-user-select: none;
+        outline: none;
+      }
+      .testimonial-nav-btn svg {
+        pointer-events: none;
       }
       .testimonial-nav-btn:hover {
         background: #007bff;
@@ -117,6 +123,436 @@
 
   </style>
 <style>
+/*================================================
+/*================================================
+  CLIENT LOGO MARQUEE SLIDER: PERFECT ALIGNMENT & NO UNDERLINES
+=================================================*/
+.hero-marquee,
+.client-marquee-area {
+  background-color: #060b13 !important;
+  overflow: hidden !important;
+}
+.hero-marquee a,
+.client-marquee-area a,
+.hero-marquee img,
+.client-marquee-area img,
+.marquee-group a,
+.marquee-group img {
+  border-bottom: none !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  text-decoration: none !important;
+  text-decoration-line: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  vertical-align: middle !important;
+}
+.hero-marquee a::after,
+.hero-marquee a::before,
+.client-marquee-area a::after,
+.client-marquee-area a::before,
+.marquee-group a::after,
+.marquee-group a::before,
+.marquee-group img::after,
+.marquee-group img::before {
+  display: none !important;
+  content: none !important;
+  border: none !important;
+}
+.hero-marquee .marquee-group,
+.client-marquee-area .marquee-group {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-around !important;
+  gap: 75px !important;
+  padding-right: 75px !important;
+}
+.hero-marquee img,
+.client-marquee-area img {
+  height: 38px !important;
+  width: auto !important;
+  max-width: 175px !important;
+  object-fit: contain !important;
+  opacity: 0.92;
+  filter: brightness(0) invert(1) contrast(1.1);
+  transition: opacity 0.25s ease, filter 0.25s ease, transform 0.25s ease;
+  display: inline-block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  vertical-align: middle !important;
+}
+.hero-marquee img:hover,
+.client-marquee-area img:hover {
+  opacity: 1 !important;
+  filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.6)) !important;
+  transform: scale(1.08);
+}
+@media (max-width: 991px) {
+  .hero-marquee .marquee-group,
+  .client-marquee-area .marquee-group {
+    gap: 50px !important;
+    padding-right: 50px !important;
+  }
+  .hero-marquee img,
+  .client-marquee-area img {
+    height: 28px !important;
+    max-width: 135px !important;
+  }
+}
+@media (max-width: 575px) {
+  .hero-marquee .marquee-group,
+  .client-marquee-area .marquee-group {
+    gap: 36px !important;
+    padding-right: 36px !important;
+  }
+  .hero-marquee img,
+  .client-marquee-area img {
+    height: 24px !important;
+    max-width: 110px !important;
+  }
+}
+
+/* ==========================================================
+   WHAT WE HAVE BUILT / PORTFOLIO SECTION (OPTIMIZED SMOOTH FILTER)
+   ========================================================== */
+.cs-built-section {
+  position: relative;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 55px 0 75px !important;
+  margin-top: 0;
+  margin-bottom: 0 !important;
+}
+.portfolio-header-container {
+  margin-bottom: 28px;
+}
+.portfolio-header-left {
+  max-width: 820px;
+}
+.portfolio-section-desc {
+  font-family: var(--font-poppins), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 15.5px;
+  color: #64748b;
+  margin: 10px 0 0 0;
+  line-height: 1.6;
+}
+.portfolio-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 35px;
+}
+.portfolio-tab-btn {
+  font-family: 'Plus Jakarta Sans', var(--font-montserrat), sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #475569;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 50px;
+  padding: 8px 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.portfolio-tab-btn:hover {
+  border-color: #cbd5e1;
+  color: #1e293b;
+  background: #f8fafc;
+}
+.portfolio-tab-btn.active {
+  background: #007bff;
+  color: #ffffff;
+  border-color: #007bff;
+  box-shadow: 0 4px 14px rgba(0, 123, 255, 0.28);
+}
+.portfolio-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-bottom: 45px;
+  min-height: 380px;
+}
+@media (max-width: 991px) {
+  .portfolio-showcase-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+@media (max-width: 640px) {
+  .portfolio-showcase-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+@keyframes portfolioFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.99);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.portfolio-project-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+  position: relative;
+  will-change: transform, opacity;
+}
+.portfolio-project-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(0, 123, 255, 0.4);
+  box-shadow: 0 16px 36px rgba(0, 123, 255, 0.12);
+}
+.portfolio-project-card.is-visible {
+  display: flex !important;
+  animation: portfolioFadeIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.portfolio-project-card.is-hidden {
+  display: none !important;
+}
+
+.portfolio-card-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background: #0f172a;
+}
+.portfolio-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.portfolio-project-card:hover .portfolio-card-img {
+  transform: scale(1.05);
+}
+.portfolio-badge-pill {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  font-family: 'Plus Jakarta Sans', var(--font-montserrat), sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: rgba(0, 123, 255, 0.92);
+  color: #ffffff;
+  padding: 4px 11px;
+  border-radius: 50px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+.portfolio-location-tag {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-size: 11.5px;
+  font-weight: 600;
+  background: rgba(15, 23, 42, 0.82);
+  color: #ffffff;
+  padding: 4px 11px;
+  border-radius: 50px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+.portfolio-card-content {
+  padding: 22px 24px 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.portfolio-tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+.tech-chip {
+  font-size: 11px;
+  font-weight: 600;
+  color: #475569;
+  background: #f1f5f9;
+  padding: 3px 9px;
+  border-radius: 6px;
+  line-height: 1.4;
+}
+.portfolio-card-heading {
+  font-family: 'Plus Jakarta Sans', var(--font-montserrat), sans-serif;
+  font-size: 17.5px;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.35;
+  margin: 0 0 10px 0;
+  min-height: 48px;
+  display: flex;
+  align-items: flex-start;
+  transition: color 0.2s ease;
+}
+.portfolio-card-heading a {
+  color: inherit;
+  text-decoration: none;
+}
+.portfolio-card-heading a:hover {
+  color: #007bff;
+}
+.portfolio-card-description {
+  font-family: var(--font-poppins), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 13.8px;
+  color: #64748b;
+  line-height: 1.55;
+  margin: 0 0 18px 0;
+  flex-grow: 1;
+}
+.portfolio-card-bottom {
+  padding-top: 14px;
+  border-top: 1px solid #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: auto;
+}
+.portfolio-type-label {
+  font-family: 'Plus Jakarta Sans', var(--font-montserrat), sans-serif;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #64748b;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 4px 12px;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  letter-spacing: 0.2px;
+}
+.portfolio-bottom-banner {
+  background: linear-gradient(135deg, #090d16 0%, #111726 60%, #1a2238 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 34px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12);
+}
+@media (max-width: 991px) {
+  .portfolio-bottom-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 24px;
+  }
+}
+.portfolio-banner-content {
+  max-width: 720px;
+}
+.portfolio-banner-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #38bdf8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+.portfolio-banner-title {
+  font-family: 'Plus Jakarta Sans', var(--font-montserrat), sans-serif;
+  font-size: clamp(20px, 2vw, 24px);
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+}
+.portfolio-banner-text {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0;
+  line-height: 1.5;
+}
+.portfolio-banner-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+@media (max-width: 575px) {
+  .portfolio-banner-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .portfolio-banner-actions a {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+}
+.portfolio-btn-outline {
+  font-family: 'Plus Jakarta Sans', var(--font-montserrat), sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  background: transparent;
+  padding: 11px 24px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+.portfolio-btn-outline:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #ffffff;
+  color: #ffffff;
+}
+.portfolio-btn-primary {
+  font-family: 'Plus Jakarta Sans', var(--font-montserrat), sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  background: #007bff;
+  border: 1.5px solid #007bff;
+  padding: 11px 26px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  box-shadow: 0 4px 16px rgba(0, 123, 255, 0.4);
+}
+.portfolio-btn-primary:hover {
+  background: #0056b3;
+  border-color: #0056b3;
+  color: #ffffff;
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.6);
+  transform: translateY(-2px);
+}
+
 /*================================================
   Refined Leadership Section (Strict Left Alignment, Uniform Cards, Bottom Button)
 =================================================*/
@@ -1306,75 +1742,264 @@
         </section>
         <!-- End Comprehensive Technology Stack Section -->
 
-        <!-- What We Have Built Section (CS Soft Solutions Style) Start -->
+        <!-- What We Have Built Section Start (Optimized Smooth Filter) -->
         <section class="cs-built-section mb-0" id="portfolio">
           <div class="container custom-container industries-custom-container cs-built-custom-container">
-            <!-- Header Row: Left Titles + Right Link -->
-            <div class="cs-built-header">
-              <div class="cs-built-header-left">
-                <span class="cs-built-subtag"><span class="cs-subtag-line"></span>WHAT WE'VE BUILT</span>
+            <!-- Header Row: Subtag, Title, Subtitle (Clean No Top Button) -->
+            <div class="portfolio-header-container">
+              <div class="portfolio-header-left">
+                <span class="cs-built-subtag"><span class="cs-subtag-line"></span>WHAT WE HAVE BUILT</span>
                 <h2 class="cs-built-main-title">
-                  Real Results from <span class="highlight-blue">Real Projects</span>
+                  Proven Engineering Results from <span class="highlight-blue">Real-World Projects</span>
                 </h2>
+                <p class="portfolio-section-desc">
+                  Explore how Vibrantick Infotech designs, engineers, and scales transformative software systems, cloud marketplaces, and mobile ecosystems for global leaders.
+                </p>
               </div>
-              <div class="cs-built-header-right">
-                <a href="portfolio-grid.html" class="cs-built-all-link case-studies-link">
-                  All Case Studies <i class="fa-solid fa-arrow-right ms-1"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; display: inline-block; margin-left: 2px;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></i>
+            </div>
+
+            <!-- WebHopers-Inspired Interactive Category Filter Tabs -->
+            <div class="portfolio-filter-bar" role="tablist">
+              <button type="button" class="portfolio-tab-btn active" data-filter="all">All Projects</button>
+              <button type="button" class="portfolio-tab-btn" data-filter="web-cloud">Web &amp; Cloud</button>
+              <button type="button" class="portfolio-tab-btn" data-filter="mobile-apps">Mobile &amp; IoT</button>
+              <button type="button" class="portfolio-tab-btn" data-filter="ecommerce">E-Commerce</button>
+              <button type="button" class="portfolio-tab-btn" data-filter="enterprise">Enterprise SaaS</button>
+            </div>
+
+            <!-- 3-Column Responsive Case Study & Portfolio Cards Grid -->
+            <div class="portfolio-showcase-grid" id="portfolioShowcaseGrid">
+              
+              <!-- Card 1: Corify USA -->
+              <article class="portfolio-project-card" data-category="web-cloud ecommerce">
+                <div class="portfolio-card-img-wrap">
+                  <img src="assets/img/home2/corify-usa.png" alt="Corify USA Car Rental Marketplace" class="portfolio-card-img" loading="lazy" />
+                  <span class="portfolio-badge-pill">Travel &amp; Fleet Tech</span>
+                  <span class="portfolio-location-tag"><i class="bi bi-geo-alt-fill"></i> New Jersey, USA</span>
+                </div>
+                <div class="portfolio-card-content">
+                  <div class="portfolio-tech-list">
+                    <span class="tech-chip">React.js</span>
+                    <span class="tech-chip">Node.js</span>
+                    <span class="tech-chip">AWS Cloud</span>
+                    <span class="tech-chip">Stripe</span>
+                  </div>
+                  <h3 class="portfolio-card-heading">
+                    <a href="https://vibrantick.org/Car%20Listing/" target="_blank" rel="noopener noreferrer">
+                      Corify USA: Nationwide Fleet &amp; Rental Marketplace
+                    </a>
+                  </h3>
+                  <p class="portfolio-card-description">
+                    High-availability vehicle reservation portal delivering live inventory search, automated fleet directory, and localized booking workflows across the United States.
+                  </p>
+                  <div class="portfolio-card-bottom">
+                    <span class="portfolio-type-label">Web Marketplace</span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Card 2: Indus International University -->
+              <article class="portfolio-project-card" data-category="web-cloud enterprise">
+                <div class="portfolio-card-img-wrap">
+                  <img src="assets/img/home2/indus-university.png" alt="Indus International University Academic Portal" class="portfolio-card-img" loading="lazy" />
+                  <span class="portfolio-badge-pill">Education &amp; Portal</span>
+                  <span class="portfolio-location-tag"><i class="bi bi-geo-alt-fill"></i> Global / India</span>
+                </div>
+                <div class="portfolio-card-content">
+                  <div class="portfolio-tech-list">
+                    <span class="tech-chip">Next.js</span>
+                    <span class="tech-chip">Python</span>
+                    <span class="tech-chip">PostgreSQL</span>
+                    <span class="tech-chip">REST APIs</span>
+                  </div>
+                  <h3 class="portfolio-card-heading">
+                    <a href="https://indusuniversity.in" target="_blank" rel="noopener noreferrer">
+                      Indus University: Enterprise Campus &amp; Academic Ecosystem
+                    </a>
+                  </h3>
+                  <p class="portfolio-card-description">
+                    Comprehensive digital university portal powering admissions, faculty administration, departmental faculties, syllabus libraries, and high-volume student self-service.
+                  </p>
+                  <div class="portfolio-card-bottom">
+                    <span class="portfolio-type-label">EduTech SaaS</span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Card 3: 13 Melbourne Cabs -->
+              <article class="portfolio-project-card" data-category="mobile-apps">
+                <div class="portfolio-card-img-wrap">
+                  <img src="assets/img/home2/13-melbourne.png" alt="13 Melbourne Cabs On-Demand Mobility" class="portfolio-card-img" loading="lazy" />
+                  <span class="portfolio-badge-pill">Logistics &amp; Dispatch</span>
+                  <span class="portfolio-location-tag"><i class="bi bi-geo-alt-fill"></i> Melbourne, AU</span>
+                </div>
+                <div class="portfolio-card-content">
+                  <div class="portfolio-tech-list">
+                    <span class="tech-chip">React Native</span>
+                    <span class="tech-chip">Node.js</span>
+                    <span class="tech-chip">Google Maps</span>
+                    <span class="tech-chip">Redis</span>
+                  </div>
+                  <h3 class="portfolio-card-heading">
+                    <a href="https://13melbournecabs.com.au" target="_blank" rel="noopener noreferrer">
+                      13 Melbourne: Automated On-Demand Taxi Dispatch
+                    </a>
+                  </h3>
+                  <p class="portfolio-card-description">
+                    Real-time passenger booking and automated fleet dispatch engine featuring precision geolocation, instant fare estimation, and driver navigation across Melbourne.
+                  </p>
+                  <div class="portfolio-card-bottom">
+                    <span class="portfolio-type-label">Mobility App</span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Card 4: Electro World -->
+              <article class="portfolio-project-card" data-category="ecommerce web-cloud">
+                <div class="portfolio-card-img-wrap">
+                  <img src="assets/img/home2/electro-world.png" alt="Electro World Omnichannel Commerce" class="portfolio-card-img" loading="lazy" />
+                  <span class="portfolio-badge-pill">Retail &amp; E-Commerce</span>
+                  <span class="portfolio-location-tag"><i class="bi bi-geo-alt-fill"></i> Dubai, UAE</span>
+                </div>
+                <div class="portfolio-card-content">
+                  <div class="portfolio-tech-list">
+                    <span class="tech-chip">Shopify Plus</span>
+                    <span class="tech-chip">GraphQL</span>
+                    <span class="tech-chip">ERP Sync</span>
+                    <span class="tech-chip">Multi-Currency</span>
+                  </div>
+                  <h3 class="portfolio-card-heading">
+                    <a href="https://electroworld.ae" target="_blank" rel="noopener noreferrer">
+                      Electro World: Omnichannel Electronics Mega-Store
+                    </a>
+                  </h3>
+                  <p class="portfolio-card-description">
+                    High-throughput electronics marketplace handling multi-currency transactions, live SKU inventory synchronization, flash deals, and Middle East logistics gateway.
+                  </p>
+                  <div class="portfolio-card-bottom">
+                    <span class="portfolio-type-label">E-Commerce</span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Card 5: ApexPay FinTech -->
+              <article class="portfolio-project-card" data-category="enterprise web-cloud">
+                <div class="portfolio-card-img-wrap">
+                  <img src="assets/img/home2/case-study-img1.jpg" alt="ApexPay FinTech Multi-Currency Gateway" class="portfolio-card-img" loading="lazy" />
+                  <span class="portfolio-badge-pill">FinTech &amp; Payments</span>
+                  <span class="portfolio-location-tag"><i class="bi bi-geo-alt-fill"></i> London, UK</span>
+                </div>
+                <div class="portfolio-card-content">
+                  <div class="portfolio-tech-list">
+                    <span class="tech-chip">Angular</span>
+                    <span class="tech-chip">Go Microservices</span>
+                    <span class="tech-chip">Docker</span>
+                    <span class="tech-chip">PCI-DSS</span>
+                  </div>
+                  <h3 class="portfolio-card-heading">
+                    <a href="portfolio.html">
+                      ApexPay: Cloud Multi-Currency Settlement Engine
+                    </a>
+                  </h3>
+                  <p class="portfolio-card-description">
+                    Enterprise payment gateway handling cross-border settlement, AI-driven fraud anomaly detection, automated invoicing, and reconciliation across 40+ currencies.
+                  </p>
+                  <div class="portfolio-card-bottom">
+                    <span class="portfolio-type-label">FinTech SaaS</span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Card 6: MedPulse Telehealth -->
+              <article class="portfolio-project-card" data-category="mobile-apps enterprise">
+                <div class="portfolio-card-img-wrap">
+                  <img src="assets/img/home2/case-study-img2.jpg" alt="MedPulse Telehealth Remote Diagnostic System" class="portfolio-card-img" loading="lazy" />
+                  <span class="portfolio-badge-pill">HealthTech &amp; IoT</span>
+                  <span class="portfolio-location-tag"><i class="bi bi-geo-alt-fill"></i> California, USA</span>
+                </div>
+                <div class="portfolio-card-content">
+                  <div class="portfolio-tech-list">
+                    <span class="tech-chip">Flutter</span>
+                    <span class="tech-chip">WebRTC</span>
+                    <span class="tech-chip">FHIR APIs</span>
+                    <span class="tech-chip">HIPAA</span>
+                  </div>
+                  <h3 class="portfolio-card-heading">
+                    <a href="portfolio.html">
+                      MedPulse: Encrypted Telehealth &amp; IoT Monitoring
+                    </a>
+                  </h3>
+                  <p class="portfolio-card-description">
+                    HIPAA-compliant telemedicine platform with end-to-end encrypted video consultations, connected Bluetooth biometric vitals streaming, and EHR interoperability.
+                  </p>
+                  <div class="portfolio-card-bottom">
+                    <span class="portfolio-type-label">HealthTech</span>
+                  </div>
+                </div>
+              </article>
+
+            </div>
+
+            <!-- WebHopers-Inspired Enterprise Bottom CTA Banner -->
+            <div class="portfolio-bottom-banner">
+              <div class="portfolio-banner-content">
+                <div class="portfolio-banner-badge">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>ENTERPRISE-GRADE SOFTWARE ENGINEERING</span>
+                </div>
+                <h3 class="portfolio-banner-title">
+                  Ready to Build Your Next Transformative Digital Product?
+                </h3>
+                <p class="portfolio-banner-text">
+                  From high-volume consumer apps to robust cloud SaaS platforms, Vibrantick Infotech engineers software architectures built for performance, resilience, and scale.
+                </p>
+              </div>
+              <div class="portfolio-banner-actions">
+                <a href="portfolio.html" class="portfolio-btn-outline">
+                  View Full Portfolio
+                </a>
+                <a href="contact.html" class="portfolio-btn-primary">
+                  Start a Discovery Call <i class="bi bi-arrow-right ms-1"></i>
                 </a>
               </div>
             </div>
 
-            <!-- 2-Column Large Feature Cards Grid -->
-            <div class="cs-built-grid">
-              <!-- Card 1: Education & Government (Indus International University) -->
-              <a href="https://vibrantick.org/Indus/" target="_blank" class="cs-feature-card">
-                <img src="assets/img/home2/indus-university.png" alt="Indus International University" class="cs-card-bg-img" loading="lazy" />
-                <div class="cs-card-overlay">
-                  <span class="cs-card-tag">EDUCATION &amp; GOVERNMENT</span>
-                  <h3 class="cs-card-title" style="color: #ffffff;">Indus International University</h3>
-                  <p class="cs-card-desc">
-                    Comprehensive academic portal and campus management ecosystem engineered with dynamic course listings, faculty management, and student admission workflows.
-                  </p>
-                </div>
-              </a>
-
-              <!-- Card 2: Travel & Tourism (Corify USA) -->
-              <a href="https://vibrantick.org/Car%20Listing/" target="_blank" class="cs-feature-card">
-                <img src="assets/img/home2/corify-usa.png" alt="Corify USA" class="cs-card-bg-img" loading="lazy" />
-                <div class="cs-card-overlay">
-                  <span class="cs-card-tag">TRAVEL &amp; TOURISM</span>
-                  <h3 class="cs-card-title" style="color: #ffffff;">Corify USA</h3>
-                  <p class="cs-card-desc">
-                    Nationwide vehicle rental and travel marketplace platform delivering real-time vehicle reservations, seamless fleet directory, and localized booking management.
-                  </p>
-                </div>
-              </a>
-
-              <!-- Card 3: Transportation / Logistics (13 Melbourne Cab Services) -->
-              <a href="https://13melbournecabservices.com/" target="_blank" class="cs-feature-card">
-                <img src="assets/img/home2/13-melbourne.png" alt="13 Melbourne Cab Services" class="cs-card-bg-img" loading="lazy" />
-                <div class="cs-card-overlay">
-                  <span class="cs-card-tag">TRANSPORTATION / LOGISTICS</span>
-                  <h3 class="cs-card-title" style="color: #ffffff;">13 Melbourne Cab Services</h3>
-                  <p class="cs-card-desc">
-                    High-reliability on-demand taxi dispatch and airport transfer booking system with instant fare estimation, 24/7 online cab reservations, and fleet tracking.
-                  </p>
-                </div>
-              </a>
-
-              <!-- Card 4: E-commerce (Electro World Dubai) -->
-              <a href="https://www.electroworldfzco.com/" target="_blank" class="cs-feature-card">
-                <img src="assets/img/home2/electro-world.png" alt="Electro World Dubai" class="cs-card-bg-img" loading="lazy" />
-                <div class="cs-card-overlay">
-                  <span class="cs-card-tag">E-COMMERCE</span>
-                  <h3 class="cs-card-title" style="color: #ffffff;">Electro World Dubai</h3>
-                  <p class="cs-card-desc">
-                    High-converting consumer electronics and home appliances e-commerce platform featuring catalog synchronization, multi-currency checkout, and secure payment processing.
-                  </p>
-                </div>
-              </a>
-            </div>
           </div>
+
+          <!-- Instant Flicker-Free Category Filter Script -->
+          <script>
+            document.addEventListener("DOMContentLoaded", function () {
+              var tabBtns = document.querySelectorAll(".portfolio-tab-btn");
+              var cards = document.querySelectorAll(".portfolio-project-card");
+
+              tabBtns.forEach(function (btn) {
+                btn.addEventListener("click", function (e) {
+                  e.preventDefault();
+                  if (this.classList.contains("active")) return;
+
+                  tabBtns.forEach(function (b) { b.classList.remove("active"); });
+                  this.classList.add("active");
+
+                  var filter = this.getAttribute("data-filter");
+
+                  cards.forEach(function (card) {
+                    var categories = (card.getAttribute("data-category") || "").split(" ");
+                    var matches = (filter === "all" || categories.indexOf(filter) !== -1);
+
+                    if (matches) {
+                      card.classList.remove("is-hidden");
+                      card.classList.remove("is-visible");
+                      void card.offsetWidth; // Trigger reflow to restart CSS animation cleanly
+                      card.classList.add("is-visible");
+                    } else {
+                      card.classList.remove("is-visible");
+                      card.classList.add("is-hidden");
+                    }
+                  });
+                });
+              });
+            });
+          </script>
         </section>
         <!-- What We Have Built Section End -->
 
@@ -1389,17 +2014,7 @@
                   Real Feedback from <span class="highlight-blue">Satisfied Clients</span>
                 </h2>
               </div>
-              <div class="testimonial-header-right d-flex align-items-center gap-3">
-                <div class="testimonial-trust-badge">
-                  <div class="trust-badge-stars">
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                  </div>
-                  <span class="trust-badge-text"><strong>5.0 / 5.0</strong> Client Satisfaction</span>
-                </div>
+              <div class="testimonial-header-right d-flex align-items-center">
                 <!-- Navigation Arrows < > -->
                 <div class="testimonial-slider-nav d-flex align-items-center gap-2">
                   <button type="button" class="testimonial-nav-btn testimonial-prev-btn" aria-label="Previous Testimonial">
@@ -2201,15 +2816,18 @@
     <script src="assets/js/hover-effect.umd.js"></script>
     <!-- Custom JS -->
     <script src="assets/js/custom.js"></script>
-      <!-- Testimonials 3-Cards Sliding Carousel Init -->
+      <!-- Testimonials 3-Cards Sliding Carousel Init (Smooth Rewind & Reliable Arrows) -->
     <script>
       (function() {
         function initTestimonialCarousel() {
-          if (typeof Swiper !== 'undefined' && document.querySelector('.webhopers-testimonial-swiper')) {
-            new Swiper('.webhopers-testimonial-swiper', {
+          var swiperEl = document.querySelector('.webhopers-testimonial-swiper');
+          if (typeof Swiper !== 'undefined' && swiperEl) {
+            new Swiper(swiperEl, {
               slidesPerView: 1,
               spaceBetween: 24,
-              loop: true,
+              speed: 550,
+              rewind: true,
+              grabCursor: true,
               autoplay: {
                 delay: 4500,
                 disableOnInteraction: false,
